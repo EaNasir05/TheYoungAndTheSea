@@ -5,11 +5,11 @@ public class ShootingFishingLine : MonoBehaviour
 {
     [SerializeField]
     [Range(1f,100f)]
-    public float power = 10f;
+    public float power = 1f;
 
-    //private Rigidbody2D _rb;
+    private Rigidbody2D _rb;
 
-    //private LineRenderer _lr;
+    private LineRenderer _lr;
 
     [SerializeField] private Transform _releasePos;
     [SerializeField] private Transform _endPosition;
@@ -18,7 +18,7 @@ public class ShootingFishingLine : MonoBehaviour
     private Vector3 _startPos;
     private Vector3 _nextPos;
 
-    public float arcHeight = 1;
+    public float arcHeight;
 
     [SerializeField]
     [Range(10, 100)]
@@ -35,11 +35,11 @@ public class ShootingFishingLine : MonoBehaviour
 
     void Start()
     {
-        //_rb = GetComponent<Rigidbody2D>();
+        _rb = GetComponent<Rigidbody2D>();
 
-        //_rb.constraints = RigidbodyConstraints2D.FreezePositionY;
+        _rb.constraints = RigidbodyConstraints2D.FreezePositionY;
 
-        //_lr = GetComponent<LineRenderer>();
+        _lr = GetComponent<LineRenderer>();
 
         _startPos = _releasePos.position;
 
@@ -108,12 +108,25 @@ public class ShootingFishingLine : MonoBehaviour
         if (_nextPos == _endPos) Arrived();
     }
 
-    /*public void DrawProjection()
+    Vector3 DrawParabola(Vector3 start, Vector3 end, float height, float t, Vector3 outDirection) // NON FUNZIONA
+    {
+        float parabolicT = t * 2 - 1;
+        //start and end are not level, gets more complicated
+        Vector3 travelDirection = end - start;
+        Vector3 levelDirection = end - new Vector3(start.x, end.y, start.z);
+        Vector3 right = Vector3.Cross(travelDirection, levelDirection);
+        Vector3 up = outDirection;
+        Vector3 result = start + t * travelDirection;
+        result += ((-parabolicT * parabolicT + 1) * height) * up.normalized;
+        return result;
+    }
+
+    public void DrawProjection()
     {
         _lr.startWidth = 0.1f;
         _lr.endWidth = 0.05f;
         _lr.enabled = true;
-        _lr.positionCount = Mathf.CeilToInt(linePoints / timeBetweenPoints) + 1;
+        _lr.positionCount = Mathf.CeilToInt(linePoints / timeBetweenPoints) + 1;   //NON FUNZIONA
         Vector2 startPosition = _releasePos.position;
         Vector2 startVelocity = power * new Vector2(-1, 1) / _rb.mass;     //POSIBILE ERRORE
         int i = 0;
@@ -127,32 +140,5 @@ public class ShootingFishingLine : MonoBehaviour
         }
 
     }
-
-    public void ReleaseHookkkkkkkk()
-    {
-        _rb.linearVelocity = Vector2.zero;
-        _rb.angularVelocity = 0;
-        _rb.constraints = RigidbodyConstraints2D.None;
-        _rb.AddForce(new Vector2(-1,1)*power, ForceMode2D.Impulse);
-    }
-
-    public Vector2[] Plot(Rigidbody2D rigidbody, Vector2 pos, Vector2 velocity, int steps)
-    {
-        Vector2[] results = new Vector2[steps];
-
-        float timeStep = Time.fixedDeltaTime * Physics2D.velocityIterations;
-        Vector2 gravityAccel = Physics2D.gravity * rigidbody.gravityScale * timeStep * timeStep;
-
-        float drag = 1f - timeStep * rigidbody.linearDamping;
-        Vector2 moveStep = velocity * timeStep;
-
-        for (int i = 0; i < steps; i++)
-        {
-            moveStep += gravityAccel;
-            moveStep *= drag;
-            pos += moveStep;
-            results[i] = pos;
-        }
-        return results;
-    }*/
+    
 }
