@@ -38,6 +38,7 @@ public class Shooting : MonoBehaviour
     public float lineEndWidth;
 
     private bool _isShot = true;
+    private bool _isMaxCharge = false;
 
     void Awake()
     {
@@ -54,38 +55,66 @@ public class Shooting : MonoBehaviour
         }
     }
 
-    void DrawTrajectory()
+    void Update()
     {
-        lineRenderer.startWidth = lineStartWidth;
-        lineRenderer.startWidth = lineEndWidth;
-
-        if (!showHitMarker)
+        if (_isShot)
         {
-            hitMarker.SetActive(false);
-        }
-
-        var position = transform.position;
-        var velocity = launchVelocity;
-        points.Clear();
-        points.Add(position);
-        while (true)
-        {
-            bool collision;
-            (position, collision) = GetNextPosition(position, velocity);
-            points.Add(position);
-            if (collision || points.Count >= maxCalculationSteps)
+            if (Input.GetKey(KeyCode.Space) && !_isMaxCharge)
             {
-                break;
+                launchVelocity.x -= velocityRightLeft;
             }
-            velocity += Physics2D.gravity * timeStep;
+
+            if (Input.GetKeyUp(KeyCode.Space) || _isMaxCharge)
+            {
+                Shoot();
+            }
         }
 
-        lineRenderer.positionCount = points.Count;
-        lineRenderer.SetPositions(points.ToArray());
-        lineRenderer.Simplify(tolerance);
     }
 
-    // Return (next position,collision detected)
+    void DrawTrajectory()
+    {
+        if (!_isMaxCharge)
+        {
+            lineRenderer.startWidth = lineStartWidth;
+            lineRenderer.startWidth = lineEndWidth;
+
+            if (!showHitMarker)
+            {
+                hitMarker.SetActive(false);
+            }
+
+            var position = transform.position;
+            var velocity = launchVelocity;
+            points.Clear();
+            points.Add(position);
+            while (true)
+            {
+                bool collision;
+                (position, collision) = GetNextPosition(position, velocity);
+                points.Add(position);
+                if (collision || points.Count >= maxCalculationSteps)
+                {
+                    break;
+                }
+                velocity += Physics2D.gravity * timeStep;
+            }
+
+            lineRenderer.positionCount = points.Count;
+            lineRenderer.SetPositions(points.ToArray());
+            lineRenderer.Simplify(tolerance);
+        }
+
+    }
+
+    public void Shoot()
+    {
+        _isShot = false;
+        testBody.transform.position = transform.position;
+        testBody.constraints = RigidbodyConstraints2D.FreezeRotation;
+        testBody.linearVelocity = launchVelocity;
+    }
+
     (Vector2, bool) GetNextPosition(Vector2 currectPoint, Vector2 velocity)
     {
         if (Physics.Raycast(currectPoint, velocity, out hit, velocity.magnitude * timeStep))
@@ -102,26 +131,19 @@ public class Shooting : MonoBehaviour
         return (currectPoint + velocity * timeStep, false);
     }
 
-
-    // Used for debugging.
-    void Update()
+    public void MarkMaxCharge()
     {
-        if (_isShot)
-        {
-            if (Input.GetKey(KeyCode.Space))
-            {
-                launchVelocity.x -= velocityRightLeft;
-            }
-
-            if (Input.GetKeyUp(KeyCode.Space))
-            {
-                _isShot = false;
-                testBody.transform.position = transform.position;
-                testBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-                testBody.linearVelocity = launchVelocity;
-            }
-        }
-
+        _isMaxCharge = true;
     }
+
+    public void OnEnable()
+    {
+        ChargingBar.isMaxCharged += MarkMaxCharge;
+    }
+    public void OnDisable()
+    {
+        ChargingBar.isMaxCharged -= MarkMaxCharge;
+    }
+
 
 }
