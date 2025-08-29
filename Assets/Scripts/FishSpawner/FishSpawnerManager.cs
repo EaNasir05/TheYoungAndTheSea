@@ -1,7 +1,10 @@
 using UnityEngine;
 
 public class FishSpawnerManager : MonoBehaviour
-{ 
+{
+    [SerializeField] public Collider2D rightSpawner;
+    [SerializeField] public Collider2D leftSpawner;
+
     public static FishSpawnerManager instance;
 
     private void Awake()
@@ -10,6 +13,8 @@ public class FishSpawnerManager : MonoBehaviour
         {
             instance = this;
         }
+        Debug.Log(rightSpawner.name );
+        Debug.Log(leftSpawner.name);
 
     }
 
@@ -64,7 +69,7 @@ public class FishSpawnerManager : MonoBehaviour
         return spawnPosition;
     }
 
-    private Vector2 GetRandomPointInCollider(Collider2D collider, float offset = 1f)
+    public Vector2 GetRandomPointInCollider(Collider2D collider, float offset = 1f)
     {
          Bounds collBounds = collider.bounds;
 
