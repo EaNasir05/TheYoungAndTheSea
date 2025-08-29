@@ -67,6 +67,7 @@ public class Shooting : MonoBehaviour
             if (Input.GetKeyUp(KeyCode.Space) || _isMaxCharge)
             {
                 Shoot();
+                lineRenderer.positionCount = 0;
             }
         }
 
@@ -104,9 +105,7 @@ public class Shooting : MonoBehaviour
             lineRenderer.SetPositions(points.ToArray());
             lineRenderer.Simplify(tolerance);
         }
-
     }
-
     public void Shoot()
     {
         _isShot = false;
@@ -114,7 +113,6 @@ public class Shooting : MonoBehaviour
         testBody.constraints = RigidbodyConstraints2D.FreezeRotation;
         testBody.linearVelocity = launchVelocity;
     }
-
     (Vector2, bool) GetNextPosition(Vector2 currectPoint, Vector2 velocity)
     {
         if (Physics.Raycast(currectPoint, velocity, out hit, velocity.magnitude * timeStep))
@@ -130,7 +128,6 @@ public class Shooting : MonoBehaviour
         hitMarker.SetActive(false);
         return (currectPoint + velocity * timeStep, false);
     }
-
     public void MarkMaxCharge()
     {
         _isMaxCharge = true;
@@ -144,6 +141,4 @@ public class Shooting : MonoBehaviour
     {
         ChargingBar.isMaxCharged -= MarkMaxCharge;
     }
-
-
 }

@@ -16,22 +16,15 @@ public class Hook : MonoBehaviour
     public void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
-
     }
-
     public void Update()
     {
         if (_isLanded)
         {
             SetGravityZero();
-            HookMovement();
-
-            
+            HookMovement(); 
         }
-
-
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (!_isLanded)
@@ -39,15 +32,11 @@ public class Hook : MonoBehaviour
             if (collision.gameObject.tag == "Sea")
             {
                 _collider = collision;
-                Debug.Log(_collider.gameObject.name);
-                Debug.Log("KKK");
                 _rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 _isLanded = true;
             }
-
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
         Collider2D collider = collision.GetComponent<Collider2D>();
@@ -62,8 +51,6 @@ public class Hook : MonoBehaviour
         }
     }
 
-
-
     public void HookMovement()
     {
         if (Input.GetKey(KeyCode.UpArrow) && !_blockUpMovement)
@@ -77,11 +64,6 @@ public class Hook : MonoBehaviour
             this.gameObject.transform.position -= new Vector3(0, movementLenght, 0);
             _blockUpMovement = false;
         }
-    }
-
-    public void CheckOutOfBoundaries()
-    {
-        //this.gameObject.transform.position = this.gameObject.transform.position;
     }
 
     public void SetGravityZero()

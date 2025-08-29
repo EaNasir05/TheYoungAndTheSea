@@ -6,6 +6,7 @@ public class ChargingBar : MonoBehaviour
 {
     public Image chargingBar;
 
+    [SerializeField] public GameObject chargingBarTotalImage;
     [SerializeField] public float chargeBarValueTotal;
     [SerializeField] public float chargeAmout;
 
@@ -22,6 +23,7 @@ public class ChargingBar : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space))
         {
             _isShoot = true;
+            chargingBarTotalImage.SetActive(false);
         }
     }
     public void ChargeBar(float value)

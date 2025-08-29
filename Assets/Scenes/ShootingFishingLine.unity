@@ -149,6 +149,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargingBar: {fileID: 1108721949}
+  chargingBarTotalImage: {fileID: 1179280092}
   chargeBarValueTotal: 9
   chargeAmout: 0.075
 --- !u!4 &205867555
@@ -437,38 +438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50e99e3641664b43b18ebafe033628d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementLenght: 0.1
---- !u!1 &809450555
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 809450556}
-  m_Layer: 0
-  m_Name: rrr
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &809450556
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809450555}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.7749493, y: -4.58, z: -0.07655392}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  movementLenght: 0.05
 --- !u!1 &940672693
 GameObject:
   m_ObjectHideFlags: 0
@@ -856,7 +826,7 @@ GameObject:
   - component: {fileID: 1179280095}
   - component: {fileID: 1179280094}
   m_Layer: 5
-  m_Name: ChargingBar
+  m_Name: ChargingBarTotalImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1069,7 +1039,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: -33.596306}
+  m_Offset: {x: 0, y: -32.18933}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -1079,7 +1049,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.96333784, y: 64.34352}
+  m_Size: {x: 0.96333784, y: 61.529564}
   m_EdgeRadius: 0
 --- !u!1 &2031476520
 GameObject:
@@ -1304,4 +1274,3 @@ SceneRoots:
   - {fileID: 1179280093}
   - {fileID: 205867555}
   - {fileID: 940672696}
-  - {fileID: 809450556}
