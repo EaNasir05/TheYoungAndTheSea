@@ -37,6 +37,7 @@ public class ChargingBar : MonoBehaviour
                 if (chargeBarValueTotal <= 0)
                 {
                     _maxCharged = true;
+                    chargingBarTotalImage.SetActive(false);
                 }
             }
             else
