@@ -401,6 +401,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa49805dd41310d4cb937bbfc14511f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTimeToWait: 0
+  maxTimeToWait: 0
   _fishesToSpawn:
   - {fileID: 7221368941071735280, guid: f473c11a2ca9f0d4a8b74662e5bbc9d5, type: 3}
 --- !u!1 &505660178
@@ -1109,6 +1111,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa49805dd41310d4cb937bbfc14511f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  minTimeToWait: 1
+  maxTimeToWait: 5
   _fishesToSpawn:
   - {fileID: 7221368941071735280, guid: f473c11a2ca9f0d4a8b74662e5bbc9d5, type: 3}
 --- !u!1 &1145068061
