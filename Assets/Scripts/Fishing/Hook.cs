@@ -26,20 +26,7 @@ public class Hook : MonoBehaviour
             SetGravityZero();
             HookMovement();
 
-            if (!_collider.bounds.Contains(this.transform.position))
-            {
-                Debug.Log(this.transform.position.y);
-                Debug.Log(_collider.bounds.size.y);
-
-                if((this.transform.position.y) <= _collider.bounds.size.y)
-                {
-                    _blockUpMovement = true;
-                }
-                if((this.transform.position.y) >= _collider.bounds.size.y)
-                {
-                    _blockDownMovement = true;
-                }
-            }
+            
         }
 
 
@@ -61,23 +48,40 @@ public class Hook : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        Collider2D collider = collision.GetComponent<Collider2D>();
+
+        if (collider.name == "Sea")
+        {
+            Vector3 contactPoint = collision.ClosestPoint(this.gameObject.transform.position);
+            Vector3 center = collider.bounds.center;
+
+            _blockDownMovement = contactPoint.y < center.y;
+            _blockUpMovement = contactPoint.y > center.y;
+        }
+    }
+
+
 
     public void HookMovement()
     {
         if (Input.GetKey(KeyCode.UpArrow) && !_blockUpMovement)
         {
             this.gameObject.transform.position += new Vector3(0, movementLenght,0);
+            _blockDownMovement = false;
         }
 
         if (Input.GetKey(KeyCode.DownArrow) && !_blockDownMovement)
         {
             this.gameObject.transform.position -= new Vector3(0, movementLenght, 0);
+            _blockUpMovement = false;
         }
     }
 
     public void CheckOutOfBoundaries()
     {
-        this.gameObject.transform.position = this.gameObject.transform.position;
+        //this.gameObject.transform.position = this.gameObject.transform.position;
     }
 
     public void SetGravityZero()
