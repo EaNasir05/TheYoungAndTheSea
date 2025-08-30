@@ -3,15 +3,21 @@ using UnityEngine;
 public class FishMovement : MonoBehaviour
 {
     private Transform _fishPos;
-    private Collider2D _spawnerCollider;
-    private FishSpawnerManager _spawnerColliderDirection;
     private SpriteRenderer _fishSprite;
 
     private float _elapsedTime;
-    private float _duration = 5f;
+    [SerializeField] private float _speed;
 
+    [Header("Positions Right Spawner")]
+    [SerializeField] private float _fishPosXRightSpawner;
 
+    [Header("Positions Left Spawner")]
+    [SerializeField] private float _fishPosXLeftSpawner;
 
+    [SerializeField] private float _fishPosMaxYSpawner;
+    [SerializeField] private float _fishPosMinYSpawner;
+
+    private Vector2 _velocity = Vector2.zero;
 
     private Vector2 _fishDestination;
 
@@ -24,24 +30,22 @@ public class FishMovement : MonoBehaviour
         if (_fishPos.position.x > Camera.main.transform.position.x)
         {
             _fishSprite.flipX = true;
-            _spawnerCollider = GetComponent<FishSpawnerManager>().rightSpawner;
+            _fishDestination = new Vector2(_fishPosXLeftSpawner, Random.Range(_fishPosMinYSpawner, _fishPosMaxYSpawner));
         }
-
         if(_fishPos.position.x < Camera.main.transform.position.x) 
         {
-            _spawnerCollider = GetComponent<FishSpawnerManager>().leftSpawner;
+            _fishDestination = new Vector2(_fishPosXRightSpawner, Random.Range(_fishPosMinYSpawner, _fishPosMaxYSpawner));
         }
-
-        _fishDestination = FishSpawnerManager.instance.GetRandomPointInCollider(_spawnerCollider, 1f);
-
     }
 
 
     void Update()
     {
-        _elapsedTime += Time.deltaTime;
-        float percentage = _elapsedTime / _duration;
+        transform.position = Vector2.MoveTowards(_fishPos.position, _fishDestination, _speed * Time.deltaTime);  //FORSE QUI INVECE DI LERP MEGLIO SMOOTHDAMP
 
-        transform.position = Vector2.Lerp(_fishPos.position, _fishDestination, percentage);
+        if (this.transform.position == new Vector3(_fishDestination.x, _fishDestination.y,0))
+        {
+            Destroy(this.gameObject);
+        }
     }
 }

@@ -20,11 +20,8 @@ public class FishSpawnerManager : MonoBehaviour
 
     public void SpawnFish(Collider2D spawnableAreaCollider, GameObject[] fishes)
     {
-        foreach (GameObject fish in fishes)
-        {
-            Vector2 spawnPosition = GetRandomSpawnPosition(spawnableAreaCollider);
-            GameObject spawnedFish = Instantiate(fish, spawnPosition, Quaternion.identity);
-        }
+       Vector2 spawnPosition = GetRandomSpawnPosition(spawnableAreaCollider);
+       GameObject spawnedFish = Instantiate(fishes[Random.Range(0, fishes.Length)], spawnPosition, Quaternion.identity);
     }
 
     private Vector2 GetRandomSpawnPosition(Collider2D spawnableAreaCollider)
@@ -35,7 +32,7 @@ public class FishSpawnerManager : MonoBehaviour
         int attemptCount = 0;
         int maxAttempts = 200;
 
-        int layerToNotSpawnOn = LayerMask.NameToLayer("OutOfBoundary");
+        int layerToNotSpawnOn = LayerMask.NameToLayer("Fish"); // POSSINILE ERRORE QUI CONTROLLARE QUI
 
         while (!isSpawnPosValid && attemptCount < maxAttempts)
         {

@@ -28,4 +28,6 @@ public class FishSpawner : MonoBehaviour
             yield return new WaitForSeconds(Random.Range(minTimeToWait, maxTimeToWait));
         }
     }
+
+
 }
