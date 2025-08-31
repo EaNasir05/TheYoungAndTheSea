@@ -13,6 +13,8 @@ public class Hook : MonoBehaviour
     private bool _blockUpMovement = false;
     private bool _blockDownMovement = false;
 
+    Vector3 contactPoint;
+
     public void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
@@ -37,13 +39,12 @@ public class Hook : MonoBehaviour
                 _isLanded = true;
             }
 
-            if(collision.gameObject.tag == "Fish") 
+            /*if(collision.gameObject.tag == "Fish") 
             {
-                HookCaughtFish();
                 _hookCollider.enabled = false;
                 _blockDownMovement = true;
                 _blockUpMovement = true;
-            }
+            }*/
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -52,7 +53,7 @@ public class Hook : MonoBehaviour
 
         if (collider.name == "Sea")
         {
-            Vector3 contactPoint = collision.ClosestPoint(this.gameObject.transform.position);
+            contactPoint = collision.ClosestPoint(this.gameObject.transform.position);
             Vector3 center = collider.bounds.center;
 
             _blockDownMovement = contactPoint.y < center.y;
@@ -87,7 +88,15 @@ public class Hook : MonoBehaviour
 
     public void HookCaughtFish()
     {
-        Debug.Log("AA");
+        _blockUpMovement = true;
+        _blockDownMovement = true;
+
+        Debug.Log(contactPoint.y);
+
+        while (this.gameObject.transform.position.y <= contactPoint.y)
+        {
+            this.gameObject.transform.position += new Vector3(0, movementLenght, 0);
+        }
     }
 
     public void OnEnable()
