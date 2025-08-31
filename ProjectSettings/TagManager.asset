@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 3
   tags:
   - Sea
+  - Fish
+  - Hook
   layers:
   - Default
   - TransparentFX

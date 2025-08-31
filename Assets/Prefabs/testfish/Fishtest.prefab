@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8849560454721949255}
   m_Layer: 6
   m_Name: Fishtest
-  m_TagString: Untagged
+  m_TagString: Fish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,6 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
+  _strength: 2
   _fishPosXRightSpawner: 9.5
   _fishPosXLeftSpawner: -9.5
   _fishPosMaxYSpawner: 1

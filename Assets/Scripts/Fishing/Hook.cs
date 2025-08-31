@@ -6,7 +6,7 @@ public class Hook : MonoBehaviour
     [SerializeField] float movementLenght;
 
     private Rigidbody2D _rb;
-    private Collider2D _collider;
+    private Collider2D _hookCollider;
 
     private bool _isLanded = false;
     private bool _gravitySet = false;
@@ -16,6 +16,7 @@ public class Hook : MonoBehaviour
     public void Start()
     {
         _rb = GetComponent<Rigidbody2D>();
+        _hookCollider = GetComponent<Collider2D>();
     }
     public void Update()
     {
@@ -31,9 +32,17 @@ public class Hook : MonoBehaviour
         {
             if (collision.gameObject.tag == "Sea")
             {
-                _collider = collision;
+                _hookCollider = collision;
                 _rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 _isLanded = true;
+            }
+
+            if(collision.gameObject.tag == "Fish") 
+            {
+                HookCaughtFish();
+                _hookCollider.enabled = false;
+                _blockDownMovement = true;
+                _blockUpMovement = true;
             }
         }
     }
@@ -76,4 +85,18 @@ public class Hook : MonoBehaviour
         }
     }
 
+    public void HookCaughtFish()
+    {
+        Debug.Log("AA");
+    }
+
+    public void OnEnable()
+    {
+        FishMovement.isFishCaught += HookCaughtFish;
+    }
+
+    public void OnDisable()
+    {
+        FishMovement.isFishCaught -= HookCaughtFish;
+    }
 }
