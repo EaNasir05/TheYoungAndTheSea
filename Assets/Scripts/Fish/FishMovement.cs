@@ -1,6 +1,7 @@
 using Unity.VisualScripting;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 
 public class FishMovement : MonoBehaviour
 {
@@ -11,7 +12,8 @@ public class FishMovement : MonoBehaviour
 
     [Header("FishStats")]
     [SerializeField] private float _speed;
-    [SerializeField] private float _strength;
+    [Range(1f,10f)]
+    [SerializeField] public float _strength;
 
     [Header("Positions Right Spawner")]
     [SerializeField] private float _fishPosXRightSpawner;
@@ -23,14 +25,13 @@ public class FishMovement : MonoBehaviour
     [SerializeField] private float _fishPosMinYSpawner;
 
     private Vector2 _fishDestination;
-    private GameObject _hookPos;
+    private GameObject _hook;
+
+    [SerializeField] public List<GameObject> _fishToEliminate = new List<GameObject>();
 
     private bool _fishCaught = false;
     private static bool _fishCantInteractWithHook = false;
     private bool _fishGoingUP = false;
-
-    private GameObject[] _fishArray = new GameObject[0];
-    private bool _arrayFill = false;
 
 
     void Start()
@@ -62,7 +63,7 @@ public class FishMovement : MonoBehaviour
 
         if (_fishGoingUP)
         {
-            transform.position = Vector3.MoveTowards(this.transform.position, _hookPos.transform.position, 0.5f);
+            transform.position = Vector3.MoveTowards(this.transform.position, _hook.transform.position, 0.5f);
         }
     }
 
@@ -74,8 +75,30 @@ public class FishMovement : MonoBehaviour
             _fishGoingUP = true;
             _fishCantInteractWithHook = true;
             isFishCaught?.Invoke();
-            _hookPos = other.gameObject;
+            _hook = other.gameObject;
+            _fishToEliminate.Add(this.gameObject);
         }
+    }
 
+    public void Restart()
+    {
+        _fishCaught = false;
+        _fishCantInteractWithHook = false;
+        if(_fishGoingUP)
+        {
+            _fishGoingUP = false;
+            Destroy(_fishToEliminate[0]);
+            _fishToEliminate.Clear();
+        }
+    }
+
+    public void OnEnable()
+    {
+        Hook.onFishOutOfWater += Restart;
+    }
+
+    public void OnDisable()
+    {
+        Hook.onFishOutOfWater -= Restart;
     }
 }

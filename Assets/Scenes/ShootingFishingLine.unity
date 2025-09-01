@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chargingBar: {fileID: 1108721949}
+  chargeBarValue: 0
   chargingBarTotalImage: {fileID: 1179280092}
   chargeBarValueTotal: 9
   chargeAmout: 0.075
@@ -971,7 +972,7 @@ MonoBehaviour:
   showHitMarker: 1
   hitMarker: {fileID: 272208219}
   fire: 0
-  testBody: {fileID: 602450503}
+  _rb: {fileID: 602450503}
   velocityRightLeft: 0.075
   lineStartWidth: 0.108
   lineEndWidth: 0.151

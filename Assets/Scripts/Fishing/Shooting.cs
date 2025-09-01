@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using NUnit.Framework.Constraints;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(LineRenderer))]
@@ -24,9 +25,9 @@ public class Shooting : MonoBehaviour
     RaycastHit hit;
     readonly List<Vector3> points = new();
 
-    [Header("Debug")]
+    [Header("Hook")]
     public bool fire;
-    public Rigidbody2D testBody;
+    public Rigidbody2D _rb;
 
     [Header("VelocityRightLeft")]
     public float velocityRightLeft;
@@ -44,7 +45,7 @@ public class Shooting : MonoBehaviour
     {
         lineRenderer = GetComponent<LineRenderer>();
 
-        testBody.constraints = RigidbodyConstraints2D.FreezePositionY;
+        _rb.constraints = RigidbodyConstraints2D.FreezePositionY;
     }
 
     void FixedUpdate()
@@ -109,9 +110,10 @@ public class Shooting : MonoBehaviour
     public void Shoot()
     {
         _isShot = false;
-        testBody.transform.position = transform.position;
-        testBody.constraints = RigidbodyConstraints2D.FreezeRotation;
-        testBody.linearVelocity = launchVelocity;
+        _rb.gravityScale = 1f;
+        _rb.transform.position = transform.position;
+        _rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        _rb.linearVelocity = launchVelocity;
     }
     (Vector2, bool) GetNextPosition(Vector2 currectPoint, Vector2 velocity)
     {
@@ -133,12 +135,25 @@ public class Shooting : MonoBehaviour
         _isMaxCharge = true;
     }
 
+    public void Restart()
+    {
+        launchVelocity.x = -0.5f;
+        showHitMarker = true;
+        hitMarker.SetActive(true);
+        _isShot = true;
+        _isMaxCharge = false;
+        points.Clear();
+        lineRenderer.positionCount = points.Count;
+    }
+
     public void OnEnable()
     {
         ChargingBar.isMaxCharged += MarkMaxCharge;
+        Hook.onFishOutOfWater += Restart;
     }
     public void OnDisable()
     {
         ChargingBar.isMaxCharged -= MarkMaxCharge;
+        Hook.onFishOutOfWater -= Restart;
     }
 }

@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _speed: 3
-  _strength: 2
+  _strength: 1
   _fishPosXRightSpawner: 9.5
   _fishPosXLeftSpawner: -9.5
   _fishPosMaxYSpawner: 1

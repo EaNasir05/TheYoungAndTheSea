@@ -1,10 +1,14 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class ChargingBar : MonoBehaviour
 {
     public Image chargingBar;
+
+    public float chargeBarValue;
 
     [SerializeField] public GameObject chargingBarTotalImage;
     [SerializeField] public float chargeBarValueTotal;
@@ -13,6 +17,11 @@ public class ChargingBar : MonoBehaviour
     public static event Action isMaxCharged;
     private bool _maxCharged = false;
     private bool _isShoot = false;
+
+    public void Start()
+    {
+        chargeBarValue = chargeBarValueTotal;
+    }
 
     void Update()
     {
@@ -46,5 +55,24 @@ public class ChargingBar : MonoBehaviour
                 return;
             }
         }
+    }
+
+    public void Restart()
+    {
+        _maxCharged = false;
+        _isShoot = false;
+        chargeBarValueTotal = chargeBarValue;
+        chargingBar.fillAmount = chargeBarValue;
+        chargingBarTotalImage.SetActive(true);
+    }
+
+    public void OnEnable()
+    {
+        Hook.onFishOutOfWater += Restart;
+    }
+
+    public void OnDisable()
+    {
+        Hook.onFishOutOfWater -= Restart;
     }
 }
