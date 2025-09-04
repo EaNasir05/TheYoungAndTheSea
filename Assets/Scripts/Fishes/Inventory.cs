@@ -4,22 +4,38 @@ using UnityEngine;
 
 public class Inventory
 {
-    public static Dictionary<string, int> fishOwned = new();
+    public static Dictionary<string, int> fishOwned;
 
-    public static void AddFish(string fishName)
+    public static void Awake()
     {
-        if (fishOwned.ContainsKey(fishName))
-        {
-            fishOwned[fishName]++;
-        }
-        else
-        {
-            fishOwned.Add(fishName, 1);
-        }
+        fishOwned = new Dictionary<string, int>();
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
+        fishOwned.Add("", 0);
     }
 
-    public static void RemoveFish(string fishName)
+    public static void AddFish(string fishName, int value)
     {
-        fishOwned[fishName]--;
+        fishOwned[fishName] += value;
+    }
+
+    public static void RemoveFish(string fishName, int value)
+    {
+        fishOwned[fishName] -= value;
     }
 }

@@ -12,9 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e485abe8f72464fa224b144398b577, type: 3}
   m_Name: FishList
   m_EditorClassIdentifier: 
-  list:
-  - name: 
-    prefab: {fileID: 0}
-    restaurateurValue: 0
-    soldierValue: 0
-    artistValue: 0
+  list: []

@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
             money = 0;
             freedom = 0;
             talking = false;
+            Inventory.Awake();
         }
     }
 }

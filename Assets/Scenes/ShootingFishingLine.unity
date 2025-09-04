@@ -649,7 +649,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 1000
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_GravityScale: 1
@@ -676,7 +676,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50e99e3641664b43b18ebafe033628d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementLenght: 0.05
+  movementLenght: 0.075
 --- !u!1 &940672693
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,7 +854,7 @@ LineRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073469851}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1693,8 +1693,8 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 2031476523}
-  - {fileID: 207583899}
-  - {fileID: 11961491}
   - {fileID: 1145068062}
+  - {fileID: 11961491}
   - {fileID: 940672696}
+  - {fileID: 207583899}
   - {fileID: 1514234699}

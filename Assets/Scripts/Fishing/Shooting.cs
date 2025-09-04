@@ -62,6 +62,10 @@ public class Shooting : MonoBehaviour
         {
             if (Input.GetKey(KeyCode.Space) && !_isMaxCharge)
             {
+                if (!lineRenderer.enabled)
+                {
+                    lineRenderer.enabled = true;
+                }
                 launchVelocity.x -= velocityRightLeft;
             }
 
@@ -69,6 +73,7 @@ public class Shooting : MonoBehaviour
             {
                 Shoot();
                 lineRenderer.positionCount = 0;
+                lineRenderer.enabled = false;
             }
         }
 

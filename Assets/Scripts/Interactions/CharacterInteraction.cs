@@ -13,7 +13,7 @@ public class CharacterInteraction : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.E) && nextToPlayer)
+        if (!GameManager.instance.IsTalking() && Input.GetKeyDown(KeyCode.E) && nextToPlayer)
         {
             DialoguesManager.instance.StartDialogue(gameObject.name);
         }

@@ -30,17 +30,15 @@ public class Fish
     [SerializeField] private int restaurateurValue;
     [SerializeField] private int soldierValue;
     [SerializeField] private int artistValue;
-    [SerializeField] private int velocityValue;
-    [SerializeField] private int strengthValue;
-    [SerializeField] private float spawnRateValue;
+    [SerializeField] private bool unlocked;
 
     public string GetName() { return name; }
+    public GameObject GetPrefab() { return prefab; }
     public int GetRestaurateurValue() { return restaurateurValue; }
     public int GetSoldierValue() { return soldierValue; }
     public int GetArtistValue() { return artistValue; }
-    public int GetVelocityValue() { return velocityValue; }
-    public int GetStrengthValue() { return strengthValue; }
-    public float GetSpawnRateValue() { return spawnRateValue; }
+    public bool IsUnlocked() { return unlocked; }
 
+    public void Unlock() { unlocked = true; }
 }
 
