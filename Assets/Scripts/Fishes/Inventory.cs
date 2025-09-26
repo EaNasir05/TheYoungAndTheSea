@@ -9,6 +9,7 @@ public class Inventory
     public static void Awake()
     {
         fishOwned = new Dictionary<string, int>();
+        /*
         fishOwned.Add("", 0);
         fishOwned.Add("", 0);
         fishOwned.Add("", 0);
@@ -27,6 +28,7 @@ public class Inventory
         fishOwned.Add("", 0);
         fishOwned.Add("", 0);
         fishOwned.Add("", 0);
+        */
     }
 
     public static void AddFish(string fishName, int value)

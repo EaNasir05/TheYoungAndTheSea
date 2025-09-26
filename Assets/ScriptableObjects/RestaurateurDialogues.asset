@@ -12,4 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8706b4ba0acba8499f61c8814f382a5, type: 3}
   m_Name: RestaurateurDialogues
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - text: Ciao Brian. Hai pesci da vendermi oggi?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: "S\xEC, ho qualcosa con me."
+      link: 1
+      condition: 0
+      effect: 0
+    - text: No, oggi non ho niente.
+      link: 2
+      condition: 0
+      effect: 0
+  - text: Ottimo, vediamo un po' cosa hai da offrirmi.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 1000
+      condition: 0
+      effect: 0
+  - text: "Non c'\xE8 problema, me ne porterai altri la prossima volta."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers: []
+  - text: Grazie di tutto Brian, alla prossima!
+    character: FAUSTO
+    image: {fileID: 0}
+    answers: []
+  - text: Comunque, hai dei pesci da vendermi?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: "S\xEC, ho qualcosa con me."
+      link: 1
+      condition: 0
+      effect: 0
+    - text: No, oggi non ho niente.
+      link: 2
+      condition: 0
+      effect: 0

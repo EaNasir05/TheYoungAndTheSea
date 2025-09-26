@@ -12,4 +12,44 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5dbc419fe57cf3d49af74a1c6ceee74b, type: 3}
   m_Name: ArtistDialogues
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - text: Eccoti. Mi hai portato altri pesci?
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: "S\xEC, ho qualcosa con me."
+      link: 1
+      condition: 0
+      effect: 0
+    - text: No, oggi non ho niente.
+      link: 2
+      condition: 0
+      effect: 0
+  - text: Cosa mi hai portato oggi?
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 1000
+      condition: 0
+      effect: 0
+  - text: "Va bene, mi far\xF2 bastare quello che mi hai portato fin'ora."
+    character: GINA
+    image: {fileID: 0}
+    answers: []
+  - text: Ottimo, vedo cosa posso farci con questo.
+    character: GINA
+    image: {fileID: 0}
+    answers: []
+  - text: Allora, hai dei nuovi pesci con te?
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: "S\xEC, ho qualcosa con me."
+      link: 1
+      condition: 0
+      effect: 0
+    - text: No, oggi non ho niente.
+      link: 2
+      condition: 0
+      effect: 0
