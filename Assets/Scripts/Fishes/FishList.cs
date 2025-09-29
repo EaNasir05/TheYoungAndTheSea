@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 [CreateAssetMenu(fileName = "FishList", menuName = "ScriptableObjects/Fish")]
 public class FishList : ScriptableObject
@@ -24,6 +25,7 @@ public class Fish
 {
     [SerializeField] private string name;
     [SerializeField] private GameObject prefab;
+    [SerializeField] private Sprite sprite;
     [SerializeField] private int restaurateurValue;
     [SerializeField] private int artistValue;
     [SerializeField] private bool unlocked;
@@ -32,6 +34,7 @@ public class Fish
     public GameObject GetPrefab() { return prefab; }
     public int GetRestaurateurValue() { return restaurateurValue; }
     public int GetArtistValue() { return artistValue; }
+    public Sprite GetSprite() { return sprite; }
     public bool IsUnlocked() { return unlocked; }
 
     public void Unlock() { unlocked = true; }

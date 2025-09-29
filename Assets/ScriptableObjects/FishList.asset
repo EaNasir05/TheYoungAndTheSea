@@ -12,4 +12,76 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48e485abe8f72464fa224b144398b577, type: 3}
   m_Name: FishList
   m_EditorClassIdentifier: 
-  list: []
+  list:
+  - name: Sardina
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: fa2ea805f48304046be3c9c8c2eb6be2, type: 3}
+    restaurateurValue: 1
+    artistValue: 1
+    unlocked: 1
+  - name: Acciuga
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 6fe90a6999a1294409e65de24aca5b22, type: 3}
+    restaurateurValue: 2
+    artistValue: 1
+    unlocked: 1
+  - name: Spigolo
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: ffce6cfc9aea0a54ba8515ae7e064570, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Branzino
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 7580a63c3cc3f2a4987e45e71ea2f8e5, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Pesce angelo
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: c2de2460b44a6eb4cb6412b1a7792651, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Pesce mandarino
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: ec5a200dbdd23d7479fa5d396e907144, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Pesce vela
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 841114dfe5481324f91dad539ec22dea, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Tonno
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 3741653188b61274baabed0a7aab91c6, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Marlin
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: ec8c14478e201074e8e8de73d10f2a30, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Sogliola
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: af97729f10600db45b7eb8373984daa7, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Pesce1
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 46310b5271571544bb350cce0329ec64, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0
+  - name: Pesce2
+    prefab: {fileID: 0}
+    sprite: {fileID: 21300000, guid: 5d781d5a6472d924288e17ccbb266416, type: 3}
+    restaurateurValue: 0
+    artistValue: 0
+    unlocked: 0

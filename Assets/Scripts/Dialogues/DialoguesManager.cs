@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class NextDialogue
@@ -23,6 +24,7 @@ public class DialoguesManager : MonoBehaviour
 {
     public static DialoguesManager instance;
 
+    [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GrandpaDialogues grandpa;
     [SerializeField] private RestaurateurDialogues restaurateur;
     [SerializeField] private FishermanDialogues fisherman;
@@ -34,25 +36,25 @@ public class DialoguesManager : MonoBehaviour
     [SerializeField] private GameObject continueText;
     [SerializeField] private GameObject dialogueOptions;
     [SerializeField] private GameObject sellingMenu;
+    [SerializeField] private GameObject sellingFishes;
+    [SerializeField] private GameObject inventoryFishes;
+    [SerializeField] private GameObject gain;
+    [SerializeField] private Button sellButton;
+    [SerializeField] private Button stopSellingButton;
+    [SerializeField] private FishList fishList;
     private List<NextDialogue> nextDialoguesRestaurateur;
     private List<NextDialogue> nextDialoguesArtist;
     private NextDialogue currentDialogue;
+    private int currentCharacter;
     private int nextBranch;
     private int freedom;
     private bool firstTimeWithRestaurateur;
     private bool firstTimeWithArtist;
     private bool firstTimeWithFisherman;
     private bool ready;
-
-    public void AddNextDialogueRestaurateur(NextDialogue nextDialogue)
-    {
-        nextDialoguesRestaurateur.Add(nextDialogue);
-    }
-
-    public void AddNextDialogueArtist(NextDialogue nextDialogue)
-    {
-        nextDialoguesArtist.Add(nextDialogue);
-    }
+    private bool selling;
+    private int moneyGaining;
+    private Dictionary<string, int> selectedFishes;
 
     private void Awake()
     {
@@ -65,16 +67,28 @@ public class DialoguesManager : MonoBehaviour
             firstTimeWithFisherman = true;
             firstTimeWithRestaurateur = true;
             firstTimeWithArtist = true;
+            selling = false;
+            selectedFishes = new Dictionary<string, int>();
         }
         ready = true;
     }
 
     private void Update()
     {
-        if (!ready && Input.GetKeyDown(KeyCode.Space))
+        if (!ready && (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.Space)))
         {
             ready = true;
         }
+    }
+
+    public void AddNextDialogueRestaurateur(NextDialogue nextDialogue)
+    {
+        nextDialoguesRestaurateur.Add(nextDialogue);
+    }
+
+    public void AddNextDialogueArtist(NextDialogue nextDialogue)
+    {
+        nextDialoguesArtist.Add(nextDialogue);
     }
 
     private bool CheckCondition(int index)
@@ -97,6 +111,8 @@ public class DialoguesManager : MonoBehaviour
                 return freedom <= -2;
             case 8:
                 return freedom >= -1;
+            case 9:
+                return GameManager.instance.GetMoney() >= 500;
             default:
                 return true;
         }
@@ -154,7 +170,7 @@ public class DialoguesManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ContinueDialogue(int character, int effect)
+    private IEnumerator ContinueDialogue(int effect)
     {
         yield return new WaitForSeconds(1);
         ready = false;
@@ -163,14 +179,15 @@ public class DialoguesManager : MonoBehaviour
         switch (nextBranch)
         {
             case 1000:
-                StartSelling(character);
+                StartSelling();
                 break;
             case 2000:
                 dialogue.SetActive(false);
                 GameManager.instance.SetTalking(false);
+                GameManager.instance.CheckForFriendshipUpgrades(currentCharacter);
                 break;
             default:
-                CreateBranch(nextBranch, character, effect);
+                CreateBranch(nextBranch, effect);
                 break;
         }
     }
@@ -181,7 +198,7 @@ public class DialoguesManager : MonoBehaviour
         dialogueOptions.SetActive(true);
     }
 
-    public void CreateBranch(int index, int character, int effect)
+    public void CreateBranch(int index, int effect)
     {
         dialogue.SetActive(false);
         continueText.SetActive(false);
@@ -192,7 +209,7 @@ public class DialoguesManager : MonoBehaviour
         }
         ApplyEffect(effect);
         Dialogue[] dialogues;
-        switch (character)
+        switch (currentCharacter)
         {
             case 1:
                 dialogues = fisherman.dialogues;
@@ -210,12 +227,11 @@ public class DialoguesManager : MonoBehaviour
         //cambia immagine personaggio
         characterName.text = dialogues[index].GetCharacter();
         dialogueText.text = dialogues[index].GetText();
-        continueText.SetActive(true);
         dialogue.SetActive(true);
-        CreateAnswers(dialogues[index].GetAnswers(), character);
+        CreateAnswers(dialogues[index].GetAnswers());
     }
 
-    private void CreateAnswers(Answer[] answers, int character)
+    private void CreateAnswers(Answer[] answers)
     {
         List<Answer> availableAnswers = new();
         foreach (Answer answer in answers)
@@ -231,10 +247,12 @@ public class DialoguesManager : MonoBehaviour
             {
                 Button button = dialogueOptions.transform.GetChild(i).GetComponent<Button>();
                 button.onClick.RemoveAllListeners();
-                button.onClick.AddListener(() => CreateBranch(availableAnswers[i].GetLink(), character, availableAnswers[i].GetEffect()));
+                int index = i;
+                button.onClick.AddListener(() => CreateBranch(availableAnswers[index].GetLink(), availableAnswers[index].GetEffect()));
                 button.transform.GetChild(0).GetComponent<TMP_Text>().text = availableAnswers[i].GetText();
                 button.gameObject.SetActive(true);
             }
+            eventSystem.SetSelectedGameObject(dialogueOptions.transform.GetChild(0).gameObject);
             StartCoroutine(ShowDialogueOptions());
         }
         else
@@ -255,22 +273,211 @@ public class DialoguesManager : MonoBehaviour
                 nextBranch = availableAnswers[0].GetLink();
                 effect = availableAnswers[0].GetEffect();
             }
-            StartCoroutine(ContinueDialogue(character, effect));
+            StartCoroutine(ContinueDialogue(effect));
         }
     }
 
-    private void StartSelling(int character)
+    private void StartSelling()
     {
+        moneyGaining = 0;
+        gain.GetComponent<TMP_Text>().text = "0 €";
+        dialogue.SetActive(false);
+        selling = true;
+        selectedFishes.Clear();
+        int i = 0;
+        foreach (KeyValuePair<string, int> kvp in Inventory.fishOwned)
+        {
+            string fish = kvp.Key;
+            int number = kvp.Value;
+            Transform fishSlot = inventoryFishes.transform.GetChild(i);
+            fishSlot.GetChild(1).GetComponent<TMP_Text>().text = number.ToString();
+            foreach (Fish fishInList in fishList.list)
+            {
+                if (fishInList.GetName() == fish)
+                {
+                    fishSlot.GetChild(0).GetComponent<Image>().sprite = fishInList.GetSprite();
+                    sellingFishes.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = fishInList.GetSprite();
+                    if (fishInList.IsUnlocked())
+                    {
+                        if (number > 0)
+                        {
+                            int index = i;
+                            string fishName = fish;
+                            sellingFishes.transform.GetChild(i).GetComponent<Button>().onClick.RemoveAllListeners();
+                            sellingFishes.transform.GetChild(i).GetComponent<Button>().onClick.AddListener(() => RemoveFishFromSelling(fishName, index));
+                            fishSlot.GetComponent<Button>().onClick.RemoveAllListeners();
+                            fishSlot.GetComponent<Button>().onClick.AddListener(() => AddFishToSelling(fishName, index));
+                            fishSlot.GetComponent<Button>().interactable = true;
+                        }
+                        else
+                        {
+                            fishSlot.GetComponent<Button>().interactable = false;
+                        }
+                        fishSlot.GetChild(0).GetComponent<Image>().color = Color.white;
+                    }
+                    else
+                    {
+                        fishSlot.GetComponent<Button>().interactable = false;
+                        fishSlot.GetChild(0).GetComponent<Image>().color = Color.black;
+                    }
+                    break;
+                }
+            }
+            i++;
+        }
+        for (int x = 0; x < 12; x++)
+        {
+            sellingFishes.transform.GetChild(x).GetComponent<Button>().interactable = false;
+            sellingFishes.transform.GetChild(x).GetChild(0).gameObject.SetActive(false);
+            sellingFishes.transform.GetChild(x).GetChild(1).gameObject.SetActive(false);
+        }
+        sellButton.interactable = false;
         sellingMenu.SetActive(true);
+        SelectAvailableButton();
     }
 
-    public void StopSelling(int character)
+    private void SelectAvailableButton()
     {
+        for (int i = 0; i < 12; i++)
+        {
+            if (inventoryFishes.transform.GetChild(i).GetComponent<Button>().interactable)
+            {
+                eventSystem.SetSelectedGameObject(inventoryFishes.transform.GetChild(i).gameObject);
+                return;
+            }
+        }
+        for (int i = 0; i < 12; i++)
+        {
+            if (sellingFishes.transform.GetChild(i).GetComponent<Button>().interactable)
+            {
+                eventSystem.SetSelectedGameObject(sellingFishes.transform.GetChild(i).gameObject);
+                return;
+            }
+        }
+        eventSystem.SetSelectedGameObject(stopSellingButton.gameObject);
+    }
+
+    public void AddFishToSelling(string fish, int slot)
+    {
+        TMP_Text fishCount = inventoryFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>();
+        int number = int.Parse(fishCount.text);
+        number--;
+        fishCount.text = number.ToString();
+        if (selectedFishes.ContainsKey(fish))
+        {
+            selectedFishes[fish]++;
+            number = int.Parse(sellingFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text);
+            number++;
+            sellingFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text = number.ToString();
+        }
+        else
+        {
+            selectedFishes.Add(fish, 1);
+            sellingFishes.transform.GetChild(slot).GetChild(1).gameObject.SetActive(true);
+            sellingFishes.transform.GetChild(slot).GetChild(0).gameObject.SetActive(true);
+            sellingFishes.transform.GetChild(slot).GetComponent<Button>().interactable = true;
+            sellingFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text = "1";
+        }
+        if (number == 0)
+        {
+            inventoryFishes.transform.GetChild(slot).GetComponent<Button>().interactable = false;
+            SelectAvailableButton();
+        }
+        int value = 1;
+        if (currentCharacter == 2)
+        {
+            foreach (Fish fishInList in fishList.list)
+            {
+                if (fishInList.GetName() == fish)
+                {
+                    value = fishInList.GetRestaurateurValue();
+                    break;
+                }
+            }
+        }
+        else if (currentCharacter == 3)
+        {
+            foreach (Fish fishInList in fishList.list)
+            {
+                if (fishInList.GetName() == fish)
+                {
+                    value = fishInList.GetArtistValue();
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Chi cazzo è il currentCharacter?");
+        }
+        moneyGaining += value;
+        gain.GetComponent<TMP_Text>().text = moneyGaining + " €";
+        sellButton.interactable = true;
+    }
+
+    public void RemoveFishFromSelling(string fish, int slot)
+    {
+        int number = int.Parse(sellingFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text);
+        number--;
+        sellingFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text = number.ToString();
+        selectedFishes[fish]--;
+        if (number == 0)
+        {
+            selectedFishes.Remove(fish);
+            sellingFishes.transform.GetChild(slot).GetChild(0).gameObject.SetActive(false);
+            sellingFishes.transform.GetChild(slot).GetChild(1).gameObject.SetActive(false);
+            sellingFishes.transform.GetChild(slot).GetComponent<Button>().interactable = false;
+        }
+        inventoryFishes.transform.GetChild(slot).GetComponent<Button>().interactable = true;
+        SelectAvailableButton();
+        number = int.Parse(inventoryFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text);
+        number++;
+        inventoryFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text = number.ToString();
+        int value = 1;
+        if (currentCharacter == 2)
+        {
+            foreach (Fish fishInList in fishList.list)
+            {
+                if (fishInList.GetName() == fish)
+                {
+                    value = fishInList.GetRestaurateurValue();
+                    break;
+                }
+            }
+        }
+        else if (currentCharacter == 3)
+        {
+            foreach (Fish fishInList in fishList.list)
+            {
+                if (fishInList.GetName() == fish)
+                {
+                    value = fishInList.GetArtistValue();
+                    break;
+                }
+            }
+        }
+        else
+        {
+            Debug.Log("Chi cazzo è il currentCharacter?");
+        }
+        moneyGaining -= value;
+        gain.GetComponent<TMP_Text>().text = moneyGaining + " €";
+        if (selectedFishes.Count == 0)
+        {
+            sellButton.interactable = false;
+        }
+    }
+
+    public void StopSelling()
+    {
+        selling = false;
         sellingMenu.SetActive(false);
+        CreateBranch(3, 0);
     }
 
     private void TalkWithFisherman()
     {
+        currentCharacter = 1;
         if (firstTimeWithFisherman)
         {
 
@@ -287,23 +494,25 @@ public class DialoguesManager : MonoBehaviour
 
     private void TalkWithRestaurateur()
     {
+        currentCharacter = 2;
         if (firstTimeWithRestaurateur)
         {
-            CreateBranch(2, 2, 6);
+            CreateBranch(2, 6);
         }
         else if (nextDialoguesRestaurateur.Count > 0 && nextDialoguesRestaurateur[0].day != GameManager.instance.GetDay())
         {
             currentDialogue = nextDialoguesRestaurateur[0];
-            CreateBranch(nextDialoguesRestaurateur[0].index, 2, 3);
+            CreateBranch(nextDialoguesRestaurateur[0].index, 3);
         }
         else
         {
-            CreateBranch(3, 2, 0);
+            CreateBranch(0, 0);
         }
     }
 
     private void TalkWithArtist()
     {
+        currentCharacter = 3;
         if (firstTimeWithArtist)
         {
             
@@ -311,7 +520,7 @@ public class DialoguesManager : MonoBehaviour
         else if (nextDialoguesArtist.Count > 0 && nextDialoguesArtist[0].day != GameManager.instance.GetDay())
         {
             currentDialogue = nextDialoguesArtist[0];
-            CreateBranch(nextDialoguesArtist[0].index, 3, 4);
+            CreateBranch(nextDialoguesArtist[0].index, 4);
         }
         else
         {
@@ -321,6 +530,47 @@ public class DialoguesManager : MonoBehaviour
 
     private void TalkWithGrandpa()
     {
-        
+        currentCharacter = 4;
+    }
+
+    public void SellFishes()
+    {
+        foreach (KeyValuePair<string, int> kvp in selectedFishes)
+        {
+            string fish = kvp.Key;
+            int number = kvp.Value;
+            int value = 1;
+            if (currentCharacter == 2)
+            {
+                foreach(Fish fishInList in fishList.list)
+                {
+                    if (fishInList.GetName() == fish)
+                    {
+                        value = fishInList.GetRestaurateurValue();
+                        break;
+                    }
+                }
+                GameManager.instance.AddRestaurateurExp(number * value);
+            }
+            else if (currentCharacter == 3)
+            {
+                foreach (Fish fishInList in fishList.list)
+                {
+                    if (fishInList.GetName() == fish)
+                    {
+                        value = fishInList.GetArtistValue();
+                        break;
+                    }
+                }
+                GameManager.instance.AddArtistExp(number * value);
+            }
+            else
+            {
+                Debug.Log("Chi cazzo è il currentCharacter?");
+            }
+            GameManager.instance.AddMoney(number * value);
+            Inventory.RemoveFish(fish, number);
+        }
+        StopSelling();
     }
 }
