@@ -42,6 +42,7 @@ public class DialoguesManager : MonoBehaviour
     [SerializeField] private Button sellButton;
     [SerializeField] private Button stopSellingButton;
     [SerializeField] private FishList fishList;
+    [SerializeField] private GameObject fishInfo;
     private List<NextDialogue> nextDialoguesRestaurateur;
     private List<NextDialogue> nextDialoguesArtist;
     private NextDialogue currentDialogue;
@@ -279,6 +280,7 @@ public class DialoguesManager : MonoBehaviour
 
     private void StartSelling()
     {
+        fishInfo.SetActive(false);
         moneyGaining = 0;
         gain.GetComponent<TMP_Text>().text = "0 €";
         dialogue.SetActive(false);
@@ -363,6 +365,7 @@ public class DialoguesManager : MonoBehaviour
         int number = int.Parse(fishCount.text);
         number--;
         fishCount.text = number.ToString();
+        int n = number;
         if (selectedFishes.ContainsKey(fish))
         {
             selectedFishes[fish]++;
@@ -378,7 +381,7 @@ public class DialoguesManager : MonoBehaviour
             sellingFishes.transform.GetChild(slot).GetComponent<Button>().interactable = true;
             sellingFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text = "1";
         }
-        if (number == 0)
+        if (n == 0)
         {
             inventoryFishes.transform.GetChild(slot).GetComponent<Button>().interactable = false;
             SelectAvailableButton();
@@ -410,6 +413,10 @@ public class DialoguesManager : MonoBehaviour
         {
             Debug.Log("Chi cazzo è il currentCharacter?");
         }
+        fishInfo.transform.GetChild(0).GetComponent<TMP_Text>().text = fish;
+        fishInfo.transform.GetChild(2).GetComponent<TMP_Text>().text = value + " €";
+        fishInfo.transform.GetChild(1).GetComponent<Image>().sprite = inventoryFishes.transform.GetChild(slot).GetChild(0).GetComponent<Image>().sprite;
+        fishInfo.SetActive(true);
         moneyGaining += value;
         gain.GetComponent<TMP_Text>().text = moneyGaining + " €";
         sellButton.interactable = true;
@@ -421,15 +428,15 @@ public class DialoguesManager : MonoBehaviour
         number--;
         sellingFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text = number.ToString();
         selectedFishes[fish]--;
+        inventoryFishes.transform.GetChild(slot).GetComponent<Button>().interactable = true;
         if (number == 0)
         {
             selectedFishes.Remove(fish);
             sellingFishes.transform.GetChild(slot).GetChild(0).gameObject.SetActive(false);
             sellingFishes.transform.GetChild(slot).GetChild(1).gameObject.SetActive(false);
             sellingFishes.transform.GetChild(slot).GetComponent<Button>().interactable = false;
+            SelectAvailableButton();
         }
-        inventoryFishes.transform.GetChild(slot).GetComponent<Button>().interactable = true;
-        SelectAvailableButton();
         number = int.Parse(inventoryFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text);
         number++;
         inventoryFishes.transform.GetChild(slot).GetChild(1).GetComponent<TMP_Text>().text = number.ToString();

@@ -17,11 +17,11 @@ MonoBehaviour:
     character: FAUSTO
     image: {fileID: 0}
     answers:
-    - text: "S\xEC, ho qualcosa con me."
+    - text: "S\xEC, certamente."
       link: 1
       condition: 0
       effect: 0
-    - text: No, oggi non ho niente.
+    - text: No, non oggi.
       link: 2
       condition: 0
       effect: 0
@@ -45,11 +45,11 @@ MonoBehaviour:
     character: FAUSTO
     image: {fileID: 0}
     answers:
-    - text: "S\xEC, ho qualcosa con me."
+    - text: "S\xEC, certamente."
       link: 1
       condition: 0
       effect: 0
-    - text: No, oggi non ho niente.
+    - text: No, non oggi.
       link: 2
       condition: 0
       effect: 0
