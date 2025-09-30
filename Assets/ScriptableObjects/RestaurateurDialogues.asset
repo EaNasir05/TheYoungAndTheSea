@@ -53,3 +53,322 @@ MonoBehaviour:
       link: 2
       condition: 0
       effect: 0
+  - text: "Buonasera. \xC8 lei il ristoratore di quest'isola?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 6
+      condition: 0
+      effect: 0
+  - text: "Buonasera. S\xEC sono io. Mi dispiace ma il ristorante \xE8 chiuso a quest'ora.
+      Se vuoi per\xF2 domani siamo aperti, dalle 10:00 alle 23:00, come tutti gli
+      altri giorni della settimana."
+    character: RISTORATORE
+    image: {fileID: 0}
+    answers:
+    - text: "Lavora cos\xEC tanto?"
+      link: 7
+      condition: 0
+      effect: 0
+    - text: Non sono un cliente
+      link: 10
+      condition: 0
+      effect: 0
+  - text: "Lavora cos\xEC tanto tutti i giorni? Eppure non mi sembra arrivi cos\xEC
+      tanta gente su quest'isola."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 8
+      condition: 0
+      effect: 0
+  - text: "Ragazzo, l'apparenza inganna. Le persone conoscono il mio ristorante e
+      sanno che se vengono a mangiare da me rimarranno soddisfatte! Per questo ho
+      sempre abbastanza clienti da mantenere attiva l'attivit\xE0."
+    character: RISTORATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 9
+      condition: 0
+      effect: 0
+  - text: Comunque... Io non sono venuto qui come cliente. Mi hanno detto che lei
+      potrebbe essere interessato all'acquisto di pesci.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 11
+      condition: 0
+      effect: 0
+  - text: "In realt\xE0 io non sono qui per mangiare. Mi hanno detto che lei potrebbe
+      essere interessato all'acquisto di pesci."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 11
+      condition: 0
+      effect: 0
+  - text: "Non sono interessato ragazzo. Sono gi\xE0 in affari con il pescatore di
+      quest'isola."
+    character: RISTORATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 12
+      condition: 0
+      effect: 0
+  - text: Sono stato mandato qui proprio da lui. Lo sostituisco a lavoro per un po'
+      di tempo.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 13
+      condition: 0
+      effect: 0
+  - text: Davvero? Si vede che quell'uomo non ha una famiglia da mantenere...
+    character: RISTORATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 14
+      condition: 0
+      effect: 0
+  - text: Ah, che scortese! Non mi sono presentato! Io sono Fausto, tu invece come
+      ti chiami?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 15
+      condition: 0
+      effect: 0
+  - text: Mi chiamo Brian.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 16
+      condition: 0
+      effect: 0
+  - text: Brian... Insomma, vediamo un po' che pesci hai da offrirmi.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 1000
+      condition: 0
+      effect: 0
+  - text: "Ottimo Brian. \xC8 la prima volta che fai il pescatore?"
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 18
+      condition: 0
+      effect: 0
+  - text: "Come lavoro s\xEC, prima era solo un hobby per me."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 19
+      condition: 0
+      effect: 0
+  - text: "Capisco... Allora sar\xE0 difficile per te ricordarti i prezzi di vendita
+      dei pesci di queste zone."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 20
+      condition: 0
+      effect: 0
+  - text: "Gi\xE0, non sono molto bravo in queste cose."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 21
+      condition: 0
+      effect: 0
+  - text: "Non ti preoccupare, posso aiutarti. Ecco, prendi questo. \xC8 una lista
+      dei prezzi dei pesci di queste zone, cos\xEC le prossime volte saprai quanti
+      soldi posso darti per ogni pesce."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 22
+      condition: 0
+      effect: 0
+  - text: Grazie mille Fausto!
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 23
+      condition: 0
+      effect: 6
+  - text: "Ora sar\xE0 meglio che tu vada a letto, altrimenti domani rischi di essere
+      meno produttivo."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 8
+  - text: Ciao Brian. Il pesce che mi hai venduto la scorsa volta era eccezionale.
+      Devi essere un pescatore professionista.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 25
+      condition: 0
+      effect: 0
+  - text: "Grazie, ma non mi definirei proprio un professionista. Ho sempre praticato
+      la pesca per hobby, e solo di recente \xE8 diventato il mio lavoro."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 26
+      condition: 0
+      effect: 0
+  - text: "Buon per te, per\xF2 da quel che ho capito \xE8 solo un lavoro temporaneo.
+      Hai intenzione di andartene da quest'isola?"
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: "S\xEC, esatto"
+      link: 27
+      condition: 0
+      effect: 0
+    - text: Sono indeciso
+      link: 31
+      condition: 4
+      effect: 0
+  - text: "S\xEC sto cercando di accumulare monete per riprendere il mio viaggio.
+      Lo devo alla mia famiglia."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 28
+      condition: 0
+      effect: 0
+  - text: "Ti capisco perfettamente Brian, la famiglia viene prima di tutto. \xC8
+      proprio per la famiglia che continuo a lavorare in questo ristorante."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 29
+      condition: 0
+      effect: 0
+  - text: Fin da giovane ho sempre avuto la passione di fare il marinaio...
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 30
+      condition: 0
+      effect: 0
+  - text: Mi ha sempre affascinato l'idea di viaggiare sul mare verso luoghi sconosciuti,
+      con il vento che ti accarezza i capelli e le onde che cantano in armonia sotto
+      lo splendore del sole e della luna.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 34
+      condition: 0
+      effect: 0
+  - text: "In realt\xE0 sono un po' indeciso al riguardo."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 32
+      condition: 0
+      effect: 0
+  - text: Non conosco la tua situazione familiare, ma se accetti un consiglio da
+      parte mia, torna dai tuoi cari.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 33
+      condition: 0
+      effect: 0
+  - text: "Se c'\xE8 una cosa che imparerai da grande \xE8 che la famiglia \xE8 tutto.
+      \xC8 proprio per la famiglia che continuo a lavorare in questo ristorante."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 29
+      condition: 0
+      effect: 0
+  - text: Ma crescendo ho capito che questo sogno era meglio se restava nelle mie
+      fantasie.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 35
+      condition: 0
+      effect: 0
+  - text: "Il vuoto che si crea dentro di te quando spezzi i legami con la tua famiglia
+      non \xE8 colmabile da un semplice sogno."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: Forse hai ragione
+      link: 36
+      condition: 0
+      effect: 0
+    - text: Non credo...
+      link: 38
+      condition: 0
+      effect: 0
+  - text: Potresti aver ragione. Non posso rischiare di mandare in rovina la mia
+      famiglia. Devo continuare il mio viaggio il prima possibile.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 37
+      condition: 0
+      effect: 2
+  - text: Ben detto Brian.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Non ne sarei cos\xEC sicuro. Insomma, dipende dalla propria situazione
+      familiare."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 39
+      condition: 0
+      effect: 0
+  - text: Crescendo mi capirai.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0

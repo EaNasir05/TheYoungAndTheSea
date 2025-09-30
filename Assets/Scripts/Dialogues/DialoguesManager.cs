@@ -144,6 +144,15 @@ public class DialoguesManager : MonoBehaviour
             case 7:
                 firstTimeWithArtist = false;
                 break;
+            case 8:
+                Debug.Log("SBLOCCA LISTINO PREZZI");
+                break;
+            case 9:
+                Debug.Log("SBLOCCA LA CAPANNA");
+                break;
+            case 10:
+                Debug.Log("SBLOCCA SCHEMA CROMATICO");
+                break;
             default:
                 return;
         }
@@ -180,9 +189,11 @@ public class DialoguesManager : MonoBehaviour
         switch (nextBranch)
         {
             case 1000:
+                ApplyEffect(effect);
                 StartSelling();
                 break;
             case 2000:
+                ApplyEffect(effect);
                 dialogue.SetActive(false);
                 GameManager.instance.SetTalking(false);
                 GameManager.instance.CheckForFriendshipUpgrades(currentCharacter);
@@ -479,7 +490,14 @@ public class DialoguesManager : MonoBehaviour
     {
         selling = false;
         sellingMenu.SetActive(false);
-        CreateBranch(3, 0);
+        if (firstTimeWithRestaurateur && currentCharacter == 2)
+        {
+            CreateBranch(17, 0);
+        }
+        else
+        {
+            CreateBranch(3, 0);
+        }
     }
 
     private void TalkWithFisherman()
@@ -504,7 +522,7 @@ public class DialoguesManager : MonoBehaviour
         currentCharacter = 2;
         if (firstTimeWithRestaurateur)
         {
-            CreateBranch(2, 6);
+            CreateBranch(5, 0);
         }
         else if (nextDialoguesRestaurateur.Count > 0 && nextDialoguesRestaurateur[0].day != GameManager.instance.GetDay())
         {
