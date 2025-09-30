@@ -372,3 +372,528 @@ MonoBehaviour:
       link: 4
       condition: 0
       effect: 0
+  - text: "Ciao Brian, i clienti si sono complimentati per la qualit\xE0 del pesce,
+      per questo volevo ringraziarti."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 41
+      condition: 0
+      effect: 0
+  - text: Grazie a te Fausto. Sei sempre stato generoso con me quando si trattava
+      di soldi.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 42
+      condition: 0
+      effect: 0
+  - text: Ho imparato ad essere gentile con chi se lo merita.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 43
+      condition: 0
+      effect: 0
+  - text: Dunque, so che non c'entra molto, ma la prima volta che ti incontrai pensai
+      a quanto fosse strano sentire un ragazzo di nome Brian da queste parti.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 44
+      condition: 0
+      effect: 0
+  - text: Te di preciso di dove sei originario?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 45
+      condition: 0
+      effect: 0
+  - text: "Io sono di Canciulle, una localit\xE0 sul mare a Sud della penisola Cassiana.
+      Il mio nome per\xF2 non \xE8 di quelle parti, e onestamente non so perch\xE9
+      i miei genitori mi abbiano chiamato cos\xEC."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 46
+      condition: 0
+      effect: 0
+  - text: "Ma come!? Non ti \xE8 mai venuto in mente di chiederglielo?"
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 47
+      condition: 0
+      effect: 0
+  - text: "Sfortunatamente non ho mai avuto l'occasione di chiederglielo. \xC8 da
+      quando ho ricordo che vivo con i miei zii e mio nonno. L'unica risposta che
+      ottengo quando chiedo informazioni sui miei genitori \xE8 il silenzio."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 48
+      condition: 0
+      effect: 0
+  - text: Deve essere un argomento delicato per la tua famiglia.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 49
+      condition: 0
+      effect: 0
+  - text: "S\xEC, decisamente. Io ormai ci ho fatto l'abitudine, ma loro non riescono
+      ad andare avanti."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 50
+      condition: 0
+      effect: 0
+  - text: "Ed ora che sei scappato di casa chiss\xE0 quanto staranno soffrendo."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 51
+      condition: 0
+      effect: 0
+  - text: Ti stai facendo un'idea sbagliata. Non sono scappato di casa, anzi sono
+      stati i miei zii a mandarmi in mare.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 52
+      condition: 0
+      effect: 0
+  - text: "Cosa? Perch\xE9 mai avrebbero fatto una cosa del genere?"
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: Devo trovare il nonno
+      link: 53
+      condition: 0
+      effect: 0
+    - text: Sono attaccati ai soldi
+      link: 67
+      condition: 4
+      effect: 0
+  - text: Mi hanno affidato il compito di ritrovare il nonno. Da quel che so dovrebbe
+      trovarsi sull'isola Mercatella.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 54
+      condition: 0
+      effect: 0
+  - text: "Cos\xEC stai accumulando soldi per continuare il tuo viaggio..."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: In teoria...
+      link: 55
+      condition: 3
+      effect: 0
+    - text: Esatto
+      link: 63
+      condition: 0
+      effect: 0
+  - text: "In realt\xE0 devo ancora capire quali sono i miei piani."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 56
+      condition: 0
+      effect: 0
+  - text: Ma come?! Non hai intenzione di trovare tuo nonno?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 57
+      condition: 0
+      effect: 0
+  - text: "S\xEC, le mie intenzioni sarebbero quelle, per\xF2 c'\xE8 qualcosa che
+      mi blocca."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 58
+      condition: 0
+      effect: 0
+  - text: Hai idea di cosa possa essere? Posso aiutarti in qualche modo?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 59
+      condition: 0
+      effect: 0
+  - text: Penso che abbia a che fare con i miei zii. Non ho tanta voglia di tornare
+      da loro una volta finito questo viaggio.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 60
+      condition: 0
+      effect: 0
+  - text: "Mh... Comunque non mi sembra un'ottima scusa per lasciare tuo nonno disperso
+      in mare. Personalmente ti consiglio intanto di trovare il tuo caro nonnino,
+      cos\xEC che insieme possiate scegliere cosa fare riguardo i tuoi zii."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 61
+      condition: 0
+      effect: 0
+  - text: "\xC8 pur sempre tuo nonno, no?"
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 62
+      condition: 0
+      effect: 0
+  - text: Hai ragione Fausto
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Hai gi\xE0 capito tutto."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 64
+      condition: 0
+      effect: 0
+  - text: "Prego per te cos\xEC che tu possa ritrovare il tuo povero nonno."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 65
+      condition: 0
+      effect: 0
+  - text: Ecco, tieni. Un compenso extra. Questo tuo viaggio ha la mia piena approvazione.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 66
+      condition: 0
+      effect: 11
+  - text: Wow... Non so che dire Fausto... Grazie!
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 2
+  - text: "Perch\xE9 sono troppo attaccati ai soldi."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 68
+      condition: 0
+      effect: 0
+  - text: Spiegati meglio...
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 69
+      condition: 0
+      effect: 0
+  - text: "Mi hanno mandato a cercare il nonno in mare, ma non perch\xE9 fossero
+      interessati alla sua vita. Quello che gli interessa \xE8 la sua pensione!"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 70
+      condition: 0
+      effect: 0
+  - text: Forse hai semplicemente inteso male la loro arroganza. Magari stanno solo
+      mascherando la loro sofferenza.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 71
+      condition: 0
+      effect: 0
+  - text: "Non penso proprio Fausto. \xC8 da anni che li conosco, e non si sono mai
+      interessati a me. Non mi hanno mai dimostrato affetto o gratitudine durante
+      dopo tutti questi anni in cui ho lavorato nel loro negozio!"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 72
+      condition: 0
+      effect: 0
+  - text: "Io invece penso di s\xEC. Rifletti, magari hanno paura di perdere tuo
+      nonno dopo che hanno perso i tuoi genitori, e hanno preferito nasconderti questo
+      dolore."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 73
+      condition: 0
+      effect: 0
+  - text: Non tutti siamo sensibili allo stesso modo, e non tutti siamo disposti
+      a condividere le proprie emozioni con gli altri, specialmente se le emozioni
+      sono negative.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 74
+      condition: 0
+      effect: 0
+  - text: "A mio parere dovresti dargli una seconda possibilit\xE0, soprattutto a
+      loro che sono la tua famiglia."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: Non saprei...
+      link: 75
+      condition: 0
+      effect: 2
+    - text: Non li conosci
+      link: 77
+      condition: 0
+      effect: 0
+  - text: "Non lo so Fausto, \xE8 complicato."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 76
+      condition: 0
+      effect: 0
+  - text: Non ti preoccupare, hai ancora tempo per rifletterci.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Mi dispiace Fausto, tu non li conosci come li conosco io.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 78
+      condition: 0
+      effect: 0
+  - text: Ti chiedo solo di rifletterci un po' su.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Ciao Brian, anche i pesci della scorsa volta erano ottimi.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 80
+      condition: 0
+      effect: 0
+  - text: "Mi fa piacere Fausto. Piuttosto, \xE8 dall'altro giorno che volevo chiederti
+      una cosa..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 81
+      condition: 0
+      effect: 0
+  - text: Di che si tratta?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 82
+      condition: 0
+      effect: 0
+  - text: A te piace effettivamente lavorare in questo ristorante su quest'isola?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 83
+      condition: 0
+      effect: 0
+  - text: "Quello che mi piace non \xE8 importante, la mia famiglia lo \xE8, te l'ho
+      gi\xE0 detto, no?"
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 84
+      condition: 0
+      effect: 0
+  - text: Quindi sei disposto ad abbandonare il tuo sogno per restare con la tua
+      famiglia?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 85
+      condition: 0
+      effect: 0
+  - text: Mi sembra ovvio, no?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 86
+      condition: 0
+      effect: 0
+  - text: Ma chi ti dice che facendo il marinaio abbandoneresti la tua famiglia?
+      Una cosa non esclude l'altra!
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 87
+      condition: 0
+      effect: 0
+  - text: "Sei ancora troppo giovane per capirlo. La vita a volte ci mette davanti
+      a delle scelte difficili: sta a noi scegliere la via pi\xF9 saggia e responsabile."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 88
+      condition: 0
+      effect: 0
+  - text: Nel mio caso, ho scelto di fare un lavoro che non mi piace per stare con
+      la mia famiglia e mantenerla economicamente.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 89
+      condition: 0
+      effect: 0
+  - text: "Ma perch\xE9 non fare il marinaio?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 90
+      condition: 0
+      effect: 0
+  - text: Conosci i modi di dire, no? "Chi sposa il mare sposa la solitudine", "Il
+      pescatore parla con il vento non con le persone".
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: ...
+      link: 91
+      condition: 0
+      effect: 0
+    - text: Sono modi di dire
+      link: 97
+      condition: 0
+      effect: 0
+  - text: '"Sposare la solitudine"...'
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 92
+      condition: 0
+      effect: 0
+  - text: "Proprio cos\xEC Brian. Pensaci un po' su. Torna dalla tua famiglia, in
+      fondo gli devi la tua vita. Sono le persone che ti hanno cresciuto."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: "Certo, lo far\xF2"
+      link: 93
+      condition: 1
+      effect: 2
+    - text: Non conosci i miei zii
+      link: 95
+      condition: 3
+      effect: 0
+  - text: "Appena avr\xF2 abbastanza soldi lo far\xF2, non ti preoccupare Fausto."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 94
+      condition: 0
+      effect: 0
+  - text: Sono fiero di te, Brian.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Tu non conosci la mia famiglia. Probabilmente ora che non sono pi\xF9
+      a casa sentiranno solo la mancanza di qualcuno che gli metta a posto il magazzino
+      del negozio."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 96
+      condition: 0
+      effect: 0
+  - text: Crescendo imparerai ad apprezzare anche i loro difetti.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Eppure in questo momento io sto parlando con te.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 98
+      condition: 0
+      effect: 0
+  - text: "Pff... Arriver\xE0 il giorno in cui mi capirai, Brian."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0

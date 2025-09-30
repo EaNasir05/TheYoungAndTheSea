@@ -2819,8 +2819,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 720, y: -32.5}
-  m_SizeDelta: {x: 450, y: 65}
+  m_AnchoredPosition: {x: 780, y: -32.5}
+  m_SizeDelta: {x: 490, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &258375403
 MonoBehaviour:
@@ -4050,7 +4050,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 425, y: 50}
+  m_SizeDelta: {x: 475, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &375818604
 MonoBehaviour:
@@ -4072,7 +4072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Non ne sono sicuro
+  m_text: Non conosci i miei zii
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e7187b6e706eaed41955d345def55c09, type: 2}
   m_sharedMaterial: {fileID: 8753618175418798772, guid: e7187b6e706eaed41955d345def55c09, type: 2}
@@ -5865,7 +5865,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 425, y: 50}
+  m_SizeDelta: {x: 475, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &546738077
 MonoBehaviour:
@@ -10317,8 +10317,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 235, y: -32.5}
-  m_SizeDelta: {x: 450, y: 65}
+  m_AnchoredPosition: {x: 255, y: -32.5}
+  m_SizeDelta: {x: 490, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1095134205
 MonoBehaviour:
@@ -12524,8 +12524,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 1205, y: -32.5}
-  m_SizeDelta: {x: 450, y: 65}
+  m_AnchoredPosition: {x: 1305, y: -32.5}
+  m_SizeDelta: {x: 490, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1362356882
 MonoBehaviour:
@@ -15237,7 +15237,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 425, y: 50}
+  m_SizeDelta: {x: 475, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1803624934
 MonoBehaviour:
@@ -17510,9 +17510,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Mi ha sempre affascinato l'idea di viaggiare sul mare verso luoghi sconosciuti,
-    con il vento che ti accarezza i capelli e le onde che cantano in armonia sotto
-    lo splendore del sole e della luna.
+  m_text: "Mh... Comunque non mi sembra un'ottima scusa per lasciare tuo nonno disperso
+    in mare. Personalmente ti consiglio intanto di trovare il tuo caro nonnino, cos\xEC
+    che insieme possiate scegliere cosa fare riguardo i tuoi zii."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e7187b6e706eaed41955d345def55c09, type: 2}
   m_sharedMaterial: {fileID: 8753618175418798772, guid: e7187b6e706eaed41955d345def55c09, type: 2}

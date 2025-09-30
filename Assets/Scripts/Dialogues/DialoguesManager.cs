@@ -153,6 +153,9 @@ public class DialoguesManager : MonoBehaviour
             case 10:
                 Debug.Log("SBLOCCA SCHEMA CROMATICO");
                 break;
+            case 11:
+                Debug.Log("OTTIENE 50 MONETE EXTRA");
+                break;
             default:
                 return;
         }
