@@ -10,8 +10,8 @@ public class Inventory
     {
         fishOwned = new Dictionary<string, int>
         {
-            { "Sardina", 2 },
-            { "Acciuga", 2 },
+            { "Sardina", 1 },
+            { "Acciuga", 1 },
             { "Spigolo", 0 },
             { "Branzino", 0 },
             { "Pesce angelo", 0 },
@@ -20,8 +20,8 @@ public class Inventory
             { "Tonno", 0 },
             { "Marlin", 0 },
             { "Sogliola", 0 },
-            { "Pesce1", 0 },
-            { "Pesce2", 0 }
+            { "Merluzzo", 0 },
+            { "Cernia", 0 }
         };
     }
 

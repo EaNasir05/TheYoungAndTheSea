@@ -18,7 +18,7 @@ MonoBehaviour:
     image: {fileID: 0}
     answers:
     - text: 
-      link: 2
+      link: 1
       condition: 0
       effect: 0
   - text: "Sei sull'isola di Spedula. Non mi sembri un uomo di mare: navighi come
@@ -27,7 +27,7 @@ MonoBehaviour:
     image: {fileID: 0}
     answers:
     - text: 
-      link: 3
+      link: 2
       condition: 0
       effect: 0
   - text: "Dov'\xE8 adesso la mia barca?"
@@ -35,7 +35,7 @@ MonoBehaviour:
     image: {fileID: 0}
     answers:
     - text: 
-      link: 4
+      link: 3
       condition: 0
       effect: 0
   - text: "Figliolo, sei naufragato. La tua barca si \xE8 distrutta per colpa delle
@@ -44,7 +44,7 @@ MonoBehaviour:
     image: {fileID: 0}
     answers:
     - text: 
-      link: 5
+      link: 4
       condition: 0
       effect: 0
   - text: "Distrutta?! Questo non ci voleva. Come far\xF2 a trovare mio nonno in
@@ -53,7 +53,7 @@ MonoBehaviour:
     image: {fileID: 0}
     answers:
     - text: 
-      link: 6
+      link: 5
       condition: 0
       effect: 0
   - text: "Giusto una curiosit\xE0 figliolo... Te da dove arrivi?"
@@ -61,7 +61,7 @@ MonoBehaviour:
     image: {fileID: 0}
     answers:
     - text: 
-      link: 7
+      link: 6
       condition: 0
       effect: 0
   - text: "Beh, vengo da Canciulle, una localit\xE0 sul mare a Sud della penisola
@@ -70,7 +70,7 @@ MonoBehaviour:
     image: {fileID: 0}
     answers:
     - text: 
-      link: 8
+      link: 7
       condition: 0
       effect: 0
   - text: Mh... Se non ricordo male qualche mese fa giunse su quest'isola un vecchio
@@ -79,7 +79,7 @@ MonoBehaviour:
     image: {fileID: 0}
     answers:
     - text: 
-      link: 9
+      link: 8
       condition: 0
       effect: 0
   - text: "Aspetti... Un vecchio? Potrebbe essere mio nonno! Sa se quel vecchio \xE8
@@ -92,7 +92,7 @@ MonoBehaviour:
       condition: 0
       effect: 0
   - text: "No, penso che sia gi\xE0 partito. Non ci ho interagito molto, ma da quel
-      che so voleva andare in una delle isole qui vicino."
+      che so voleva andare in una delle isole pi\xF9 vicine."
     character: PESCATORE
     image: {fileID: 0}
     answers:
@@ -388,5 +388,322 @@ MonoBehaviour:
     answers:
     - text: 
       link: 2000
+      condition: 0
+      effect: 0
+  - text: Allora, sei pronto per un altro giorno di lavoro?
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: "S\xEC, sono pronto"
+      link: 45
+      condition: 0
+      effect: 0
+    - text: "Perch\xE9 tu non lavori?"
+      link: 47
+      condition: 0
+      effect: 0
+    - text: "Ho gi\xE0 500\u20AC"
+      link: 57
+      condition: 9
+      effect: 0
+  - text: "S\xEC, sento che oggi riuscir\xF2 a pescare pi\xF9 pesci di ieri."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 46
+      condition: 0
+      effect: 0
+  - text: Certo, certo... Cerca di non illuderti.
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: "Certo, ma perch\xE9 lei non lavora? Perch\xE9 mi ha passato questo incarico?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 48
+      condition: 0
+      effect: 0
+  - text: "Perch\xE9 odio il mio lavoro, e penso di meritarmi una pausa."
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 49
+      condition: 0
+      effect: 0
+  - text: Beh, ora mi torna. Che dire...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 50
+      condition: 0
+      effect: 0
+  - text: Torna a lavorare! Qui non ti pagano all'ora, e neanche con un salario fisso!
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: "Finalmente sei tornato, Brian. Vendi in fretta i tuoi pesci, si \xE8 fatto
+      tardi e domattina devi tornare a lavorare."
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: Certamente
+      link: 52
+      condition: 0
+      effect: 0
+    - text: "Perch\xE9 tu non lavori?"
+      link: 47
+      condition: 0
+      effect: 0
+    - text: "Ho gi\xE0 500\u20AC"
+      link: 57
+      condition: 9
+      effect: 0
+  - text: "Certamente, cercher\xF2 di essere veloce."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 53
+      condition: 0
+      effect: 0
+  - text: Vedi di non perderti in chiacchere!
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: Eccoti finalmente! Va velocemente al ristorante qui vicino per vendere
+      i pesci!
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 55
+      condition: 0
+      effect: 13
+  - text: "S\xEC certo, ma perch\xE9 tutta questa fretta?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 56
+      condition: 0
+      effect: 0
+  - text: "Perch\xE9 tra poco il ristoratore va a dormire, proprio come dovresti
+      fare tu a quest'ora."
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: "In realt\xE0 volevo dirti che ho gi\xE0 accumulato 500\u20AC."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 58
+      condition: 0
+      effect: 0
+  - text: Buon per te Brian. Ti sei meritato la mia barca. Allora te ne vai? Parti
+      alla ricerca di tuo nonno?
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: "S\xEC, devo andare"
+      link: 59
+      condition: 5
+      effect: 0
+    - text: Ho cambiato piano
+      link: 66
+      condition: 3
+      effect: 0
+  - text: "S\xEC, non posso farlo aspettare ancora. Devo portare al termine questo
+      viaggio."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 60
+      condition: 0
+      effect: 0
+  - text: Heh, mi stupisce che tu non mi abbia mai rubato la barca per andare da
+      tuo nonno.
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 61
+      condition: 0
+      effect: 0
+  - text: Non sono un ladro.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 62
+      condition: 0
+      effect: 0
+  - text: E non sei neanche un tipo furbo.
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 63
+      condition: 0
+      effect: 0
+  - text: "Non c'\xE8 di che..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 64
+      condition: 0
+      effect: 0
+  - text: Buona fortuna Brian, speriamo che tuo nonno sia ancora vivo.
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 65
+      condition: 0
+      effect: 0
+  - text: Ehm... Grazie...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 14
+  - text: "In realt\xE0 i miei piani sono cambiati. Penso di voler restare su quest'isola."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 67
+      condition: 0
+      effect: 0
+  - text: Non so cosa trovi di interessante in quest'isola, ma chi sono io per giudicare?
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 68
+      condition: 0
+      effect: 0
+  - text: "Pensavo di restare qui come pescatore. Potrei usare questi soldi per avviare
+      la mia attivit\xE0 di pesca."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 69
+      condition: 0
+      effect: 0
+  - text: "Ma per favore... Dammi questi 500\u20AC e diventerai ufficialmente il
+      pescatore di quest'isola."
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 70
+      condition: 0
+      effect: 0
+  - text: Non penso di aver inteso.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 71
+      condition: 0
+      effect: 0
+  - text: "Ah... Sciocco Brian. Ti sto cedendo la mia attivit\xE0 di pesca. Sono
+      stufo di questo lavoro, e penso di meritarmi una pensione a quest'et\xE0."
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: "Non \xE8 cos\xEC vecchio"
+      link: 72
+      condition: 0
+      effect: 0
+    - text: Grazie mille
+      link: 78
+      condition: 0
+      effect: 0
+  - text: "Non \xE8 troppo giovane per andare in pensione?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 73
+      condition: 0
+      effect: 0
+  - text: Fatti gli affari tuoi, piuttosto va a festeggiare da qualche parte, lontano
+      da qui.
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 74
+      condition: 0
+      effect: 0
+  - text: "S\xEC, assolutamente. Grazie di tutto Furio, non so veramente come posso
+      sdebitarmi!"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 75
+      condition: 0
+      effect: 0
+  - text: "Sar\xE0 meglio che vada, o tutte queste smancerie mi faranno vomitare."
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 76
+      condition: 0
+      effect: 0
+  - text: "Allora \xE8 fatta. Ora posso finalmente capire cosa significa avere lo
+      spirito libero."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 77
+      condition: 0
+      effect: 0
+  - text: "Chiss\xE0 come se la star\xE0 passando il nonno..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 15
+  - text: "Non so realmente come ringraziarla! \xC8 estremamente generoso da parte
+      sua!"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 75
       condition: 0
       effect: 0

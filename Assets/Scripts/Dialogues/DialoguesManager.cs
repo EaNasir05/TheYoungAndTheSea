@@ -55,6 +55,7 @@ public class DialoguesManager : MonoBehaviour
     private bool ready;
     private bool selling;
     private bool discoveredArtistName;
+    private bool firstDayOfWork;
     private int moneyGaining;
     private Dictionary<string, int> selectedFishes;
 
@@ -71,6 +72,7 @@ public class DialoguesManager : MonoBehaviour
             firstTimeWithArtist = true;
             selling = false;
             discoveredArtistName = false;
+            firstDayOfWork = true;
             selectedFishes = new Dictionary<string, int>();
         }
         ready = true;
@@ -147,19 +149,32 @@ public class DialoguesManager : MonoBehaviour
                 firstTimeWithArtist = false;
                 break;
             case 8:
-                Debug.Log("SBLOCCA LISTINO PREZZI");
+                GameManager.instance.UnlockPricesList();
                 break;
             case 9:
-                Debug.Log("PERDE 100 MONETE");
+                GameManager.instance.SetLastMoneyGain(-100);
+                GameManager.instance.AddMoney(-100);
+                StartCoroutine(GameManager.instance.ShowLastMoneyGain());
                 break;
             case 10:
-                Debug.Log("SBLOCCA SCHEMA CROMATICO");
+                GameManager.instance.UnlockColorsScheme();
                 break;
             case 11:
-                Debug.Log("OTTIENE 50 MONETE EXTRA");
+                GameManager.instance.SetLastMoneyGain(50);
+                GameManager.instance.AddMoney(50);
+                StartCoroutine(GameManager.instance.ShowLastMoneyGain());
                 break;
             case 12:
                 discoveredArtistName = true;
+                break;
+            case 13:
+                firstDayOfWork = false;
+                break;
+            case 14:
+                Debug.Log("Finale1");
+                break;
+            case 15:
+                Debug.Log("Finale2");
                 break;
             default:
                 return;
@@ -445,6 +460,7 @@ public class DialoguesManager : MonoBehaviour
         fishInfo.SetActive(true);
         moneyGaining += value;
         gain.GetComponent<TMP_Text>().text = moneyGaining + " €";
+        GameManager.instance.SetLastMoneyGain(moneyGaining);
         sellButton.interactable = true;
     }
 
@@ -495,6 +511,7 @@ public class DialoguesManager : MonoBehaviour
         }
         moneyGaining -= value;
         gain.GetComponent<TMP_Text>().text = moneyGaining + " €";
+        GameManager.instance.SetLastMoneyGain(moneyGaining);
         if (selectedFishes.Count == 0)
         {
             sellButton.interactable = false;
@@ -520,22 +537,29 @@ public class DialoguesManager : MonoBehaviour
         currentCharacter = 1;
         if (firstTimeWithFisherman)
         {
+            CreateBranch(0, 5);
+        }
+        else if (firstDayOfWork)
+        {
             if (GameManager.instance.IsMorning())
             {
-
+                CreateBranch(38, 0);
             }
             else
             {
-
+                CreateBranch(54, 0);
             }
-        }
-        else if (GameManager.instance.IsMorning())
-        {
-
         }
         else
         {
-            
+            if (GameManager.instance.IsMorning())
+            {
+                CreateBranch(44, 0);
+            }
+            else
+            {
+                CreateBranch(51, 0);
+            }
         }
     }
 
@@ -618,6 +642,7 @@ public class DialoguesManager : MonoBehaviour
             GameManager.instance.AddMoney(number * value);
             Inventory.RemoveFish(fish, number);
         }
+        StartCoroutine(GameManager.instance.ShowLastMoneyGain());
         StopSelling();
     }
 }

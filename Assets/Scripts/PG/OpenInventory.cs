@@ -9,7 +9,7 @@ public class OpenInventory : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.I))
+        if (Input.GetKeyDown(KeyCode.I) && !GameManager.instance.IsTalking())
         {
             if (inventory.activeSelf)
             {
@@ -19,6 +19,14 @@ public class OpenInventory : MonoBehaviour
             {
                 for (int i = 0; i < 12; i++)
                 {
+                    if (GameManager.instance.IsPricesListUnlocked())
+                    {
+                        //Mostra listino prezzi
+                    }
+                    if (GameManager.instance.IsColorsSchemeUnlocked())
+                    {
+                        //Mostra schema colori
+                    }
                     inventory.transform.GetChild(i).GetChild(0).GetComponent<Image>().sprite = fishList.list[i].GetSprite();
                     inventory.transform.GetChild(i).GetChild(1).GetComponent<TMP_Text>().text = Inventory.fishOwned[fishList.list[i].GetName()].ToString();
                     if (fishList.list[i].IsUnlocked())

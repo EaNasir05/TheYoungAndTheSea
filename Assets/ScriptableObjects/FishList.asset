@@ -22,7 +22,7 @@ MonoBehaviour:
   - name: Acciuga
     prefab: {fileID: 0}
     sprite: {fileID: 21300000, guid: 6fe90a6999a1294409e65de24aca5b22, type: 3}
-    restaurateurValue: 2
+    restaurateurValue: 1
     artistValue: 1
     unlocked: 1
   - name: Spigolo
@@ -73,15 +73,15 @@ MonoBehaviour:
     restaurateurValue: 0
     artistValue: 0
     unlocked: 0
-  - name: Pesce1
+  - name: Merluzzo
     prefab: {fileID: 0}
-    sprite: {fileID: 21300000, guid: 46310b5271571544bb350cce0329ec64, type: 3}
+    sprite: {fileID: 21300000, guid: 82040e9972bd6324488c5047e662b449, type: 3}
     restaurateurValue: 0
     artistValue: 0
     unlocked: 0
-  - name: Pesce2
+  - name: Cernia
     prefab: {fileID: 0}
-    sprite: {fileID: 21300000, guid: 5d781d5a6472d924288e17ccbb266416, type: 3}
+    sprite: {fileID: 21300000, guid: b7488bb5f88f1ba41a470a9e45791ef5, type: 3}
     restaurateurValue: 0
     artistValue: 0
     unlocked: 0
