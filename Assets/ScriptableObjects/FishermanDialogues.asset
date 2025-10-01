@@ -12,4 +12,381 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67428d3c96865a84aa2c4c70369c4df6, type: 3}
   m_Name: FishermanDialogues
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - text: Ugh... Dove mi trovo?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2
+      condition: 0
+      effect: 0
+  - text: "Sei sull'isola di Spedula. Non mi sembri un uomo di mare: navighi come
+      un ritardato, e il mare si \xE8 preso gioco di te."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 3
+      condition: 0
+      effect: 0
+  - text: "Dov'\xE8 adesso la mia barca?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Figliolo, sei naufragato. La tua barca si \xE8 distrutta per colpa delle
+      tue manovre da dilettante. Ti ho visto con il mio canocchiale."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 5
+      condition: 0
+      effect: 0
+  - text: "Distrutta?! Questo non ci voleva. Come far\xF2 a trovare mio nonno in
+      mare senza una barca?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 6
+      condition: 0
+      effect: 0
+  - text: "Giusto una curiosit\xE0 figliolo... Te da dove arrivi?"
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 7
+      condition: 0
+      effect: 0
+  - text: "Beh, vengo da Canciulle, una localit\xE0 sul mare a Sud della penisola
+      Cassiana."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 8
+      condition: 0
+      effect: 0
+  - text: Mh... Se non ricordo male qualche mese fa giunse su quest'isola un vecchio
+      che veniva proprio da quelle parti.
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 9
+      condition: 0
+      effect: 0
+  - text: "Aspetti... Un vecchio? Potrebbe essere mio nonno! Sa se quel vecchio \xE8
+      su quest'isola?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 9
+      condition: 0
+      effect: 0
+  - text: "No, penso che sia gi\xE0 partito. Non ci ho interagito molto, ma da quel
+      che so voleva andare in una delle isole qui vicino."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 10
+      condition: 0
+      effect: 0
+  - text: "Mercatella! \xC8 veramente vicina a quest'isola?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 11
+      condition: 0
+      effect: 0
+  - text: "Ho detto che \xE8 una delle pi\xF9 vicine, non che sia effettivamente
+      vicina."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 12
+      condition: 0
+      effect: 0
+  - text: Allora come faccio a raggiungerla senza una barca?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 13
+      condition: 0
+      effect: 0
+  - text: 'Semplice: compri una nuova barca da me.'
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 14
+      condition: 0
+      effect: 0
+  - text: "Lei vende barche? Quanto costa quella pi\xF9 economica?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 15
+      condition: 0
+      effect: 0
+  - text: "L'unica che vendo costa 500\u20AC."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 16
+      condition: 0
+      effect: 0
+  - text: "500\u20AC?! Io ho solo 100\u20AC con me!"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 17
+      condition: 0
+      effect: 0
+  - text: Voi giovani siete senza speranza... Se ti servono soldi, inizia a lavorare!
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 18
+      condition: 0
+      effect: 0
+  - text: "C'\xE8 qualcuno che mi potrebbe assumere su quest'isola?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 19
+      condition: 0
+      effect: 0
+  - text: Certo, io. Mi puoi sostituire come pescatore dell'isola. La mattina ti
+      svegli e vai in mare a pescare, cercando di non distruggere di nuovo la barca,
+      e la sera vendi i pesci al ristorante qui vicino.
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 20
+      condition: 0
+      effect: 0
+  - text: "Vedrai che accumulerai 500\u20AC in poco tempo."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 21
+      condition: 0
+      effect: 0
+  - text: "Non \xE8 una pessima idea. L'unico problema \xE8 che dovr\xF2 rimanere
+      su quest'isola per un po'. Non c'\xE8 un altro modo per avere una barca?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 22
+      condition: 0
+      effect: 0
+  - text: "No figliolo, sono l'unico su quest'isola a possedere delle barche. La
+      vita \xE8 dura, se vuoi una barca te la devi guadagare!"
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 23
+      condition: 0
+      effect: 0
+  - text: "D'accordo. Conosce qualcuno che mi pu\xF2 offrire un posto dove dormire?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 24
+      condition: 0
+      effect: 0
+  - text: Sono io quello che ospita i turisti su quest'isola. Posso offrirti vitto
+      e alloggio.
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 25
+      condition: 0
+      effect: 0
+  - text: Davvero? Grazie del favore signore!
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 26
+      condition: 0
+      effect: 0
+  - text: "Certo, certo. Mi aspetto di essere pagato 100\u20AC per questo favore.
+      Inoltre, appena arriva un turista disposto a pagare di pi\xF9, dovrai sloggiare."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 27
+      condition: 0
+      effect: 0
+  - text: "Ma... 100\u20AC sono tutto quello che ho."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 28
+      condition: 0
+      effect: 0
+  - text: "Vedila cos\xEC: almeno non ti ho fatto pagare il prezzo originale a notte."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: Va bene
+      link: 29
+      condition: 0
+      effect: 0
+    - text: Decisamente no
+      link: 34
+      condition: 0
+      effect: 0
+  - text: Va bene. In fondo mi ha salvato la vita.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 30
+      condition: 0
+      effect: 9
+  - text: Ti sbagli. Sono state le onde a portarti a riva, non io.
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 31
+      condition: 0
+      effect: 0
+  - text: Ah...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 32
+      condition: 0
+      effect: 0
+  - text: "Comunque, la tua capanna \xE8 quella accanto alla mia. Ti conviene entrare
+      dentro e riposare. Domani sar\xE0 il tuo primo giorno di lavoro."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 33
+      condition: 0
+      effect: 0
+  - text: "Certo... Urr\xE0..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: "Decisamente no. Trover\xF2 qualcun altro su quest'isola che possa ospitarmi.
+      Grazie lo stesso."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 35
+      condition: 0
+      effect: 0
+  - text: "Sono l'unico che pu\xF2 offrirti un posto dove riposare. Inoltre non ti
+      conviene trattare cos\xEC l'unico uomo su quest'isola che ti pu\xF2 vendere
+      una barca."
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 36
+      condition: 0
+      effect: 0
+  - text: "Mh... Va bene, tieni i miei 100\u20AC."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 37
+      condition: 0
+      effect: 9
+  - text: Ottima scelta.
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 32
+      condition: 0
+      effect: 0
+  - text: Mi fa piacere vederti sveglio a quest'ora, in fondo chi dorme non prende
+      pesci!
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 39
+      condition: 0
+      effect: 0
+  - text: Ormai sono abituato a svegliarmi a quest'ora. Di solito io la mattina...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 40
+      condition: 0
+      effect: 0
+  - text: Non mi interessa figliolo.
+    character: PESCATORE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 41
+      condition: 0
+      effect: 0
+  - text: Brian, mi chiami Brian.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 42
+      condition: 0
+      effect: 0
+  - text: E tu chiamami Furio.
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 43
+      condition: 0
+      effect: 0
+  - text: "Brian, pff... Ti ho gi\xE0 preparato una barca con tutta l'attrezzatura,
+      quindi puoi gi\xE0 andare a pescare. Non pensare di potermi rubare la barca
+      e fuggire. Ti tengo d'occhio da lontano."
+    character: FURIO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0

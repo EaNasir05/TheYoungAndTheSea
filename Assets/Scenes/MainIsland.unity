@@ -4072,7 +4072,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Non conosci i miei zii
+  m_text: "Consulter\xF2 mio nonno"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e7187b6e706eaed41955d345def55c09, type: 2}
   m_sharedMaterial: {fileID: 8753618175418798772, guid: e7187b6e706eaed41955d345def55c09, type: 2}
@@ -17510,9 +17510,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Mh... Comunque non mi sembra un'ottima scusa per lasciare tuo nonno disperso
-    in mare. Personalmente ti consiglio intanto di trovare il tuo caro nonnino, cos\xEC
-    che insieme possiate scegliere cosa fare riguardo i tuoi zii."
+  m_text: "Brian, pff... Ti ho gi\xE0 preparato una barca con tutta l'attrezzatura,
+    quindi puoi gi\xE0 andare a pescare. Non pensare di potermi rubare la barca e
+    fuggire. Ti tengo d'occhio da lontano."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e7187b6e706eaed41955d345def55c09, type: 2}
   m_sharedMaterial: {fileID: 8753618175418798772, guid: e7187b6e706eaed41955d345def55c09, type: 2}

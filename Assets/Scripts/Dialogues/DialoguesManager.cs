@@ -54,6 +54,7 @@ public class DialoguesManager : MonoBehaviour
     private bool firstTimeWithFisherman;
     private bool ready;
     private bool selling;
+    private bool discoveredArtistName;
     private int moneyGaining;
     private Dictionary<string, int> selectedFishes;
 
@@ -69,6 +70,7 @@ public class DialoguesManager : MonoBehaviour
             firstTimeWithRestaurateur = true;
             firstTimeWithArtist = true;
             selling = false;
+            discoveredArtistName = false;
             selectedFishes = new Dictionary<string, int>();
         }
         ready = true;
@@ -148,13 +150,16 @@ public class DialoguesManager : MonoBehaviour
                 Debug.Log("SBLOCCA LISTINO PREZZI");
                 break;
             case 9:
-                Debug.Log("SBLOCCA LA CAPANNA");
+                Debug.Log("PERDE 100 MONETE");
                 break;
             case 10:
                 Debug.Log("SBLOCCA SCHEMA CROMATICO");
                 break;
             case 11:
                 Debug.Log("OTTIENE 50 MONETE EXTRA");
+                break;
+            case 12:
+                discoveredArtistName = true;
                 break;
             default:
                 return;
@@ -240,7 +245,14 @@ public class DialoguesManager : MonoBehaviour
                 break;
         }
         //cambia immagine personaggio
-        characterName.text = dialogues[index].GetCharacter();
+        if (!discoveredArtistName && currentCharacter == 3 && dialogues[index].GetCharacter() == "GINA")
+        {
+            characterName.text = "PITTRICE";
+        }
+        else
+        {
+            characterName.text = dialogues[index].GetCharacter();
+        }
         dialogueText.text = dialogues[index].GetText();
         dialogue.SetActive(true);
         CreateAnswers(dialogues[index].GetAnswers());
@@ -508,7 +520,14 @@ public class DialoguesManager : MonoBehaviour
         currentCharacter = 1;
         if (firstTimeWithFisherman)
         {
+            if (GameManager.instance.IsMorning())
+            {
 
+            }
+            else
+            {
+
+            }
         }
         else if (GameManager.instance.IsMorning())
         {
@@ -543,7 +562,7 @@ public class DialoguesManager : MonoBehaviour
         currentCharacter = 3;
         if (firstTimeWithArtist)
         {
-            
+            CreateBranch(5, 7);
         }
         else if (nextDialoguesArtist.Count > 0 && nextDialoguesArtist[0].day != GameManager.instance.GetDay())
         {
@@ -552,7 +571,7 @@ public class DialoguesManager : MonoBehaviour
         }
         else
         {
-
+            CreateBranch(0, 0);
         }
     }
 

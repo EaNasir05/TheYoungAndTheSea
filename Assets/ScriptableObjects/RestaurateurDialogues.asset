@@ -897,3 +897,222 @@ MonoBehaviour:
       link: 4
       condition: 0
       effect: 0
+  - text: "Ciao Brian. Il tuo pescato non smette mai di stupirmi, \xE8 sempre tutto
+      eccezionale!"
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 100
+      condition: 0
+      effect: 0
+  - text: Beh, sto solo mettendo in pratica quello che mi ha insegnato il nonno riguardo
+      la pesca.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 101
+      condition: 0
+      effect: 0
+  - text: "Tuo nonno... Non lo conosco di persona; mi \xE8 stato detto che \xE8 stato
+      un po' di tempo fa su quest'isola."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 102
+      condition: 0
+      effect: 0
+  - text: Immagino ti stia particolarmente a cuore. Ti sei imbarcato in mare da solo
+      pur di ritrovarlo, no?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: Un po' mi manca
+      link: 103
+      condition: 5
+      effect: 0
+    - text: Non saprei...
+      link: 114
+      condition: 3
+      effect: 0
+  - text: "In effetti un po' mi manca. Non \xE8 di certo la persona migliore di questo
+      mondo, perdipi\xF9 non dimostra mai di voler bene a qualcuno. Tuttavia \xE8
+      l'unico membro della mia famiglia che mi abbia trattato con dignit\xE0..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 104
+      condition: 0
+      effect: 0
+  - text: Intendiamoci, a modo suo.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 105
+      condition: 0
+      effect: 0
+  - text: "Certo, ogni uomo su questo pianeta ha un modo a s\xE9 per esporre i propri
+      sentimenti."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 106
+      condition: 0
+      effect: 0
+  - text: "Ricordo ancora quella volta che andammo a pescare insieme in uno dei mari
+      a Sud della nostra penisola. Era un periodo pessimo per pescare. Ora che ci
+      penso, chiss\xE0 perch\xE9 andammo a pescare proprio in quei giorni..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 107
+      condition: 0
+      effect: 0
+  - text: "Insomma, ricordo che quella volta riuscii a prendere un tonno cos\xEC
+      grosso che, quando lo tirai su, mio nonno salt\xF2 dalla paura. Hehe..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 108
+      condition: 0
+      effect: 0
+  - text: Doveva essere parecchio grosso!
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 109
+      condition: 0
+      effect: 0
+  - text: "Eccome se lo era! Comunque, poco dopo, mio nonno si riprese e mi disse
+      \"Per\xF2, non sei male come pescatore. Di questo passo potresti diventare
+      anche meglio di me!\"."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 110
+      condition: 0
+      effect: 0
+  - text: "Quella fu la cosa pi\xF9 carina che mi abbia detto in tutta la mia vita,
+      e non la dimenticher\xF2 mai."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 111
+      condition: 0
+      effect: 0
+  - text: "Gi\xE0, non c'\xE8 nulla che ti possa rendere felice quanto l'approvazione
+      dei tuoi familiari."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 112
+      condition: 6
+      effect: 0
+    - text: 
+      link: 4
+      condition: 2
+      effect: 0
+  - text: "Fausto... Pensi che riuscir\xF2 a trovare mio nonno?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 113
+      condition: 0
+      effect: 0
+  - text: "Certo Brian, con le tue grandi capacit\xE0 di navigazione e la consapevolezza
+      che si trovi a Mercatella, non avrai nessuno problema, te lo posso assicurare."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Il rapporto con mio nonno \xE8 un po' particolare. Non penso che mi manchi
+      la sua presenza, per\xF2 non posso neanche dire di non volergli bene."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 115
+      condition: 0
+      effect: 0
+  - text: In che modo dovrebbe essere particolare il vostro rapporto?
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 116
+      condition: 0
+      effect: 0
+  - text: "\xC8 difficile per me capire quanto bene mi voglia mio nonno. Non mi ha
+      mai rassicurato, mi offendeva continuamente, e non mi dimostrava mai affetto.
+      Raramente ricevevo dei complimenti da parte sua."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 117
+      condition: 0
+      effect: 0
+  - text: "Sono sicuro che ti voglia bene, in fondo sei suo nipote. Ogni essere umano
+      dimostra a modo suo ci\xF2 che prova per gli altri. Magari tuo nonno vuole
+      sembrare un duro e si comporta da tale."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: Non saprei...
+      link: 118
+      condition: 0
+      effect: 0
+    - text: Non credo proprio
+      link: 120
+      condition: 0
+      effect: 0
+  - text: "Non saprei Fausto... Forse? \xC8 un tipo strano mio nonno, \xE8 difficile
+      per me capirlo."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 119
+      condition: 0
+      effect: 0
+  - text: Non ti preoccupare, glielo chiederai quando lo ritroverai a Mercatella.
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Se veramente mi voleva bene, perch\xE9 mi ha lasciatocon gli zii da solo?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 121
+      condition: 0
+      effect: 0
+  - text: "Non direi che ti ha abbandonato, anche perch\xE9 ti ha lasciato scritto
+      dove andava, no? Chiss\xE0, magari aveva gi\xE0 pensato che tu saresti andato
+      a cercarlo."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0

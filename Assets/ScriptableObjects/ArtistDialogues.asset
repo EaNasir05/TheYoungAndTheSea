@@ -53,3 +53,1218 @@ MonoBehaviour:
       link: 2
       condition: 0
       effect: 0
+  - text: "Wow... \xC8 davvero un dipinto meraviglioso!"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 6
+      condition: 0
+      effect: 0
+  - text: Immagino tu non sappia molto di arte moderna.
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 7
+      condition: 0
+      effect: 0
+  - text: "Beh... No, non conosco molti pittori. Non ci sono artisti nella mia terra
+      d'origine, probabilmente perch\xE9 le persone li giudicano male e li vedono
+      come nullafacenti."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 8
+      condition: 0
+      effect: 0
+  - text: "Io per\xF2 reputo che dipingere sia un'attivit\xE0 davvero affascinante!"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 9
+      condition: 0
+      effect: 0
+  - text: Buon per te ragazzo. Se riesci ad apprezzare anche roba come questa non
+      hai decisamente l'occhio da artista.
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 10
+      condition: 0
+      effect: 0
+  - text: Pensa che il suo dipinto sia brutto?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 11
+      condition: 0
+      effect: 0
+  - text: "Non lo penso, lo so! Questa roba \xE8 spazzatura! Ormai ho completamente
+      perso la mia ispirazione artistica, e la terra non ha pi\xF9 nulla da offrirmi
+      per aiutarmi."
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 12
+      condition: 0
+      effect: 0
+  - text: "Se la terra non le \xE8 pi\xF9 di aiuto pu\xF2 provare con il mare. Sa,
+      nelle profondit\xE0 del mare c'\xE8 un mondo completamente diverso da quello
+      della superficie."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 13
+      condition: 0
+      effect: 0
+  - text: "Certe volte mi viene da pensare a quanto sarebbe bello poter essere un
+      pesce, nuotare in quelle acque cristalline in piena libert\xE0."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 14
+      condition: 0
+      effect: 0
+  - text: "Ci ho gi\xE0 pensato altre volte. Il problema \xE8 uno solo: ho paura
+      di viaggiare in barca e delle acque profonde; nelle acque vicino alla riva
+      ormai non c'\xE8 pi\xF9 nulla che possa ispirarmi."
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 15
+      condition: 0
+      effect: 0
+  - text: "Forse non ho l'occhio di un artista, per\xF2 so pescare. Se vuoi posso
+      portarti io dei pesci provenienti direttamente dai fondali marini."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 16
+      condition: 0
+      effect: 0
+  - text: "Questa \xE8 un'idea fantastica!"
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 17
+      condition: 0
+      effect: 0
+  - text: Ci terrei a dirle che...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 18
+      condition: 0
+      effect: 0
+  - text: "Non ti preoccupare, per ogni pesce che mi porti ti pagher\xF2."
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 19
+      condition: 0
+      effect: 0
+  - text: "Ah, grazie! Quello che volevo dirle per\xF2 riguardava..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 20
+      condition: 0
+      effect: 0
+  - text: "Non ti preoccupare, sar\xF2 generosa. Piuttosto, ricordati di portarmi
+      pesci dalle forme e colori particolari. Pi\xF9 il pesce mi soddisfa, pi\xF9
+      verrai pagato."
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 21
+      condition: 0
+      effect: 0
+  - text: Ecco, prendi questo schema dei colori come riferimento. Tutto chiaro?
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 22
+      condition: 0
+      effect: 10
+  - text: "...S\xEC..."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 23
+      condition: 0
+      effect: 0
+  - text: Ottimo! Allora ti aspetto!
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: Ciao... Come avevi detto di chiamarti?
+    character: PITTRICE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 25
+      condition: 0
+      effect: 12
+  - text: Non ci siamo ancora presentati. Io sono Brian.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 26
+      condition: 0
+      effect: 0
+  - text: "Ok Brian, io sono Gina. Mi \xE8 parso di sentir dire che sei diventato
+      il nuovo pescatore dell'isola. Se \xE8 cos\xEC mi aspetto che tu riesca a portarmi
+      i pesci migliori di questi mari."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 27
+      condition: 0
+      effect: 0
+  - text: "Beh, s\xEC, \xE8 vero. Cercher\xF2 di non deluderla."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 28
+      condition: 0
+      effect: 0
+  - text: "Tranquillo, stavo scherzando. Cerca per\xF2 di darmi del tu, non sono
+      cos\xEC vecchia."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 29
+      condition: 0
+      effect: 0
+  - text: "S\xEC, scusa."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 30
+      condition: 0
+      effect: 0
+  - text: "Non ti preoccupare. Piuttosto, perch\xE9 un ragazzo della tua et\xE0 dovrebbe
+      iniziare a lavorare, invece che fare baldoria e godersi un po' la vita?"
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 31
+      condition: 0
+      effect: 0
+  - text: "In realt\xE0 mi piace fare il pescatore. La ritengo un'attivit\xE0 rilassante
+      e intrattenente allo stesso tempo, quindi non lo disprezzo affatto come lavoro."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 32
+      condition: 0
+      effect: 0
+  - text: E sarebbe questo il lavoro dei tuoi sogni?
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 33
+      condition: 0
+      effect: 0
+  - text: "Direi di s\xEC."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 34
+      condition: 0
+      effect: 0
+  - text: Buon per te. Quindi sei venuto su quest'isola per realizzare il tuo sogno
+      e sistemarti a vita? Sei parecchio avanti Brian!
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 35
+      condition: 0
+      effect: 0
+  - text: Veramente io non sono qui per volere mio. I miei zii mi hanno mandato a
+      cercare il nonno in mare, che, da quel che so, si trova sull'isola di Mercatella.
+      Solo che, pochi giorni fa, sono naufragato...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 36
+      condition: 0
+      effect: 0
+  - text: "Ho gi\xE0 capito dove vuoi arrivare. Sai, ti avevo sopravvalutato. Pensavo
+      fossi venuto qui di tua spontanea volont\xE0, e invece sei come tutti gli altri."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 37
+      condition: 0
+      effect: 0
+  - text: Che intendi dire?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 38
+      condition: 0
+      effect: 0
+  - text: Una volta tornato a casa con tuo nonno, continuerai a fare il pescatore?
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 39
+      condition: 0
+      effect: 0
+  - text: "In teoria no, torner\xF2 ad aiutare mio zio nel suo negozio."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 40
+      condition: 0
+      effect: 0
+  - text: Quindi sei disposto ad abbandonare il tuo sogno? Per cosa poi? Tornare
+      alla tua vita monotona?
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: Che ne sai tu?
+      link: 41
+      condition: 0
+      effect: 0
+    - text: Non hai torto
+      link: 45
+      condition: 2
+      effect: 0
+    - text: Lo faccio per i miei zii
+      link: 46
+      condition: 6
+      effect: 0
+  - text: Che ne sai di com'era la mia vita quotidiana?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 42
+      condition: 0
+      effect: 0
+  - text: "Mi \xE8 bastato ascoltarti. Ci sono passata anche io e so come ci si sente.
+      Vorresti dirmi che mi sto sbagliando?"
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 43
+      condition: 0
+      effect: 0
+  - text: Beh... No, effettivamente non mi entusiasma l'idea di tornare a casa.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 43
+      condition: 0
+      effect: 1
+  - text: Non penso ci sia altro da dire al riguardo.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Non hai del tutto torto...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 44
+      condition: 0
+      effect: 1
+  - text: "Non importa se questa scelta mi far\xE0 tornare alla mia precedente quotidianit\xE0
+      monotona. Non posso tradire cos\xEC la mia famiglia."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 47
+      condition: 0
+      effect: 0
+  - text: "Non lo devi considerare come un tradimento alla tua famiglia, consideralo
+      piuttosto come un gesto di amore verso te stesso. Se la tua famiglia ti vuole
+      veramente bene, vedrai che accetter\xE0 questa tua scelta."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: "Non \xE8 cos\xEC semplice"
+      link: 48
+      condition: 0
+      effect: 0
+    - text: ...
+      link: 49
+      condition: 0
+      effect: 0
+  - text: Scoprire che non mi vogliono bene non sarebbe una sorpresa.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 44
+      condition: 0
+      effect: 1
+  - text: Scoprire che non mi vogliono bene non sarebbe una sorpresa.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 44
+      condition: 0
+      effect: 1
+  - text: Ciao Gina. Mi sono sempre scordato di chiederti cosa ti ha spinta a diventare
+      una pittrice.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 51
+      condition: 0
+      effect: 0
+  - text: "Non mi aspettavo ti interessasse sapere una cosa del genere, ma se proprio
+      sei curioso ti dar\xF2 la mia risposta."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 52
+      condition: 0
+      effect: 0
+  - text: "S\xEC, grazie."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 53
+      condition: 0
+      effect: 0
+  - text: "Dunque... La mia scelta di diventare pittrice \xE8 legata ad una necessit\xE0
+      profonda di libert\xE0, una libert\xE0 che non si esprime solo nel fare ci\xF2
+      che amo, ma anche nel permettermi di pensare e sentire senza limiti."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 54
+      condition: 0
+      effect: 0
+  - text: "La pittura mi consente di liberare il mio spirito e di raccontare senza
+      parole ci\xF2 che ho dentro, creando un mondo privo di convenzioni."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 55
+      condition: 0
+      effect: 0
+  - text: E per ispirarti usi dei pesci?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 56
+      condition: 0
+      effect: 0
+  - text: Certo, i pesci sono l'oggetto materiale le cui forme e colori mi ispirano
+      nella creazione di un nuovo mezzo.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 57
+      condition: 0
+      effect: 0
+  - text: Un... Mezzo?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 58
+      condition: 0
+      effect: 0
+  - text: Mi hai ascoltato? Il mezzo che uso per esplorare la mia anima, per liberare
+      il mio spirito.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 59
+      condition: 0
+      effect: 0
+  - text: Liberare il tuo spirito, dici?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 60
+      condition: 0
+      effect: 0
+  - text: Non mi stupisce che uno come te non riesca a comprendere una cosa del genere.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 61
+      condition: 0
+      effect: 0
+  - text: Allora potresti aiutarmi a capire!
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 62
+      condition: 0
+      effect: 0
+  - text: Hai ragione. Forse dovresti iniziare individuando cosa ti rende felice
+      nella vita.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 63
+      condition: 0
+      effect: 0
+  - text: Pescare.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 64
+      condition: 0
+      effect: 0
+  - text: Ti viene in mente qualcos'altro?
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: No
+      link: 65
+      condition: 8
+      effect: 0
+    - text: Stare con mio nonno
+      link: 72
+      condition: 0
+      effect: 0
+  - text: Ti direi di no.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 66
+      condition: 0
+      effect: 0
+  - text: Che tipo noioso che sei.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 67
+      condition: 0
+      effect: 0
+  - text: "Perch\xE9 te hai altre passioni oltre alla pittura?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 68
+      condition: 0
+      effect: 0
+  - text: Certo, ma adesso non stiamo parlando di me!
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 69
+      condition: 0
+      effect: 0
+  - text: Beh, io non ho altro da dire.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 70
+      condition: 0
+      effect: 0
+  - text: "Se le cose stanno cos\xEC, per capire cosa intendo con \"liberare il proprio
+      spirito\" forse ti baster\xE0 continuare a pescare."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 71
+      condition: 0
+      effect: 1
+  - text: Continuare a fare il pescatore... Intendi dire...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Forse... Stare con mio nonno. Insomma, \xE8 raro che mi senta completamente
+      a mio agio con lui, per\xF2 le poche volte in cui peschiamo insieme, \xE8 come
+      se lui cambiasse personalit\xE0."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 73
+      condition: 0
+      effect: 0
+  - text: Penso che sia la pesca a metterti a tuo agio, non tuo nonno.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: Forse hai ragione
+      link: 74
+      condition: 0
+      effect: 0
+    - text: No, ti sbagli
+      link: 75
+      condition: 1
+      effect: 0
+  - text: Forse hai ragione.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 70
+      condition: 0
+      effect: 0
+  - text: "No, ti sbagli. Io voglio bene a mio nonno, anche se spesso \xE8 rude con
+      me."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 76
+      condition: 0
+      effect: 0
+  - text: "Se le cose stanno cos\xEC, potresti tornare a pesca con tuo nonno qualche
+      volta."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 77
+      condition: 0
+      effect: 0
+  - text: "S\xEC, lo far\xF2."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Ciao Gina, come va?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 79
+      condition: 0
+      effect: 0
+  - text: "Stare qui in pace e tranquillit\xE0 mi fa stare solo bene."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 80
+      condition: 0
+      effect: 0
+  - text: Non ti senti un po' sola a stare qui tutto il giorno?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 81
+      condition: 0
+      effect: 0
+  - text: Se soffrissi di qualche problema del genere, non sarei scappata di casa
+      anni fa.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 82
+      condition: 0
+      effect: 0
+  - text: Quindi non sei originaria di qui?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 83
+      condition: 0
+      effect: 0
+  - text: Sfortunatamente no. Ho dovuto passare la mia infanzia su un'isola ad Est
+      di questi mari, costretta dai miei genitori a lavorare al servizio di una famiglia
+      nobile come sguattera.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 84
+      condition: 0
+      effect: 0
+  - text: "Wow... Pensavo che la mia infanzia fosse triste, ma la tua \xE8 anche
+      peggio."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 85
+      condition: 0
+      effect: 0
+  - text: Sono lusingata.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 86
+      condition: 0
+      effect: 0
+  - text: 'Che coincidenza: sia io che te siamo stati costretti per anni a vivere
+      una vita che non fa per noi, e ora ci ritroviamo entrambi su quest''isola.'
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 87
+      condition: 0
+      effect: 0
+  - text: "Non fare parallelismi. La mia \xE8 stata una scelta, te sei qui per volere
+      di qualcun altro."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 88
+      condition: 0
+      effect: 0
+  - text: Hai ragione.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 89
+      condition: 0
+      effect: 0
+  - text: "Per\xF2 sei ancora in tempo per fare la tua di scelta."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 90
+      condition: 0
+      effect: 0
+  - text: Che cosa intendi?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 91
+      condition: 0
+      effect: 0
+  - text: "Puoi sempre scegliere di non tornare a casa. Magari potresti usare i soldi
+      che hai da parte per aprire la tua attivit\xE0 su quest'isola."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: Non hai torto
+      link: 92
+      condition: 3
+      effect: 1
+    - text: Non posso
+      link: 95
+      condition: 6
+      effect: 0
+    - text: E la tua famiglia?
+      link: 102
+      condition: 0
+      effect: 0
+  - text: Non hai tutti i torti...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 93
+      condition: 0
+      effect: 0
+  - text: Non mi sembri particolarmente convinto.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 94
+      condition: 0
+      effect: 0
+  - text: Devo rifletterci un po'.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Non posso abbandonare cos\xEC la mia famiglia."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 96
+      condition: 0
+      effect: 0
+  - text: "Perch\xE9 dovresti rispettare qualcuno che non ti ha mai rispettato?"
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: Forse hai ragione
+      link: 97
+      condition: 0
+      effect: 1
+    - text: Glielo devo
+      link: 98
+      condition: 0
+      effect: 0
+  - text: Forse hai ragione.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Loro mi hanno cresciuto e mantenuto. Glielo devo.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 99
+      condition: 0
+      effect: 0
+  - text: Tu non devi nulla a nessuno, qui si parla del tuo futuro, della tua vita.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 100
+      condition: 0
+      effect: 0
+  - text: "Non \xE8 cos\xEC semplice."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 101
+      condition: 0
+      effect: 0
+  - text: Ho capito, preferisci non parlarne.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Ma... Quando sei scappata di casa non ti sei dispiaciuta per aver lasciato
+      la tua famiglia l\xE0?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 103
+      condition: 0
+      effect: 0
+  - text: "No, mi \xE8 bastato pensare alle vaste possibilit\xE0 che avevo di fronte
+      a me per dimenticare quello che mi sono lasciata alle spalle."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: Questo mi rassicura
+      link: 104
+      condition: 0
+      effect: 1
+    - text: Non so se ci riuscirei
+      link: 105
+      condition: 0
+      effect: 0
+  - text: Questo un po' mi rassicura.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Non so se riuscirei a pensarla cos\xEC in una situazione come la tua."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 106
+      condition: 0
+      effect: 0
+  - text: "Boh... Non \xE8 un problema mio, la scelta \xE8 tua."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 107
+      condition: 0
+      effect: 0
+  - text: Grazie del "supporto"...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Ciao Gina, come va?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 109
+      condition: 0
+      effect: 0
+  - text: Ciao Brian, per ora va bene. Grazie ai tuoi pesci posso creare dei dipinti
+      soddisfacenti.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 110
+      condition: 0
+      effect: 0
+  - text: Sai, l'altro giorno stavo pensando a quanto sei fortunato ad essere un
+      uomo di mare.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 111
+      condition: 0
+      effect: 0
+  - text: "Quest'isola \xE8 piccola e monotona, sembra quasi ferma nel tempo, ma
+      il mare \xE8 immenso e dinamico, e in qualche modo riesce sempre a stupirti."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 112
+      condition: 0
+      effect: 0
+  - text: "Gi\xE0, \xE8 proprio cos\xEC. Il mare \xE8 stupendo."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 113
+      condition: 0
+      effect: 0
+  - text: Se solo non avessi paura di viaggiare in barca...
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 114
+      condition: 0
+      effect: 0
+  - text: Beh... Io ho una barca, se vuoi posso aiutarti a sconfiggere questa paura.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 115
+      condition: 0
+      effect: 0
+  - text: Heh... Devo ammettere che sei completamente diverso da tuo nonno. Quando
+      gli accennai la mia fobia, lui mi rise in faccia.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 116
+      condition: 0
+      effect: 0
+  - text: Apetta... Hai conosciuto mio nonno?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 117
+      condition: 0
+      effect: 0
+  - text: "S\xEC, arriv\xF2 su quest'isola qualche settimana fa, ma era solo di passaggio,
+      per cui ripart\xEC dopo due giorni."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 118
+      condition: 0
+      effect: 0
+  - text: Sei sicura che fosse proprio mio nonno?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 119
+      condition: 0
+      effect: 0
+  - text: "Abbastanza. Entrambi mi avete parlato della vostra famiglia, e le descrizioni
+      coincidevano perfettamente, inoltre venite entrambi dalla stessa localit\xE0."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 120
+      condition: 0
+      effect: 0
+  - text: "Cos\xEC qualche giorno fa ho fatto qualche collegamento e ho capito che
+      quello era tuo nonno."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: Ti ha parlato di me?
+      link: 121
+      condition: 0
+      effect: 0
+    - text: Ha parlato degli zii?
+      link: 125
+      condition: 0
+      effect: 0
+    - text: "Sai perch\xE9 \xE8 partito?"
+      link: 133
+      condition: 0
+      effect: 0
+  - text: Ti ha per caso parlato di me?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 122
+      condition: 0
+      effect: 0
+  - text: "L'unica cosa che mi ha detto su di te \xE8 che sei uno sfigato."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 123
+      condition: 0
+      effect: 0
+  - text: Ah...
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 124
+      condition: 0
+      effect: 0
+  - text: "Con il resto della famiglia per\xF2 non si \xE8 trattenuto."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 126
+      condition: 0
+      effect: 0
+  - text: Cosa ti ha detto sulla mia famiglia?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 126
+      condition: 0
+      effect: 0
+  - text: "Mi ha detto che tuo zio \xE8 uno stronzo ipocrita attaccato ai soldi,
+      e che tua zia \xE8 una sgualdrina ruffiana e manipolatrice. Parole sue, non
+      mie."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 127
+      condition: 0
+      effect: 0
+  - text: Possibile che sia partito per allontanarsi dai miei zii?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 128
+      condition: 0
+      effect: 0
+  - text: "Probabile. Magari questa \xE8 la tua opportunit\xE0 per scappare dai tuoi
+      zii proprio come ha fatto tuo nonno."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: "Non lo far\xF2"
+      link: 129
+      condition: 6
+      effect: 0
+    - text: "Forse \xE8 cos\xEC"
+      link: 131
+      condition: 3
+      effect: 0
+    - text: "Consulter\xF2 mio nonno"
+      link: 132
+      condition: 0
+      effect: 0
+  - text: "Un'opportunit\xE0 che decido di non sfruttare."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 130
+      condition: 0
+      effect: 0
+  - text: Se lo dici te...
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Gi\xE0... Forse \xE8 proprio cos\xEC."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Hai ragione. Forse per\xF2 dovrei consultare mio nonno prima di prendere
+      delle decisioni troppo avventate."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 130
+      condition: 0
+      effect: 0
+  - text: "Ti ha per caso accennato perch\xE9 \xE8 partito?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 134
+      condition: 0
+      effect: 0
+  - text: "No, non me l'ha mai detto. Devo dire per\xF2 che tuo nonno, dai discorsi
+      che faceva, sembrava veramente uno spirito libero; non si fa mai mettere i
+      piedi in testa da nessuno."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 135
+      condition: 0
+      effect: 0
+  - text: Se solo non fosse un vecchio bastardo, sarebbe uno dei miei idoli.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 136
+      condition: 0
+      effect: 0
+  - text: Dici sul serio?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 137
+      condition: 0
+      effect: 0
+  - text: "S\xEC, certo. A mio parere, su certe cose dovresti proprio prenderlo come
+      esempio."
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: "Ci prover\xF2"
+      link: 138
+      condition: 0
+      effect: 0
+    - text: No
+      link: 140
+      condition: 0
+      effect: 0
+  - text: "Vedr\xF2 cosa posso fare."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 139
+      condition: 0
+      effect: 0
+  - text: Ottima scelta.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Onestamente, preferirei di no.
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 141
+      condition: 0
+      effect: 0
+  - text: Fa come vuoi.
+    character: GINA
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
