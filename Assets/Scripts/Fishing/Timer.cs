@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
     }
     void Update()
     {
-        if (!isPaused)
+        if (!FishingPointsManager.instance.stop)
         {
             if (totalTime > 0)
             {

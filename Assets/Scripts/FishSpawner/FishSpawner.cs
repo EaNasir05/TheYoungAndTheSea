@@ -25,9 +25,10 @@ public class FishSpawner : MonoBehaviour
         while (true)
         {
             if (!FishingPointsManager.instance.stop)
+            {
                 FishSpawnerManager.instance.SpawnFish(_spawnerCollider, _fishesToSpawn);
-            if (!FishingPointsManager.instance.stop)
-                yield return new WaitForSeconds(Random.Range(minTimeToWait, maxTimeToWait));
+            }
+            yield return new WaitForSeconds(Random.Range(minTimeToWait, maxTimeToWait));
         }
     }
 

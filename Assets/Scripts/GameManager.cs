@@ -1,7 +1,11 @@
+using System;
 using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,7 +13,13 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private TMP_Text moneyCount;
     [SerializeField] private GameObject notification;
-    [SerializeField] private TMP_Text moneyGain;
+    [SerializeField] private GameObject moneyGain;
+    [SerializeField] private Image blackWall;
+    [SerializeField] private GameObject nightScreen;
+    [SerializeField] private FishingAreas fishingAreas;
+    [SerializeField] private Color morningSkyColor;
+    [SerializeField] private Color nightSkyColor;
+    [SerializeField] private Camera mainCamera;
     private int day;
     private int money;
     private bool morning;
@@ -23,6 +33,7 @@ public class GameManager : MonoBehaviour
     private int lastMoneyGain;
     private bool pricesListUnlocked;
     private bool colorsSchemeUnlocked;
+    private float fadeTime;
 
     public int GetDay() { return day; }
     public int GetMoney() { return money; }
@@ -39,20 +50,47 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
         if (instance == null)
         {
             instance = this;
             day = 0;
             money = 100;
-            talking = false;
-            morning = true;
+            morning = false;
             upgraded = false;
             lastMoneyGain = 0;
             colorsSchemeUnlocked = false;
             pricesListUnlocked = false;
             Cursor.visible = false;
+            fadeTime = 2;
             Inventory.Awake();
         }
+        talking = true;
+    }
+
+    private void Start()
+    {
+        if (morning)
+        {
+            nightScreen.SetActive(false);
+            mainCamera.backgroundColor = morningSkyColor;
+            if (day == 1)
+            {
+                //Disattiva personaggi
+            }
+        }
+        else
+        {
+            nightScreen.SetActive(true);
+            mainCamera.backgroundColor = nightSkyColor;
+            if (day == 0)
+            {
+                //Disattiva personaggi
+            }
+        }
+        CheckFishingAreas();
+        StartCoroutine(EnterScene());
     }
 
     public void AddMoney(int value)
@@ -166,18 +204,37 @@ public class GameManager : MonoBehaviour
     {
         if (lastMoneyGain > 0)
         {
-            moneyGain.text = "+";
-            moneyGain.color = Color.green;
+            moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().text = "+";
+            moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().color = Color.green;
         }
         else
         {
-            moneyGain.text = "";
-            moneyGain.color = Color.red;
+            moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().text = "";
+            moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
         }
-        moneyGain.text += lastMoneyGain + "€";
-        moneyGain.gameObject.SetActive(true);
+        moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().text += lastMoneyGain + "€";
+        moneyGain.SetActive(true);
         yield return new WaitForSeconds(3);
-        moneyGain.gameObject.SetActive(false);
+        moneyGain.SetActive(false);
+    }
+
+    private void CheckFishingAreas()
+    {
+        switch (day)
+        {
+            case 1:
+                fishingAreas.list[0].Unlock();
+                break;
+            case 2:
+                fishingAreas.list[1].Unlock();
+                break;
+            case 4:
+                fishingAreas.list[2].Unlock();
+                break;
+            case 6:
+                fishingAreas.list[3].Unlock();
+                break;
+        }
     }
 
     public void ShowCursor()
@@ -188,5 +245,60 @@ public class GameManager : MonoBehaviour
     public void HideCursor()
     {
         Cursor.visible = false;
+    }
+
+    private IEnumerator EnterScene()
+    {
+        Color c = blackWall.color;
+        float t = 0;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(1, 0, t / fadeTime);
+            blackWall.color = new Color(c.r, c.g, c.b, alpha);
+            yield return null;
+        }
+        blackWall.color = new Color(c.r, c.g, c.b, 0);
+        /*if (day == 0)
+        {
+            DialoguesManager.instance.StartDialogue("Fisherman");
+        }
+        else
+        {
+            talking = false;
+        }*/
+        talking = false;
+    }
+
+    private IEnumerator ChangeScene(string scene)
+    {
+        Color c = blackWall.color;
+        float t = 0;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0, 1, t / fadeTime);
+            blackWall.color = new Color(c.r, c.g, c.b, alpha);
+            yield return null;
+        }
+        blackWall.color = new Color(c.r, c.g, c.b, 1);
+        SceneManager.LoadScene(scene);
+    }
+
+    public IEnumerator NextDay()
+    {
+        day++;
+        morning = true;
+        Color c = blackWall.color;
+        float t = 0;
+        while (t < fadeTime)
+        {
+            t += Time.deltaTime;
+            float alpha = Mathf.Lerp(0, 1, t / fadeTime);
+            blackWall.color = new Color(c.r, c.g, c.b, alpha);
+            yield return null;
+        }
+        blackWall.color = new Color(c.r, c.g, c.b, 1);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }

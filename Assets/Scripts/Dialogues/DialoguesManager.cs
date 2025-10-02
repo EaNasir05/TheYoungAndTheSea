@@ -118,6 +118,10 @@ public class DialoguesManager : MonoBehaviour
                 return freedom >= -1;
             case 9:
                 return GameManager.instance.GetMoney() >= 500;
+            case 10:
+                return GameManager.instance.IsMorning();
+            case 11:
+                return !GameManager.instance.IsMorning();
             default:
                 return true;
         }
@@ -539,7 +543,7 @@ public class DialoguesManager : MonoBehaviour
         {
             CreateBranch(0, 5);
         }
-        else if (firstDayOfWork)
+        else if (GameManager.instance.GetDay() == 1)
         {
             if (GameManager.instance.IsMorning())
             {
@@ -549,6 +553,9 @@ public class DialoguesManager : MonoBehaviour
             {
                 CreateBranch(54, 0);
             }
+        }else if (GameManager.instance.GetDay() == 0)
+        {
+            CreateBranch(32, 0);
         }
         else
         {

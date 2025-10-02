@@ -22,6 +22,8 @@ public class FishingPointsManager : MonoBehaviour
 
     private void Awake()
     {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
         timeIsOver = false;
         instance = this;
         fishesCaught = new Dictionary<string, int>();
@@ -31,7 +33,6 @@ public class FishingPointsManager : MonoBehaviour
         {
             summary.transform.GetChild(2).GetChild(i).gameObject.SetActive(false);
         }
-        Inventory.Awake();
     }
 
     private void Start()
@@ -78,7 +79,7 @@ public class FishingPointsManager : MonoBehaviour
             fishList.GetFish(kvp.Key).Unlock();
             summary.transform.GetChild(2).GetChild(i).gameObject.SetActive(true);
             summary.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<TMP_Text>().text = kvp.Value.ToString();
-            summary.transform.GetChild(2).GetChild(i).GetChild(0).GetComponent<Image>().sprite = fishList.GetFish(kvp.Key).GetSprite();
+            summary.transform.GetChild(2).GetChild(i).GetChild(1).GetComponent<Image>().sprite = fishList.GetFish(kvp.Key).GetSprite();
             i++;
         }
         timeIsOver = true;
@@ -90,30 +91,30 @@ public class FishingPointsManager : MonoBehaviour
     private IEnumerator EnterScene()
     {
         Color c = blackWall.color;
-        float t = 0f;
+        float t = 0;
         while (t < fadeTime)
         {
             t += Time.deltaTime;
-            float alpha = Mathf.Lerp(1f, 0f, t / fadeTime);
+            float alpha = Mathf.Lerp(1, 0, t / fadeTime);
             blackWall.color = new Color(c.r, c.g, c.b, alpha);
             yield return null;
         }
-        blackWall.color = new Color(c.r, c.g, c.b, 0f);
+        blackWall.color = new Color(c.r, c.g, c.b, 0);
         stop = false;
     }
 
     private IEnumerator ChangeScene(string scene)
     {
         Color c = blackWall.color;
-        float t = 0f;
+        float t = 0;
         while (t < fadeTime)
         {
             t += Time.deltaTime;
-            float alpha = Mathf.Lerp(0f, 1f, t / fadeTime);
+            float alpha = Mathf.Lerp(0, 1, t / fadeTime);
             blackWall.color = new Color(c.r, c.g, c.b, alpha);
             yield return null;
         }
-        blackWall.color = new Color(c.r, c.g, c.b, 1f);
+        blackWall.color = new Color(c.r, c.g, c.b, 1);
         //SceneManager.LoadScene(scene);
     }
 }

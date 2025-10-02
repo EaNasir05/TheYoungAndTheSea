@@ -17,6 +17,8 @@ public class FishingArea
     public string GetName() { return areaName; }
     public bool IsUnlocked() { return unlocked; }
     public FishInTheSea[] GetFishes() { return fishes; }
+
+    public void Unlock() { unlocked = true; }
 }
 
 [Serializable]
