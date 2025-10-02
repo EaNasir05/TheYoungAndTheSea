@@ -6,6 +6,8 @@ using UnityEngine;
 public class Hook : MonoBehaviour
 {
     [SerializeField] float movementLenght;
+    [SerializeField] Transform marginLeft;
+    [SerializeField] Transform marginBottom;
 
     private Rigidbody2D _rb;
 
@@ -13,6 +15,8 @@ public class Hook : MonoBehaviour
     private bool _gravitySet = false;
     private bool _blockUpMovement = false;
     private bool _blockDownMovement = false;
+    private bool inTheSea = false;
+    private bool returning = false;
 
     private float _fishStrenght;
 
@@ -20,6 +24,9 @@ public class Hook : MonoBehaviour
     private Vector3 _startPosition;
 
     public static event Action onFishOutOfWater;
+
+    public Vector3 GetContactPointReturn() {  return _contactPointReturn; }
+    public bool IsInTheSea() { return inTheSea; }
 
     public void Start()
     {
@@ -38,10 +45,11 @@ public class Hook : MonoBehaviour
     {
         if (!_isLanded)
         {
-            if (collision.gameObject.tag == "Sea")
+            if (collision.gameObject.tag == "Sea" && !returning)
             {
                 _rb.constraints = RigidbodyConstraints2D.FreezeAll;
                 _isLanded = true;
+                inTheSea = true;
                 _contactPointReturn = collision.ClosestPoint(this.gameObject.transform.position);
             }
         }
@@ -49,6 +57,8 @@ public class Hook : MonoBehaviour
         if(collision.gameObject.tag == "Fish") 
         {
             _fishStrenght = collision.GetComponent<FishMovement>()._strength;
+            inTheSea = false;
+            returning = true;
         }
         
     }
@@ -68,15 +78,17 @@ public class Hook : MonoBehaviour
 
     public void HookMovement()
     {
-        if (Input.GetKey(KeyCode.UpArrow) && !_blockUpMovement)
+        if (Input.GetKey(KeyCode.UpArrow) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.y < _contactPointReturn.y && transform.position.x < _startPosition.x)
         {
-            this.gameObject.transform.position += new Vector3(0, movementLenght,0);
+            this.gameObject.transform.position += new Vector3((float)0.02, movementLenght,0);
+            _contactPointReturn += new Vector3((float)0.02, 0, 0);
             _blockDownMovement = false;
         }
 
-        if (Input.GetKey(KeyCode.DownArrow) && !_blockDownMovement)
+        if (Input.GetKey(KeyCode.DownArrow) && !_blockDownMovement && !FishingPointsManager.instance.stop && transform.position.y > marginBottom.position.y && transform.position.x > marginLeft.position.x)
         {
-            this.gameObject.transform.position -= new Vector3(0, movementLenght, 0);
+            this.gameObject.transform.position -= new Vector3((float)0.02, movementLenght, 0);
+            _contactPointReturn -= new Vector3((float)0.02, 0, 0);
             _blockUpMovement = false;
         }
     }
@@ -101,10 +113,18 @@ public class Hook : MonoBehaviour
 
     IEnumerator MoveFishUpward()
     {
-        while (this.gameObject.transform.position.y <= _contactPointReturn.y)
+        while (transform.position != _startPosition)
         {
-            this.gameObject.transform.position += new Vector3(0, movementLenght, 0);
-            yield return new WaitForSeconds(_fishStrenght/100);
+            if (FishingPointsManager.instance.stop)
+            {
+                break;
+            }
+            transform.position = Vector3.MoveTowards(
+                transform.position,
+                _startPosition,
+                movementLenght * (float)2
+            );
+            yield return new WaitForSeconds(_fishStrenght / 100f);
         }
         Restart();
     }
@@ -119,6 +139,7 @@ public class Hook : MonoBehaviour
             _gravitySet = false;
             _blockUpMovement = false;
             _blockDownMovement = false;
+            returning = false;
         }
     }
 

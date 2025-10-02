@@ -32,11 +32,11 @@ public class FishSpawnerManager : MonoBehaviour
         int attemptCount = 0;
         int maxAttempts = 200;
 
-        int layerToNotSpawnOn = LayerMask.NameToLayer("Fish"); // POSSINILE ERRORE QUI CONTROLLARE QUI
+        int layerToNotSpawnOn = LayerMask.NameToLayer("Fish"); // POSSIBILE ERRORE QUI CONTROLLARE QUI
 
         while (!isSpawnPosValid && attemptCount < maxAttempts)
         {
-            spawnPosition =GetRandomPointInCollider(spawnableAreaCollider);
+            spawnPosition = GetRandomPointInCollider(spawnableAreaCollider);
             Collider2D[] colliders = Physics2D.OverlapCircleAll(spawnPosition, 2f);
 
             bool isInvalidCollision = false;

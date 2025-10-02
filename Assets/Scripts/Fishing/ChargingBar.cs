@@ -18,6 +18,12 @@ public class ChargingBar : MonoBehaviour
     private bool _maxCharged = false;
     private bool _isShoot = false;
 
+    private void Awake()
+    {
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
+    }
+
     public void Start()
     {
         chargeBarValue = chargeBarValueTotal;
@@ -28,8 +34,9 @@ public class ChargingBar : MonoBehaviour
         if (Input.GetKey(KeyCode.Space))
         {
             ChargeBar(chargeAmout);
+            chargingBarTotalImage.SetActive(true);
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && !FishingPointsManager.instance.stop)
         {
             _isShoot = true;
             chargingBarTotalImage.SetActive(false);
@@ -63,7 +70,6 @@ public class ChargingBar : MonoBehaviour
         _isShoot = false;
         chargeBarValueTotal = chargeBarValue;
         chargingBar.fillAmount = chargeBarValue;
-        chargingBarTotalImage.SetActive(true);
     }
 
     public void OnEnable()

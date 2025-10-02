@@ -10,6 +10,8 @@ public class FishMovement : MonoBehaviour
 
     public static event Action isFishCaught;
 
+    [SerializeField] private string _fishName;
+
     [Header("FishStats")]
     [SerializeField] private float _speed;
     [Range(1f,10f)]
@@ -33,6 +35,7 @@ public class FishMovement : MonoBehaviour
     private static bool _fishCantInteractWithHook = false;
     private bool _fishGoingUP = false;
 
+    public string GetName() { return _fishName; }
 
     void Start()
     {
@@ -41,17 +44,17 @@ public class FishMovement : MonoBehaviour
 
         if (_fishPos.position.x > Camera.main.transform.position.x)
         {
-            _fishSprite.flipX = true;
             _fishDestination = new Vector2(_fishPosXLeftSpawner, UnityEngine.Random.Range(_fishPosMinYSpawner, _fishPosMaxYSpawner));
         }
         if(_fishPos.position.x < Camera.main.transform.position.x) 
         {
+            _fishSprite.flipX = true;
             _fishDestination = new Vector2(_fishPosXRightSpawner, UnityEngine.Random.Range(_fishPosMinYSpawner, _fishPosMaxYSpawner));
         }
     }
     void Update()
     {
-        if (!_fishCaught) 
+        if (!_fishCaught && !FishingPointsManager.instance.stop) 
         {
             transform.position = Vector2.MoveTowards(_fishPos.position, _fishDestination, _speed * Time.deltaTime);  //FORSE QUI INVECE DI LERP MEGLIO SMOOTHDAMP
 
@@ -84,9 +87,10 @@ public class FishMovement : MonoBehaviour
     {
         _fishCaught = false;
         _fishCantInteractWithHook = false;
-        if(_fishGoingUP)
+        if(_fishGoingUP && !FishingPointsManager.instance.stop)
         {
             _fishGoingUP = false;
+            FishingPointsManager.instance.AddFish(_fishToEliminate[0].GetComponent<FishMovement>().GetName());
             Destroy(_fishToEliminate[0]);
             _fishToEliminate.Clear();
         }
