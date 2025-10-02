@@ -24,7 +24,8 @@ public class CharacterInteraction : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             nextToPlayer = true;
-            spriteRenderer.color = Color.yellow;
+            transform.GetChild(0).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
         }
     }
 
@@ -33,7 +34,8 @@ public class CharacterInteraction : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             nextToPlayer = false;
-            spriteRenderer.color = Color.white;
+            transform.GetChild(0).gameObject.SetActive(false);
+            transform.GetChild(1).gameObject.SetActive(false);
         }
     }
 }

@@ -57,6 +57,7 @@ public class DialoguesManager : MonoBehaviour
     private bool discoveredArtistName;
     private bool firstDayOfWork;
     private int moneyGaining;
+    private bool talkedToFisherman;
     private Dictionary<string, int> selectedFishes;
 
     private void Awake()
@@ -64,6 +65,7 @@ public class DialoguesManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(gameObject);
             freedom = 0;
             nextDialoguesRestaurateur = new();
             nextDialoguesArtist = new();
@@ -73,9 +75,34 @@ public class DialoguesManager : MonoBehaviour
             selling = false;
             discoveredArtistName = false;
             firstDayOfWork = true;
+            talkedToFisherman = false;
             selectedFishes = new Dictionary<string, int>();
         }
+        else if (instance != this)
+        {
+            CopyData(instance, this);
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         ready = true;
+    }
+    private void CopyData(DialoguesManager oldDM, DialoguesManager newDM)
+    {
+        newDM.nextDialoguesRestaurateur = new List<NextDialogue>(oldDM.nextDialoguesRestaurateur);
+        newDM.nextDialoguesArtist = new List<NextDialogue>(oldDM.nextDialoguesArtist);
+        newDM.currentDialogue = oldDM.currentDialogue;
+        newDM.currentCharacter = oldDM.currentCharacter;
+        newDM.nextBranch = oldDM.nextBranch;
+        newDM.freedom = oldDM.freedom;
+        newDM.firstTimeWithRestaurateur = oldDM.firstTimeWithRestaurateur;
+        newDM.firstTimeWithArtist = oldDM.firstTimeWithArtist;
+        newDM.firstTimeWithFisherman = oldDM.firstTimeWithFisherman;
+        newDM.selling = oldDM.selling;
+        newDM.discoveredArtistName = oldDM.discoveredArtistName;
+        newDM.firstDayOfWork = oldDM.firstDayOfWork;
+        newDM.moneyGaining = oldDM.moneyGaining;
+        newDM.selectedFishes = new Dictionary<string, int>(oldDM.selectedFishes);
     }
 
     private void Update()
@@ -547,13 +574,22 @@ public class DialoguesManager : MonoBehaviour
         {
             if (GameManager.instance.IsMorning())
             {
-                CreateBranch(38, 0);
+                if (!talkedToFisherman)
+                {
+                    talkedToFisherman = true;
+                    CreateBranch(38, 0);
+                }
+                else
+                {
+                    CreateBranch(43, 0);
+                }
             }
             else
             {
                 CreateBranch(54, 0);
             }
-        }else if (GameManager.instance.GetDay() == 0)
+        }
+        else if (GameManager.instance.GetDay() == 0)
         {
             CreateBranch(32, 0);
         }
@@ -575,7 +611,14 @@ public class DialoguesManager : MonoBehaviour
         currentCharacter = 2;
         if (firstTimeWithRestaurateur)
         {
-            CreateBranch(5, 0);
+            if (GameManager.instance.IsMorning())
+            {
+                CreateBranch(123, 0);
+            }
+            else
+            {
+                CreateBranch(5, 0);
+            }
         }
         else if (nextDialoguesRestaurateur.Count > 0 && nextDialoguesRestaurateur[0].day != GameManager.instance.GetDay())
         {

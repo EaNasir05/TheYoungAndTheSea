@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Color morningSkyColor;
     [SerializeField] private Color nightSkyColor;
     [SerializeField] private Camera mainCamera;
+    [SerializeField] private GameObject fausto;
+    [SerializeField] private GameObject gina;
     private int day;
     private int money;
     private bool morning;
@@ -55,7 +57,8 @@ public class GameManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            day = 0;
+            DontDestroyOnLoad(gameObject);
+            day = 1;
             money = 100;
             morning = false;
             upgraded = false;
@@ -66,7 +69,31 @@ public class GameManager : MonoBehaviour
             fadeTime = 2;
             Inventory.Awake();
         }
+        else if (instance != this)
+        {
+            CopyData(instance, this);
+            Destroy(instance.gameObject);
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
         talking = true;
+    }
+
+    private void CopyData(GameManager oldGM, GameManager newGM)
+    {
+        newGM.day = oldGM.day;
+        newGM.money = oldGM.money;
+        newGM.morning = oldGM.morning;
+        newGM.upgraded = oldGM.upgraded;
+        newGM.restaurateurFriendship = oldGM.restaurateurFriendship;
+        newGM.artistFriendship = oldGM.artistFriendship;
+        newGM.restaurateurExp = oldGM.restaurateurExp;
+        newGM.artistExp = oldGM.artistExp;
+        newGM.previousLevel = oldGM.previousLevel;
+        newGM.lastMoneyGain = oldGM.lastMoneyGain;
+        newGM.pricesListUnlocked = oldGM.pricesListUnlocked;
+        newGM.colorsSchemeUnlocked = oldGM.colorsSchemeUnlocked;
+        newGM.fadeTime = oldGM.fadeTime;
     }
 
     private void Start()
@@ -77,7 +104,8 @@ public class GameManager : MonoBehaviour
             mainCamera.backgroundColor = morningSkyColor;
             if (day == 1)
             {
-                //Disattiva personaggi
+                fausto.SetActive(false);
+                gina.SetActive(false);
             }
         }
         else
@@ -86,7 +114,8 @@ public class GameManager : MonoBehaviour
             mainCamera.backgroundColor = nightSkyColor;
             if (day == 0)
             {
-                //Disattiva personaggi
+                fausto.SetActive(false);
+                gina.SetActive(false);
             }
         }
         CheckFishingAreas();
@@ -259,15 +288,14 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         blackWall.color = new Color(c.r, c.g, c.b, 0);
-        /*if (day == 0)
+        if (day == 0)
         {
             DialoguesManager.instance.StartDialogue("Fisherman");
         }
         else
         {
             talking = false;
-        }*/
-        talking = false;
+        }
     }
 
     private IEnumerator ChangeScene(string scene)

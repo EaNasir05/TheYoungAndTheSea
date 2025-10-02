@@ -4,6 +4,18 @@ public class Movement : MonoBehaviour
 {
     [SerializeField] private float speed;
 
+    private void Start()
+    {
+        if (GameManager.instance.IsMorning())
+        {
+            transform.position = new Vector2((float)11.55, (float)-0.96);
+        }
+        else
+        {
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
+        }
+    }
+
     private void Update()
     {
         if (!GameManager.instance.IsTalking())

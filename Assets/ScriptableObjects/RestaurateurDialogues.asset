@@ -212,7 +212,11 @@ MonoBehaviour:
     answers:
     - text: 
       link: 23
-      condition: 0
+      condition: 11
+      effect: 6
+    - text: 
+      link: 125
+      condition: 10
       effect: 6
   - text: "Ora sar\xE0 meglio che tu vada a letto, altrimenti domani rischi di essere
       meno produttivo."
@@ -1116,3 +1120,42 @@ MonoBehaviour:
       link: 4
       condition: 0
       effect: 0
+  - text: "Buongiorno. \xC8 lei il ristoratore di quest'isola?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 123
+      condition: 0
+      effect: 0
+  - text: "Buongiorno. \xC8 lei il ristoratore di quest'isola?"
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 124
+      condition: 0
+      effect: 0
+  - text: "Buongiorno. S\xEC sono io. Mi dispiace ma il ristorante \xE8 chiuso a
+      quest'ora. Se vuoi per\xF2 tra un po' siamo aperti, dalle 10:00 alle 23:00,
+      come tutti gli altri giorni della settimana."
+    character: RISTORATORE
+    image: {fileID: 0}
+    answers:
+    - text: "Lavora cos\xEC tanto?"
+      link: 7
+      condition: 0
+      effect: 0
+    - text: Non sono un cliente
+      link: 10
+      condition: 0
+      effect: 0
+  - text: "Adesso \xE8 meglio che tu vada, altrimenti rischi di arrivare tardi in
+      mare."
+    character: FAUSTO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 8
