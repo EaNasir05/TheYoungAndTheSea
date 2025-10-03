@@ -298,7 +298,7 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    private IEnumerator ChangeScene(string scene)
+    public IEnumerator ChangeScene(string scene)
     {
         Color c = blackWall.color;
         float t = 0;

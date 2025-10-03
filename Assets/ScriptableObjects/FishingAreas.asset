@@ -13,63 +13,27 @@ MonoBehaviour:
   m_Name: FishingAreas
   m_EditorClassIdentifier: 
   list:
-  - areaName: 
+  - areaName: OcchioCalmo
     unlocked: 1
     fishes:
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-  - areaName: 
+    - 
+    - 
+    - 
+  - areaName: BancoArgenteo
     unlocked: 0
     fishes:
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-  - areaName: 
+    - 
+    - 
+    - 
+  - areaName: FondaleCorallino
     unlocked: 0
     fishes:
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-  - areaName: 
+    - 
+    - 
+    - 
+  - areaName: DorsaleSommersa
     unlocked: 0
     fishes:
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
-    - fishName: 
-      prefab: {fileID: 0}
-      spawningLine: 0
-      spawnRate: 0
+    - 
+    - 
+    - 

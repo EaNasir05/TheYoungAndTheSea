@@ -7,6 +7,7 @@ TagManager:
   - Sea
   - Fish
   - Hook
+  - EventSystem
   layers:
   - Default
   - TransparentFX
