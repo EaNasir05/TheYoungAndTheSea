@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -9,7 +10,6 @@ public class BoatInteraction : MonoBehaviour
     [SerializeField] private EventSystem eventSystem;
     [SerializeField] private GameObject seaMap;
     [SerializeField] private GameObject[] buoys;
-    [SerializeField] private GameObject mainIsland;
     [SerializeField] private GameObject xButton;
     private bool nextToPlayer;
     private string selectedFishingArea;
@@ -45,27 +45,27 @@ public class BoatInteraction : MonoBehaviour
         selectedFishingArea = area;
         for (int i = 0; i < 4; i++)
         {
+            buoys[i].GetComponent<BuoySelection>().HideCircle();
             buoys[i].SetActive(false);
         }
-        mainIsland.SetActive(false);
         xButton.SetActive(false);
         string[] fishes = fishingAreas.GetArea(area).GetFishes();
         switch (area)
         {
             case "OcchioCalmo":
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "OCCHIO CALMO";
+                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "OCCHIO CALMO";
                 break;
             case "BancoArgenteo":
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "BANCO ARGENTEO";
+                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "BANCO ARGENTEO";
                 break;
             case "FondaleCorallino":
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "FONDALE CORALLINO";
+                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "FONDALE CORALLINO";
                 break;
             case "DorsaleSommersa":
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "DORSALE SOMMERSA";
+                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "DORSALE SOMMERSA";
                 break;
             default:
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<Text>().text = "AREA SCONOSCIUTA";
+                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "AREA SCONOSCIUTA";
                 break;
         }
         for (int i = 0; i < 3; i++)
@@ -90,9 +90,9 @@ public class BoatInteraction : MonoBehaviour
         {
             buoys[i].SetActive(true);
         }
-        mainIsland.SetActive(true);
         xButton.SetActive(true);
         seaMap.transform.GetChild(0).gameObject.SetActive(false);
+        eventSystem.SetSelectedGameObject(buoys[0]);
     }
 
     public void GoFishing()

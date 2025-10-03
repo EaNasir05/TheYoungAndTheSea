@@ -78,18 +78,23 @@ public class Hook : MonoBehaviour
 
     public void HookMovement()
     {
-        if (Input.GetKey(KeyCode.UpArrow) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.y < _contactPointReturn.y && transform.position.x < _startPosition.x)
+        if (Input.GetKey(KeyCode.UpArrow) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.y < _contactPointReturn.y)
         {
-            this.gameObject.transform.position += new Vector3((float)0.02, movementLenght,0);
-            _contactPointReturn += new Vector3((float)0.02, 0, 0);
-            _blockDownMovement = false;
+            this.gameObject.transform.position += new Vector3(0, movementLenght,0);
         }
-
+        if (Input.GetKey(KeyCode.RightArrow) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.x < _startPosition.x)
+        {
+            _contactPointReturn += new Vector3((movementLenght / 2), 0, 0);
+            gameObject.transform.position += new Vector3((movementLenght / 2), 0, 0);
+        }
         if (Input.GetKey(KeyCode.DownArrow) && !_blockDownMovement && !FishingPointsManager.instance.stop && transform.position.y > marginBottom.position.y && transform.position.x > marginLeft.position.x)
         {
-            this.gameObject.transform.position -= new Vector3((float)0.02, movementLenght, 0);
-            _contactPointReturn -= new Vector3((float)0.02, 0, 0);
-            _blockUpMovement = false;
+            this.gameObject.transform.position -= new Vector3(0, movementLenght, 0);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow) && !_blockUpMovement && !FishingPointsManager.instance.stop)
+        {
+            _contactPointReturn += new Vector3(-(movementLenght / 2), 0, 0);
+            gameObject.transform.position += new Vector3(-(movementLenght / 2), 0, 0);
         }
     }
 

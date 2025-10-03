@@ -16,9 +16,9 @@ MonoBehaviour:
   - areaName: OcchioCalmo
     unlocked: 1
     fishes:
-    - 
-    - 
-    - 
+    - Acciuga
+    - Spigolo
+    - Marlin
   - areaName: BancoArgenteo
     unlocked: 0
     fishes:

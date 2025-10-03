@@ -14,7 +14,7 @@ public class BuoySelection : MonoBehaviour
 
     private void Update()
     {
-        if (eventSystem.currentSelectedGameObject == this)
+        if (eventSystem.currentSelectedGameObject == gameObject)
         {
             circle.SetActive(true);
         }
@@ -22,5 +22,10 @@ public class BuoySelection : MonoBehaviour
         {
             circle.SetActive(false);
         }
+    }
+
+    public void HideCircle()
+    {
+        circle.SetActive(false);
     }
 }

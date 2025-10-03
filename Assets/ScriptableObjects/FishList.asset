@@ -18,13 +18,13 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: fa2ea805f48304046be3c9c8c2eb6be2, type: 3}
     restaurateurValue: 1
     artistValue: 1
-    unlocked: 1
+    unlocked: 0
   - name: Acciuga
     prefab: {fileID: 0}
     sprite: {fileID: 21300000, guid: 6fe90a6999a1294409e65de24aca5b22, type: 3}
     restaurateurValue: 1
     artistValue: 1
-    unlocked: 1
+    unlocked: 0
   - name: Spigolo
     prefab: {fileID: 0}
     sprite: {fileID: 21300000, guid: ffce6cfc9aea0a54ba8515ae7e064570, type: 3}

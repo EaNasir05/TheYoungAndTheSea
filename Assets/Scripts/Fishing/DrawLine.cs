@@ -14,6 +14,7 @@ public class DrawLine : MonoBehaviour
         line.positionCount = 2;
         line.startWidth = (float)0.1;
         line.endWidth = (float)0.1;
+        line.sortingOrder = -2;
     }
 
     private void Update()

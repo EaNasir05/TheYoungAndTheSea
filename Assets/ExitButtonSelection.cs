@@ -18,7 +18,7 @@ public class ExitButtonSelection : MonoBehaviour
 
     private void Update()
     {
-        if (eventSystem.currentSelectedGameObject == this)
+        if (eventSystem.currentSelectedGameObject == gameObject)
         {
             textField.color = Color.black;
         }

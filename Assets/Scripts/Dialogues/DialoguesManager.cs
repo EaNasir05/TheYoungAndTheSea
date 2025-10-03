@@ -215,6 +215,7 @@ public class DialoguesManager : MonoBehaviour
     public void StartDialogue(string character)
     {
         GameManager.instance.SetTalking(true);
+        GameObject.FindGameObjectWithTag("Inventory").SetActive(false);
         switch (character)
         {
             case "Fisherman":
@@ -227,9 +228,10 @@ public class DialoguesManager : MonoBehaviour
                 TalkWithArtist();
                 break;
             case "Grandpa":
+                TalkWithGrandpa();
                 break;
             default:
-                Debug.Log("PERSONAGGIO INESISTENTE");
+                TalkWithEaNasir();
                 break;
         }
     }
@@ -274,7 +276,7 @@ public class DialoguesManager : MonoBehaviour
             dialogueOptions.transform.GetChild(i).gameObject.SetActive(false);
         }
         ApplyEffect(effect);
-        Dialogue[] dialogues;
+        Dialogue[] dialogues = null;
         switch (currentCharacter)
         {
             case 1:
@@ -286,8 +288,11 @@ public class DialoguesManager : MonoBehaviour
             case 3:
                 dialogues = artist.dialogues;
                 break;
-            default:
+            case 4:
                 dialogues = grandpa.dialogues;
+                break;
+            default:
+                //dialoghi di ea nasir
                 break;
         }
         //cambia immagine personaggio
@@ -652,6 +657,11 @@ public class DialoguesManager : MonoBehaviour
     private void TalkWithGrandpa()
     {
         currentCharacter = 4;
+    }
+
+    private void TalkWithEaNasir()
+    {
+        currentCharacter = 5;
     }
 
     public void SellFishes()
