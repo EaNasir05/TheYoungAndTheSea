@@ -16,24 +16,24 @@ MonoBehaviour:
   - areaName: OcchioCalmo
     unlocked: 1
     fishes:
-    - Acciuga
-    - Spigolo
-    - Marlin
+    - Merluzzo
+    - Pesce vela
+    - Sogliola
   - areaName: BancoArgenteo
     unlocked: 0
     fishes:
-    - 
-    - 
-    - 
+    - Sardina
+    - Branzino
+    - Tonno
   - areaName: FondaleCorallino
     unlocked: 0
     fishes:
-    - 
-    - 
-    - 
+    - Pesce angelo
+    - Cernia
+    - Pesce mandarino
   - areaName: DorsaleSommersa
     unlocked: 0
     fishes:
-    - 
-    - 
-    - 
+    - Acciuga
+    - Spigolo
+    - Marlin

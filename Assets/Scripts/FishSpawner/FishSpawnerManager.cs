@@ -13,8 +13,6 @@ public class FishSpawnerManager : MonoBehaviour
         {
             instance = this;
         }
-        Debug.Log(rightSpawner.name );
-        Debug.Log(leftSpawner.name);
 
     }
 
