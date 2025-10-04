@@ -27,9 +27,11 @@ public class FishingTutorialManager : MonoBehaviour
         Application.targetFrameRate = 60;
         timeIsOver = false;
         instance = this;
-        fishesCaught = new Dictionary<string, int>();
-        fishesCaught.Add("Bugino", 0);
-        fishesCaught.Add("Favotto", 0);
+        fishesCaught = new Dictionary<string, int>
+        {
+            { "Bugino", 0 },
+            { "Favotto", 0 }
+        };
         FishingPointsManager.instance = new FishingPointsManager();
         FishingPointsManager.instance.stop = true;
         Debug.Log(FishingPointsManager.instance.stop);
@@ -64,7 +66,16 @@ public class FishingTutorialManager : MonoBehaviour
             if (fishesCaught[fishName] < 3)
             {
                 fishesCaught[fishName]++;
-                //aggiorna punteggio
+                int index;
+                if (fishName == "Bugino")
+                {
+                    index = 0;
+                }
+                else
+                {
+                    index = 1;
+                }
+                progress.transform.GetChild(index).GetComponent<TMP_Text>().text = fishesCaught[fishName] + "/3";
             }
             pointsField.transform.GetChild(1).GetComponent<Image>().sprite = fish;
             StartCoroutine(ShowFishCaught());
@@ -82,7 +93,7 @@ public class FishingTutorialManager : MonoBehaviour
     private IEnumerator ShowFishCaught()
     {
         pointsField.SetActive(true);
-        if (tutorialPhase == 3 && fishesCaught.Count == 6)
+        if (tutorialPhase == 3 && fishesCaught["Bugino"] + fishesCaught["Favotto"] == 6)
         {
             ready = true;
         }
@@ -130,11 +141,15 @@ public class FishingTutorialManager : MonoBehaviour
         if (tutorialPhase == 2)
         {
             hookInput.SetActive(true);
-            //fai apparire il punteggio
             spawners[0].SetActive(true);
             spawners[1].SetActive(true);
         }
+        if (tutorialPhase == 3)
+        {
+            progress.SetActive(true);
+        }
         yield return new WaitUntil(() => ready);
+        progress.SetActive(false);
         FishingPointsManager.instance.stop = true;
         DialoguesManager.instance.StartDialogue("Grandpa");
     }
@@ -151,7 +166,6 @@ public class FishingTutorialManager : MonoBehaviour
             yield return null;
         }
         blackWall.color = new Color(c.r, c.g, c.b, 1);
-        GameManager.instance.SetMorning(false);
         SceneManager.LoadScene(scene);
     }
 }

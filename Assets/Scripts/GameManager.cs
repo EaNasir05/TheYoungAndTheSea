@@ -3,6 +3,7 @@ using System.Collections;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -123,6 +124,20 @@ public class GameManager : MonoBehaviour
         StartCoroutine(EnterScene());
     }
 
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            GameObject selected = EventSystem.current?.currentSelectedGameObject;
+            if (selected != null)
+            {
+                Button button = selected.GetComponent<Button>();
+                if (button != null)
+                    button.onClick.Invoke();
+            }
+        }
+    }
+
     public void AddMoney(int value)
     {
         money += value;
@@ -194,14 +209,7 @@ public class GameManager : MonoBehaviour
         if (upgraded)
         {
             notification.transform.GetChild(0).GetComponent<TMP_Text>().text = "NUOVO LIVELLO DI CONFIDENZA";
-            if (character == 2)
-            {
-                notification.transform.GetChild(1).GetComponent<TMP_Text>().text = previousLevel + " >> " + restaurateurFriendship;
-            }
-            else
-            {
-                notification.transform.GetChild(1).GetComponent<TMP_Text>().text = previousLevel + " >> " + artistFriendship;
-            }
+            notification.transform.GetChild(1).GetComponent<TMP_Text>().text = "Nuovo dialogo sbloccato\n" + "(torna domani)";
             StartCoroutine(CreateNotification());
             upgraded = false;
         }
@@ -210,7 +218,7 @@ public class GameManager : MonoBehaviour
     public void UnlockColorsScheme()
     {
         notification.transform.GetChild(0).GetComponent<TMP_Text>().text = "SBLOCCATO SCHEMA COLORI";
-        notification.transform.GetChild(1).GetComponent<TMP_Text>().text = "Premere [I]";
+        notification.transform.GetChild(1).GetComponent<TMP_Text>().text = "Premi [I] per controllare l'inventario";
         colorsSchemeUnlocked = true;
         StartCoroutine(CreateNotification());
     }
@@ -218,7 +226,7 @@ public class GameManager : MonoBehaviour
     public void UnlockPricesList()
     {
         notification.transform.GetChild(0).GetComponent<TMP_Text>().text = "SBLOCCATO LISTINO PREZZI";
-        notification.transform.GetChild(1).GetComponent<TMP_Text>().text = "Premere [I]";
+        notification.transform.GetChild(1).GetComponent<TMP_Text>().text = "Premi [I] per controllare l'inventario";
         pricesListUnlocked = true;
         StartCoroutine(CreateNotification());
     }
@@ -243,8 +251,10 @@ public class GameManager : MonoBehaviour
             moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().color = Color.red;
         }
         moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().text += lastMoneyGain + "€";
+        moneyCount.transform.parent.gameObject.SetActive(true);
         moneyGain.SetActive(true);
         yield return new WaitForSeconds(3);
+        moneyCount.transform.parent.gameObject.SetActive(false);
         moneyGain.SetActive(false);
     }
 

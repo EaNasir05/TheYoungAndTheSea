@@ -97,7 +97,14 @@ public class BoatInteraction : MonoBehaviour
 
     public void GoFishing()
     {
-        StartCoroutine(GameManager.instance.ChangeScene(selectedFishingArea));
+        if (GameManager.instance.GetDay() == 1)
+        {
+            StartCoroutine(GameManager.instance.ChangeScene("FishingTutorial"));
+        }
+        else
+        {
+            StartCoroutine(GameManager.instance.ChangeScene(selectedFishingArea));
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

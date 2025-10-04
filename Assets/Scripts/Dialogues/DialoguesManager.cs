@@ -54,6 +54,7 @@ public class DialoguesManager : MonoBehaviour
     private bool firstTimeWithArtist;
     private bool firstTimeWithFisherman;
     private bool ready;
+    private bool branchReady;
     private bool selling;
     private bool discoveredArtistName;
     private bool firstDayOfWork;
@@ -89,6 +90,7 @@ public class DialoguesManager : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
         ready = true;
+        branchReady = true;
     }
     private void CopyData(DialoguesManager oldDM, DialoguesManager newDM)
     {
@@ -274,49 +276,55 @@ public class DialoguesManager : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
         dialogueOptions.SetActive(true);
+        yield return new WaitForSeconds((float)0.5);
+        branchReady = true;
     }
 
     public void CreateBranch(int index, int effect)
     {
-        dialogue.SetActive(false);
-        continueText.SetActive(false);
-        dialogueOptions.SetActive(false);
-        for (int i = 0; i < 3; i ++)
+        if (branchReady)
         {
-            dialogueOptions.transform.GetChild(i).gameObject.SetActive(false);
+            eventSystem.SetSelectedGameObject(null);
+            dialogue.SetActive(false);
+            continueText.SetActive(false);
+            dialogueOptions.SetActive(false);
+            for (int i = 0; i < 3; i++)
+            {
+                dialogueOptions.transform.GetChild(i).gameObject.SetActive(false);
+            }
+            ApplyEffect(effect);
+            Dialogue[] dialogues = null;
+            switch (currentCharacter)
+            {
+                case 1:
+                    dialogues = fisherman.dialogues;
+                    break;
+                case 2:
+                    dialogues = restaurateur.dialogues;
+                    break;
+                case 3:
+                    dialogues = artist.dialogues;
+                    break;
+                case 4:
+                    dialogues = grandpa.dialogues;
+                    break;
+                default:
+                    //dialoghi di ea nasir
+                    break;
+            }
+            //cambia immagine personaggio
+            if (!discoveredArtistName && currentCharacter == 3 && dialogues[index].GetCharacter() == "GINA")
+            {
+                characterName.text = "PITTRICE";
+            }
+            else
+            {
+                characterName.text = dialogues[index].GetCharacter();
+            }
+            dialogueText.text = dialogues[index].GetText();
+            dialogue.SetActive(true);
+            CreateAnswers(dialogues[index].GetAnswers());
         }
-        ApplyEffect(effect);
-        Dialogue[] dialogues = null;
-        switch (currentCharacter)
-        {
-            case 1:
-                dialogues = fisherman.dialogues;
-                break;
-            case 2:
-                dialogues = restaurateur.dialogues;
-                break;
-            case 3:
-                dialogues = artist.dialogues;
-                break;
-            case 4:
-                dialogues = grandpa.dialogues;
-                break;
-            default:
-                //dialoghi di ea nasir
-                break;
-        }
-        //cambia immagine personaggio
-        if (!discoveredArtistName && currentCharacter == 3 && dialogues[index].GetCharacter() == "GINA")
-        {
-            characterName.text = "PITTRICE";
-        }
-        else
-        {
-            characterName.text = dialogues[index].GetCharacter();
-        }
-        dialogueText.text = dialogues[index].GetText();
-        dialogue.SetActive(true);
-        CreateAnswers(dialogues[index].GetAnswers());
     }
 
     private void CreateAnswers(Answer[] answers)
@@ -331,6 +339,7 @@ public class DialoguesManager : MonoBehaviour
         }
         if (availableAnswers.Count > 1)
         {
+            branchReady = false;
             for (int i = 0; i < availableAnswers.Count; i++)
             {
                 Button button = dialogueOptions.transform.GetChild(i).GetComponent<Button>();
@@ -345,6 +354,7 @@ public class DialoguesManager : MonoBehaviour
         }
         else
         {
+            branchReady = true;
             int effect;
             if (availableAnswers.Count == 0)
             {

@@ -55,8 +55,7 @@ MonoBehaviour:
       link: 2000
       condition: 0
       effect: 0
-  - text: "Ottimo, ora ti basta capire quanto far scendere l'amo di profondit\xE0
-      per prendere un pesce."
+  - text: Ottimo, ora ti basta capire come muovere l'amo per prendere un pesce.
     character: NONNO
     image: {fileID: 0}
     answers:
@@ -64,7 +63,7 @@ MonoBehaviour:
       link: 2000
       condition: 0
       effect: 0
-  - text: "Vedo che hai gi\xE0 capito come tirare su il pesce quando abbocca."
+  - text: "Vedo che hai gi\xE0 capito come tirare su il pesce che ha abboccato."
     character: NONNO
     image: {fileID: 0}
     answers:
@@ -82,6 +81,22 @@ MonoBehaviour:
       effect: 0
   - text: "O magari \xE8 solo fortuna del principiante. Vediamo se riesci a prendere
       altri pesci."
+    character: NONNO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: Ce l'ho fatta nonno, ne ho presi altri 6!
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 10
+      condition: 0
+      effect: 0
+  - text: Non male, ma non ti entusiasmare tanto, hai ancora molto da imparare.
     character: NONNO
     image: {fileID: 0}
     answers:

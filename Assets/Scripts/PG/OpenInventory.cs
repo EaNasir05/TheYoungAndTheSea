@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class OpenInventory : MonoBehaviour
 {
     [SerializeField] private GameObject inventory;
+    [SerializeField] private GameObject moneyCount;
     [SerializeField] private FishList fishList;
 
     private void Awake()
@@ -30,6 +31,7 @@ public class OpenInventory : MonoBehaviour
             if (inventory.activeSelf)
             {
                 inventory.SetActive(false);
+                moneyCount.SetActive(false);
             }
             else
             {
@@ -54,6 +56,7 @@ public class OpenInventory : MonoBehaviour
                         inventory.transform.GetChild(i).GetChild(0).GetComponent<Image>().color = Color.black;
                     }
                     inventory.SetActive(true);
+                    moneyCount.SetActive(true);
                 }
             }
         }
