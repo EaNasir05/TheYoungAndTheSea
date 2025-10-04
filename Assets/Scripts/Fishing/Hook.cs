@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Hook : MonoBehaviour
 {
@@ -51,10 +52,14 @@ public class Hook : MonoBehaviour
                 _isLanded = true;
                 inTheSea = true;
                 _contactPointReturn = collision.ClosestPoint(this.gameObject.transform.position);
+                if (SceneManager.GetActiveScene().name == "FishingTutorial")
+                {
+                    FishingTutorialManager.instance.DroppedHook();
+                }
             }
         }
         
-        if(collision.gameObject.tag == "Fish" && !returning)
+        if (collision.gameObject.tag == "Fish" && !returning)
         {
             _fishStrenght = collision.GetComponent<FishMovement>()._strength;
             inTheSea = false;
@@ -68,7 +73,7 @@ public class Hook : MonoBehaviour
 
         if (collider.name == "Sea")
         {
-            Vector3 contactPoint = collision.ClosestPoint(this.gameObject.transform.position);
+            Vector3 contactPoint = collision.ClosestPoint(gameObject.transform.position);
             Vector3 center = collider.bounds.center;
 
             _blockDownMovement = contactPoint.y < center.y;
@@ -78,20 +83,20 @@ public class Hook : MonoBehaviour
 
     public void HookMovement()
     {
-        if (Input.GetKey(KeyCode.UpArrow) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.y < _contactPointReturn.y)
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.y < _contactPointReturn.y)
         {
-            this.gameObject.transform.position += new Vector3(0, movementLenght,0);
+            gameObject.transform.position += new Vector3(0, movementLenght,0);
         }
-        if (Input.GetKey(KeyCode.RightArrow) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.x < _startPosition.x)
+        if ((Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D)) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.x < _startPosition.x)
         {
             _contactPointReturn += new Vector3((movementLenght / 3), 0, 0);
             gameObject.transform.position += new Vector3((movementLenght / 3), 0, 0);
         }
-        if (Input.GetKey(KeyCode.DownArrow) && !_blockDownMovement && !FishingPointsManager.instance.stop && transform.position.y > marginBottom.position.y && transform.position.x > marginLeft.position.x)
+        if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && !_blockDownMovement && !FishingPointsManager.instance.stop && transform.position.y > marginBottom.position.y && transform.position.x > marginLeft.position.x)
         {
-            this.gameObject.transform.position -= new Vector3(0, movementLenght, 0);
+            gameObject.transform.position -= new Vector3(0, movementLenght, 0);
         }
-        if (Input.GetKey(KeyCode.LeftArrow) && !_blockUpMovement && !FishingPointsManager.instance.stop)
+        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !_blockUpMovement && !FishingPointsManager.instance.stop)
         {
             _contactPointReturn += new Vector3(-(movementLenght / 3), 0, 0);
             gameObject.transform.position += new Vector3(-(movementLenght / 3), 0, 0);
@@ -118,18 +123,18 @@ public class Hook : MonoBehaviour
 
     IEnumerator MoveFishUpward()
     {
-        while (transform.position != _startPosition)
+        float duration = _fishStrenght;
+        float elapsed = 0;
+        Vector3 start = transform.position;
+        Vector3 target = _startPosition;
+        while (elapsed < duration)
         {
             if (FishingPointsManager.instance.stop)
-            {
-                break;
-            }
-            transform.position = Vector3.MoveTowards(
-                transform.position,
-                _startPosition,
-                movementLenght * 3
-            );
-            yield return new WaitForSeconds(_fishStrenght / 100f);
+                yield break;
+            elapsed += Time.deltaTime;
+            float t = Mathf.Clamp01(elapsed / duration);
+            transform.position = Vector3.Lerp(start, target, t);
+            yield return null;
         }
         Restart();
     }

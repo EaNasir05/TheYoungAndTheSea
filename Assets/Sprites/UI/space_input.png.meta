@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 5d781d5a6472d924288e17ccbb266416
+guid: 32f4fd33b3dd3e647bd09c32f56f2797
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6621902783183867106
-    second: pesce2_0
+      213: -1715035500776653522
+    second: space_input_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 75
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: pesce2_0
+      name: space_input_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 5
-        width: 50
-        height: 35
+        x: 205
+        y: 186
+        width: 86
+        height: 40
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e13b727c0864a14a0800000000000000
-      internalID: -6621902783183867106
+      spriteID: e2df5077c48f238e0800000000000000
+      internalID: -1715035500776653522
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      pesce2_0: -6621902783183867106
+      space_input_0: -1715035500776653522
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

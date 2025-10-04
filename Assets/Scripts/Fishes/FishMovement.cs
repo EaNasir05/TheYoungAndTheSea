@@ -2,6 +2,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
+using UnityEngine.SceneManagement;
 
 public class FishMovement : MonoBehaviour
 {
@@ -90,7 +91,14 @@ public class FishMovement : MonoBehaviour
         if(_fishGoingUP && !FishingPointsManager.instance.stop)
         {
             _fishGoingUP = false;
-            FishingPointsManager.instance.AddFish(_fishToEliminate[0].GetComponent<FishMovement>().GetName());
+            if (SceneManager.GetActiveScene().name == "FishingTutorial")
+            {
+                FishingTutorialManager.instance.AddFish(_fishToEliminate[0].GetComponent<SpriteRenderer>().sprite, _fishToEliminate[0].GetComponent<FishMovement>().GetName());
+            }
+            else
+            {
+                FishingPointsManager.instance.AddFish(_fishToEliminate[0].GetComponent<FishMovement>().GetName());
+            }
             Destroy(_fishToEliminate[0]);
             _fishToEliminate.Clear();
         }

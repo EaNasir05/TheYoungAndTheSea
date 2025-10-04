@@ -115,6 +115,7 @@ public class FishingPointsManager : MonoBehaviour
             yield return null;
         }
         blackWall.color = new Color(c.r, c.g, c.b, 1);
-        //SceneManager.LoadScene(scene);
+        GameManager.instance.SetMorning(false);
+        SceneManager.LoadScene(scene);
     }
 }

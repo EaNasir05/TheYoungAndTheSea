@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
-            day = 1;
+            day = 0;
             money = 100;
             morning = false;
             upgraded = false;
@@ -119,6 +119,7 @@ public class GameManager : MonoBehaviour
             }
         }
         CheckFishingAreas();
+        moneyCount.text = money + " €";
         StartCoroutine(EnterScene());
     }
 
@@ -288,7 +289,7 @@ public class GameManager : MonoBehaviour
             yield return null;
         }
         blackWall.color = new Color(c.r, c.g, c.b, 0);
-        if (day == 0)
+        if (day == 0 || day == 1)
         {
             DialoguesManager.instance.StartDialogue("Fisherman");
         }

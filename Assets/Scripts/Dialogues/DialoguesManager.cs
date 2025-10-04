@@ -6,6 +6,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class NextDialogue
@@ -58,6 +59,7 @@ public class DialoguesManager : MonoBehaviour
     private bool firstDayOfWork;
     private int moneyGaining;
     private bool talkedToFisherman;
+    private int tutorialPhase;
     private Dictionary<string, int> selectedFishes;
 
     private void Awake()
@@ -76,6 +78,7 @@ public class DialoguesManager : MonoBehaviour
             discoveredArtistName = false;
             firstDayOfWork = true;
             talkedToFisherman = false;
+            tutorialPhase = 0;
             selectedFishes = new Dictionary<string, int>();
         }
         else if (instance != this)
@@ -207,6 +210,9 @@ public class DialoguesManager : MonoBehaviour
             case 15:
                 Debug.Log("Finale2");
                 break;
+            case 16:
+                tutorialPhase++;
+                break;
             default:
                 return;
         }
@@ -214,8 +220,8 @@ public class DialoguesManager : MonoBehaviour
 
     public void StartDialogue(string character)
     {
-        GameManager.instance.SetTalking(true);
-        GameObject.FindGameObjectWithTag("Inventory").SetActive(false);
+        GameManager.instance?.SetTalking(true);
+        GameObject.FindGameObjectWithTag("Inventory")?.SetActive(false);
         switch (character)
         {
             case "Fisherman":
@@ -251,8 +257,12 @@ public class DialoguesManager : MonoBehaviour
             case 2000:
                 ApplyEffect(effect);
                 dialogue.SetActive(false);
-                GameManager.instance.SetTalking(false);
-                GameManager.instance.CheckForFriendshipUpgrades(currentCharacter);
+                if (SceneManager.GetActiveScene().name == "FishingTutorial")
+                {
+                    StartCoroutine(FishingTutorialManager.instance.StopDialogue(tutorialPhase));
+                }
+                GameManager.instance?.SetTalking(false);
+                GameManager.instance?.CheckForFriendshipUpgrades(currentCharacter);
                 break;
             default:
                 CreateBranch(nextBranch, effect);
@@ -657,6 +667,24 @@ public class DialoguesManager : MonoBehaviour
     private void TalkWithGrandpa()
     {
         currentCharacter = 4;
+        if (SceneManager.GetActiveScene().name == "FishingTutorial")
+        {
+            switch (tutorialPhase)
+            {
+                case 0:
+                    CreateBranch(0, 16);
+                    break;
+                case 1:
+                    CreateBranch(5, 16);
+                    break;
+                case 2:
+                    CreateBranch(6, 16);
+                    break;
+                case 3:
+                    CreateBranch(9, 16);
+                    break;
+            }
+        }
     }
 
     private void TalkWithEaNasir()

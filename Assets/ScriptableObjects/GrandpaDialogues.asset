@@ -12,4 +12,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a72f45625736fa245b38841eb374f683, type: 3}
   m_Name: GrandpaDialogues
   m_EditorClassIdentifier: 
-  dialogues: []
+  dialogues:
+  - text: "Hehe... Ti vedo parecchio in difficolt\xE0 Brian, qualcosa non va?"
+    character: NONNO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 1
+      condition: 0
+      effect: 0
+  - text: "S\xEC, ad essere onesto non so proprio da dove iniziare. Non ho mai pescato
+      prima d'ora."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2
+      condition: 0
+      effect: 0
+  - text: "Smettila con questi discorsi da perdente e ascoltami! La pesca non \xE8
+      un hobby per poppanti, devi rimanere concentrato su quello che fai, chiaro?"
+    character: NONNO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 3
+      condition: 0
+      effect: 0
+  - text: "S\xEC... Credo."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: Bene, innanzitutto lancia la lensa in acqua.
+    character: NONNO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: "Ottimo, ora ti basta capire quanto far scendere l'amo di profondit\xE0
+      per prendere un pesce."
+    character: NONNO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0
+  - text: "Vedo che hai gi\xE0 capito come tirare su il pesce quando abbocca."
+    character: NONNO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 7
+      condition: 0
+      effect: 0
+  - text: "S\xEC, sento che ci sto prendendo la mano."
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 8
+      condition: 0
+      effect: 0
+  - text: "O magari \xE8 solo fortuna del principiante. Vediamo se riesci a prendere
+      altri pesci."
+    character: NONNO
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0

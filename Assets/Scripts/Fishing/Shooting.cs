@@ -60,7 +60,7 @@ public class Shooting : MonoBehaviour
     {
         if (_isShot)
         {
-            if (Input.GetKey(KeyCode.Space) && !_isMaxCharge)
+            if (Input.GetKey(KeyCode.Space) && !_isMaxCharge && !FishingPointsManager.instance.stop)
             {
                 if (!lineRenderer.enabled)
                 {
@@ -69,7 +69,7 @@ public class Shooting : MonoBehaviour
                 launchVelocity.x -= velocityRightLeft;
             }
 
-            if (Input.GetKeyUp(KeyCode.Space) || _isMaxCharge)
+            if ((Input.GetKeyUp(KeyCode.Space) || _isMaxCharge) && !FishingPointsManager.instance.stop)
             {
                 Shoot();
                 lineRenderer.positionCount = 0;
