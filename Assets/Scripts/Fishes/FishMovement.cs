@@ -42,16 +42,7 @@ public class FishMovement : MonoBehaviour
     {
         _fishPos = GetComponent<Transform>();
         _fishSprite = GetComponent<SpriteRenderer>();
-
-        if (_fishPos.position.x > Camera.main.transform.position.x)
-        {
-            _fishDestination = new Vector2(_fishPosXLeftSpawner, UnityEngine.Random.Range(_fishPosMinYSpawner, _fishPosMaxYSpawner));
-        }
-        if(_fishPos.position.x < Camera.main.transform.position.x) 
-        {
-            _fishSprite.flipX = true;
-            _fishDestination = new Vector2(_fishPosXRightSpawner, UnityEngine.Random.Range(_fishPosMinYSpawner, _fishPosMaxYSpawner));
-        }
+        _fishDestination = new Vector2(_fishPosXLeftSpawner, UnityEngine.Random.Range(_fishPosMinYSpawner, _fishPosMaxYSpawner));
     }
     void Update()
     {

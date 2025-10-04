@@ -106,7 +106,7 @@ MonoBehaviour:
   _strength: 1
   _fishPosXRightSpawner: 9.5
   _fishPosXLeftSpawner: -9.5
-  _fishPosMaxYSpawner: 1
+  _fishPosMaxYSpawner: 0
   _fishPosMinYSpawner: -4.5
   _fishToEliminate: []
 --- !u!61 &139185240773231275
