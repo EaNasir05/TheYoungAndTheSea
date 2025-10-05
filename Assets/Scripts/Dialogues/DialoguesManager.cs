@@ -86,6 +86,7 @@ public class DialoguesManager : MonoBehaviour
     [SerializeField] private FishList fishList;
     [SerializeField] private GameObject fishInfo;
     [SerializeField] private AudioClip buttonAudio;
+    [SerializeField] private GameObject fineProvvisoria;
     public List<NextDialogue> nextDialoguesRestaurateur;
     public List<NextDialogue> nextDialoguesArtist;
     public int freedom;
@@ -230,9 +231,11 @@ public class DialoguesManager : MonoBehaviour
                 break;
             case 14:
                 Debug.Log("Finale1");
+                fineProvvisoria.SetActive(true);
                 break;
             case 15:
                 Debug.Log("Finale2");
+                fineProvvisoria.SetActive(true);
                 break;
             case 16:
                 tutorialPhase++;

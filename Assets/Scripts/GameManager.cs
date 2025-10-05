@@ -26,6 +26,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AudioClip moneyAudio;
     [SerializeField] private AudioClip notificationAudio;
     [SerializeField] private AudioClip buttonAudio;
+    private float fadeTime;
+    private int previousLevel;
+    private int lastMoneyGain;
     private int day;
     private int money;
     private bool morning;
@@ -35,18 +38,18 @@ public class GameManager : MonoBehaviour
     private int artistFriendship;
     private int restaurateurExp;
     private int artistExp;
-    private int previousLevel;
-    private int lastMoneyGain;
     private bool pricesListUnlocked;
     private bool colorsSchemeUnlocked;
-    private float fadeTime;
 
     public int GetDay() { return day; }
     public int GetMoney() { return money; }
     public bool IsTalking() { return talking; }
     public bool IsMorning() { return morning; }
+    public bool IsUpgraded() { return upgraded; }
     public int GetRestaurateurFriendship() { return restaurateurFriendship; }
     public int GetArtistFriendship() { return artistFriendship; }
+    public int GetRestaurateurExp() { return restaurateurExp; }
+    public int GetArtistExp() { return artistExp; }
     public bool IsPricesListUnlocked() { return pricesListUnlocked; }
     public bool IsColorsSchemeUnlocked() { return colorsSchemeUnlocked; }
 
@@ -258,7 +261,7 @@ public class GameManager : MonoBehaviour
         }
         moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().text += lastMoneyGain + "€";
         moneyCount.transform.parent.gameObject.SetActive(true);
-        SoundEffectsManager.instance.PlaySFXClip(moneyAudio, 1);
+        SoundEffectsManager.instance.PlaySFXClip(moneyAudio, (float)0.8);
         moneyGain.SetActive(true);
         yield return new WaitForSeconds(3);
         moneyCount.transform.parent.gameObject.SetActive(false);

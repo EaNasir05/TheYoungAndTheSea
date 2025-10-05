@@ -21,6 +21,7 @@ public class Hook : MonoBehaviour
     private bool _blockDownMovement = false;
     private bool inTheSea = false;
     private bool returning = false;
+    private bool ready;
 
     private float _fishStrenght;
 
@@ -121,8 +122,24 @@ public class Hook : MonoBehaviour
     {
         _blockUpMovement = true;
         _blockDownMovement = true;
+        ready = false;
         SoundEffectsManager.instance.PlaySFXClip(fishBiteAudio, (float)0.85);
+        StartCoroutine(CheckHookCondition());
         StartCoroutine("MoveFishUpward");
+    }
+
+    private IEnumerator CheckHookCondition()
+    {
+        yield return new WaitForSeconds(_fishStrenght + (float)0.5);
+        if (!ready)
+        {
+            transform.position = new Vector2(_startPosition.x, _startPosition.y);
+            _isLanded = false;
+            _gravitySet = false;
+            _blockUpMovement = false;
+            _blockDownMovement = false;
+            returning = false;
+        }
     }
 
     IEnumerator MoveFishUpward()
@@ -147,9 +164,10 @@ public class Hook : MonoBehaviour
     {
         if (this.gameObject.transform.position.y >= _contactPointReturn.y)
         {
+            ready = true;
             SoundEffectsManager.instance.PlaySFXClip(fishCaughtAudio, (float)0.7);
             onFishOutOfWater?.Invoke();
-            transform.position = new Vector2 (_startPosition.x, _startPosition.y);
+            transform.position = new Vector2(_startPosition.x, _startPosition.y);
             _isLanded = false;
             _gravitySet = false;
             _blockUpMovement = false;
