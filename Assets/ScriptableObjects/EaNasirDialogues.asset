@@ -1,0 +1,172 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 008937edd896aea4baf5fcb6df1bb70c, type: 3}
+  m_Name: EaNasirDialogues
+  m_EditorClassIdentifier: 
+  dialogues:
+  - text: "Iltam zumr\u0101 ra\u0161ubti il\u0101tim, litta''id b\u0113let ni\u0161\u012B
+      rab\u012Bt igig\u012B. I\u0161tar zumr\u0101 ra\u0161ubti il\u0101tim, litta''id
+      b\u0113let i\u0161\u0161\u012B rab\u012Bt igig\u012B."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 1
+      condition: 0
+      effect: 0
+  - text: "S\u0101t m\u0113li\u1E63im ru'\u0101mam lab\u0161at, za'nat inb\u012B
+      m\u012Bqiam u kuzbam. I\u0161tar m\u0113li\u1E63im ru'\u0101mam lab\u0161at,
+      za'nat inb\u012B m\u012Bqiam u kuzbam."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2
+      condition: 0
+      effect: 0
+  - text: "Sapt\u012Bn du\u0161\u0161upat bal\u0101\u1E6Dum p\u012B\u0161a, simti\u0161\u0161a
+      ihann\u012Bma \u1E63\u012Bh\u0101tum. Sarhat irimm\u016B ram\xFB r\u0113\u0161u\u0161\u0161a,
+      baniw\u0101 \u0161imt\u0101\u0161a bitr\u0101m\u0101 \u012Bn\u0101\u0161a \u0161it'ar\u0101."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 3
+      condition: 0
+      effect: 0
+  - text: "Eltum i\u0161taw\u0161a iba\u0161\u0161i milkum, \u0161\u012Bmat mimmami
+      q\u0101ti\u0161\u0161a tamhat, napalsu\u0161\u0161a bani bu\u0101rum, b\u0101\u0161tum
+      ma\u0161rahu lamassum \u0161\u0113dum."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 4
+      condition: 0
+      effect: 0
+  - text: "Tart\u0101m\u012B te\u0161m\xEA rit\u016Bm\u012B \u1E6D\u016Bb\u012B,
+      u mitguram teb\u0113l \u0161\u012Bma, ardat tattad\xFB umma tara\u0161\u0161i,
+      izakkar\u0161i in-ni\u0161\u012B inabbi \u0161um\u0161a."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 5
+      condition: 0
+      effect: 0
+  - text: "Ayy\xFBm narbia\u0161 i\u0161annan mannum? Ga\u0161r\u016B \u1E63\u012Br\u016B
+      \u0161\u016Bp\xFB par\u1E63\u016B\u0161a. I\u0161tar narbia\u0161 i\u0161annan
+      mannum? Ga\u0161r\u016B \u1E63\u012Br\u016B \u0161\u016Bp\xFB par\u1E63\u016B\u0161a."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 6
+      condition: 0
+      effect: 0
+  - text: "Ga-a-at in-il\u012B atar nazz\u0101zu\u0161, kabtat a[m]assa el\u0161unu
+      haltatma. I\u0161tar inil\u012B atar nazzazzu\u0161, kabtat amassa el\u0161unu
+      haltatma."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 7
+      condition: 0
+      effect: 0
+  - text: "Sarrassun u\u0161tanaddan\u016B siqr\u012B\u0161a, kullassunu \u0161\xE2\u0161
+      kams\u016B\u0161i, nannar\u012B\u0161a ilaqq\xFB\u0161im, i\u0161\u0161\xFB
+      u aw\u012Blum palh\u016B\u0161\u012Bma."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 8
+      condition: 0
+      effect: 0
+  - text: "Puhri\u0161\u0161un etel qab\xFB\u0161a \u0161\u016Btur, ana anim \u0161arri\u0161unu
+      ma-la-am a\u0161bassunu, uznam n\u0113meqim has\u012Bsam er\u0161et, imtallik\u016B
+      \u0161\u012B u hammu\u0161."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 9
+      condition: 0
+      effect: 0
+  - text: "Ram\xFBma i\u0161t\u0113ni\u0161 parakkam, igg\u0113gunnim \u0161ubat
+      r\u012B\u0161\u0101tim, mutti\u0161\u0161un il\u016B nazuzz\u016B, ep\u0161i\u0161
+      p\u012B\u0161unu ba\u0161iw\u0101 uzn\u0101\u0161un."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 10
+      condition: 0
+      effect: 0
+  - text: "Sarrum migra\u0161un nar\u0101m libbi\u0161un, \u0161arhi\u0161 itnaqqi\u0161un\u016Bt
+      niqia\u0161u ellam. Ammi-dit\u0101na ellam niq\u012B q\u0101t\u012B\u0161u,
+      mahr\u012B\u0161un u\u0161ebbi li'\u012B u ayy\u0101l\u012B na-am-ra-i-i."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 11
+      condition: 0
+      effect: 0
+  - text: "I\u0161ti anim h\u0101mer\u012B\u0161a t\u0113ter\u0161a\u0161\u0161um
+      d\u0101riam bal\u0101\u1E6Dam arkam. M\u0101d\u0101tim \u0161an\u0101t bal\u0101\u1E6Dim
+      ana ammi-dit\u0101na tu\u0161atlim I\u0161tar tattadin."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 12
+      condition: 0
+      effect: 0
+  - text: "Siqru\u0161\u0161a tu\u0161akni\u0161a\u0161\u0161um kibr\u0101t erb\xEAm
+      ana \u0161\u0113p\u012B\u0161u, u naphar kal\u012B\u0161unu dadm\u012B ta\u1E63\u1E63ammissun\u016Bti
+      an-n\u012Br\u012B\u0161u."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 13
+      condition: 0
+      effect: 0
+  - text: "Bibel libb\u012B\u0161a zamar lal\xEA\u0161a, na\u1E6D\xFBmma ana p\xEE\u0161u
+      siqri ea \u012Bpussi. E\u0161m\u0113ma tanitta\u0161a ir\u012Bssu, liblu\u1E6Dmi
+      \u0161arra\u0161u lir\u0101m\u0161u ad-d\u0101ri\u0161."
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 14
+      condition: 0
+      effect: 0
+  - text: "I\u0161tar ana ammi-dit\u0101na \u0161arri r\u0101'im\u012Bki, arkam d\u0101riam
+      bal\u0101\u1E6Dam \u0161urk\u012B liblu\u1E6D!"
+    character: ANTICA RELIQUIA PARLANTE
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 15
+      condition: 0
+      effect: 0
+  - text: ...Ok?
+    character: BRIAN
+    image: {fileID: 0}
+    answers:
+    - text: 
+      link: 2000
+      condition: 0
+      effect: 0

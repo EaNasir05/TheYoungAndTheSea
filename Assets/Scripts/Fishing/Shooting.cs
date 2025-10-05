@@ -6,6 +6,8 @@ using UnityEngine;
 [RequireComponent(typeof(LineRenderer))]
 public class Shooting : MonoBehaviour
 {
+    [SerializeField] private AudioClip hookThrowAudio;
+
     [Header("Input")]
     public Vector2 launchVelocity;
 
@@ -114,6 +116,7 @@ public class Shooting : MonoBehaviour
     }
     public void Shoot()
     {
+        SoundEffectsManager.instance.PlaySFXClip(hookThrowAudio, 1);
         _isShot = false;
         _rb.gravityScale = 1f;
         _rb.transform.position = transform.position;

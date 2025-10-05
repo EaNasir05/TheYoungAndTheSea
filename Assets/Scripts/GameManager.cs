@@ -23,6 +23,9 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Camera mainCamera;
     [SerializeField] private GameObject fausto;
     [SerializeField] private GameObject gina;
+    [SerializeField] private AudioClip moneyAudio;
+    [SerializeField] private AudioClip notificationAudio;
+    [SerializeField] private AudioClip buttonAudio;
     private int day;
     private int money;
     private bool morning;
@@ -101,6 +104,7 @@ public class GameManager : MonoBehaviour
     {
         if (morning)
         {
+            Debug.Log("MATTINA DEL GIORNO " + day);
             nightScreen.SetActive(false);
             mainCamera.backgroundColor = morningSkyColor;
             if (day == 1)
@@ -111,6 +115,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            Debug.Log("SERA DEL GIORNO " + day);
             nightScreen.SetActive(true);
             mainCamera.backgroundColor = nightSkyColor;
             if (day == 0)
@@ -233,6 +238,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator CreateNotification()
     {
+        SoundEffectsManager.instance.PlaySFXClip(notificationAudio, 1);
         notification.SetActive(true);
         yield return new WaitForSeconds(3);
         notification.SetActive(false);
@@ -252,6 +258,7 @@ public class GameManager : MonoBehaviour
         }
         moneyGain.transform.GetChild(0).GetComponent<TMP_Text>().text += lastMoneyGain + "€";
         moneyCount.transform.parent.gameObject.SetActive(true);
+        SoundEffectsManager.instance.PlaySFXClip(moneyAudio, 1);
         moneyGain.SetActive(true);
         yield return new WaitForSeconds(3);
         moneyCount.transform.parent.gameObject.SetActive(false);
@@ -311,6 +318,7 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator ChangeScene(string scene)
     {
+        DialoguesVariables.instance.SaveFrom(DialoguesManager.instance);
         Color c = blackWall.color;
         float t = 0;
         while (t < fadeTime)
@@ -326,6 +334,8 @@ public class GameManager : MonoBehaviour
 
     public IEnumerator NextDay()
     {
+        SoundEffectsManager.instance.PlaySFXClip(buttonAudio, 1);
+        DialoguesVariables.instance.SaveFrom(DialoguesManager.instance);
         day++;
         morning = true;
         Color c = blackWall.color;

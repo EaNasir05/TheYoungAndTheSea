@@ -9,6 +9,9 @@ public class Hook : MonoBehaviour
     [SerializeField] float movementLenght;
     [SerializeField] Transform marginLeft;
     [SerializeField] Transform marginBottom;
+    [SerializeField] private AudioClip fishBiteAudio;
+    [SerializeField] private AudioClip fishCaughtAudio;
+    [SerializeField] private AudioClip hookLandedAudio;
 
     private Rigidbody2D _rb;
 
@@ -46,9 +49,10 @@ public class Hook : MonoBehaviour
     {
         if (!_isLanded)
         {
-            if (collision.gameObject.tag == "Sea" && !returning)
+            if (collision.gameObject.CompareTag("Sea") && !returning)
             {
                 _rb.constraints = RigidbodyConstraints2D.FreezeAll;
+                SoundEffectsManager.instance.PlaySFXClip(hookLandedAudio, 1);
                 _isLanded = true;
                 inTheSea = true;
                 _contactPointReturn = collision.ClosestPoint(this.gameObject.transform.position);
@@ -59,7 +63,7 @@ public class Hook : MonoBehaviour
             }
         }
         
-        if (collision.gameObject.tag == "Fish" && !returning)
+        if (collision.gameObject.CompareTag("Fish") && !returning)
         {
             _fishStrenght = collision.GetComponent<FishMovement>()._strength;
             inTheSea = false;
@@ -83,7 +87,7 @@ public class Hook : MonoBehaviour
 
     public void HookMovement()
     {
-        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.y < _contactPointReturn.y)
+        if ((Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.W)) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.y < 1.25)
         {
             gameObject.transform.position += new Vector3(0, movementLenght,0);
         }
@@ -92,11 +96,11 @@ public class Hook : MonoBehaviour
             _contactPointReturn += new Vector3((movementLenght / 3), 0, 0);
             gameObject.transform.position += new Vector3((movementLenght / 3), 0, 0);
         }
-        if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && !_blockDownMovement && !FishingPointsManager.instance.stop && transform.position.y > marginBottom.position.y && transform.position.x > marginLeft.position.x)
+        if ((Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.S)) && !_blockDownMovement && !FishingPointsManager.instance.stop && transform.position.y > marginBottom.position.y)
         {
             gameObject.transform.position -= new Vector3(0, movementLenght, 0);
         }
-        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !_blockUpMovement && !FishingPointsManager.instance.stop)
+        if ((Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A)) && !_blockUpMovement && !FishingPointsManager.instance.stop && transform.position.x > marginLeft.position.x)
         {
             _contactPointReturn += new Vector3(-(movementLenght / 3), 0, 0);
             gameObject.transform.position += new Vector3(-(movementLenght / 3), 0, 0);
@@ -117,7 +121,7 @@ public class Hook : MonoBehaviour
     {
         _blockUpMovement = true;
         _blockDownMovement = true;
-
+        SoundEffectsManager.instance.PlaySFXClip(fishBiteAudio, (float)0.85);
         StartCoroutine("MoveFishUpward");
     }
 
@@ -143,6 +147,7 @@ public class Hook : MonoBehaviour
     {
         if (this.gameObject.transform.position.y >= _contactPointReturn.y)
         {
+            SoundEffectsManager.instance.PlaySFXClip(fishCaughtAudio, (float)0.7);
             onFishOutOfWater?.Invoke();
             transform.position = new Vector2 (_startPosition.x, _startPosition.y);
             _isLanded = false;

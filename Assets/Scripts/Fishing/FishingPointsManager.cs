@@ -15,6 +15,7 @@ public class FishingPointsManager : MonoBehaviour
     [SerializeField] private GameObject chargeBar;
     [SerializeField] private GameObject summary;
     [SerializeField] private Image blackWall;
+    [SerializeField] private AudioClip notificationAudio;
     private Dictionary<string, int> fishesCaught;
     public bool stop;
     private bool timeIsOver;
@@ -85,6 +86,7 @@ public class FishingPointsManager : MonoBehaviour
         timeIsOver = true;
         chargeBar.SetActive(false);
         timer.SetActive(false);
+        SoundEffectsManager.instance.PlaySFXClip(notificationAudio, 1);
         summary.SetActive(true);
     }
 

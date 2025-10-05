@@ -21,6 +21,46 @@ public class NextDialogue
     }
 }
 
+public class DialoguesVariables
+{
+    public static DialoguesVariables instance = new();
+    public static bool hasData = false;
+
+    private List<NextDialogue> nextDialoguesRestaurateur;
+    private List<NextDialogue> nextDialoguesArtist;
+    private int freedom;
+    private bool firstTimeWithRestaurateur;
+    private bool firstTimeWithArtist;
+    private bool firstTimeWithFisherman;
+    private bool discoveredArtistName;
+    private bool firstDayOfWork;
+
+    public void LoadTo(DialoguesManager manager)
+    {
+        manager.nextDialoguesRestaurateur = nextDialoguesRestaurateur;
+        manager.nextDialoguesArtist = nextDialoguesArtist;
+        manager.freedom = freedom;
+        manager.firstTimeWithRestaurateur = firstTimeWithRestaurateur;
+        manager.firstTimeWithArtist = firstTimeWithArtist;
+        manager.firstTimeWithFisherman = firstTimeWithFisherman;
+        manager.discoveredArtistName = discoveredArtistName;
+        manager.firstDayOfWork = firstDayOfWork;
+    }
+
+    public void SaveFrom(DialoguesManager manager)
+    {
+        hasData = true;
+        nextDialoguesRestaurateur = manager.nextDialoguesRestaurateur;
+        nextDialoguesArtist = manager.nextDialoguesArtist;
+        freedom = manager.freedom;
+        firstTimeWithRestaurateur = manager.firstTimeWithRestaurateur;
+        firstTimeWithArtist = manager.firstTimeWithArtist;
+        firstTimeWithFisherman = manager.firstTimeWithFisherman;
+        discoveredArtistName = manager.discoveredArtistName;
+        firstDayOfWork = manager.firstDayOfWork;
+    }
+}
+
 public class DialoguesManager : MonoBehaviour
 {
     public static DialoguesManager instance;
@@ -30,6 +70,7 @@ public class DialoguesManager : MonoBehaviour
     [SerializeField] private RestaurateurDialogues restaurateur;
     [SerializeField] private FishermanDialogues fisherman;
     [SerializeField] private ArtistDialogues artist;
+    [SerializeField] private EaNasirDialogues nasir;
     [SerializeField] private GameObject dialogue;
     [SerializeField] private Image characterImage;
     [SerializeField] private TMP_Text characterName;
@@ -44,20 +85,21 @@ public class DialoguesManager : MonoBehaviour
     [SerializeField] private Button stopSellingButton;
     [SerializeField] private FishList fishList;
     [SerializeField] private GameObject fishInfo;
-    private List<NextDialogue> nextDialoguesRestaurateur;
-    private List<NextDialogue> nextDialoguesArtist;
+    [SerializeField] private AudioClip buttonAudio;
+    public List<NextDialogue> nextDialoguesRestaurateur;
+    public List<NextDialogue> nextDialoguesArtist;
+    public int freedom;
+    public bool firstTimeWithRestaurateur;
+    public bool firstTimeWithArtist;
+    public bool firstTimeWithFisherman;
+    public bool discoveredArtistName;
+    public bool firstDayOfWork;
+    private bool ready;
+    private bool branchReady;
     private NextDialogue currentDialogue;
     private int currentCharacter;
     private int nextBranch;
-    private int freedom;
-    private bool firstTimeWithRestaurateur;
-    private bool firstTimeWithArtist;
-    private bool firstTimeWithFisherman;
-    private bool ready;
-    private bool branchReady;
     private bool selling;
-    private bool discoveredArtistName;
-    private bool firstDayOfWork;
     private int moneyGaining;
     private bool talkedToFisherman;
     private int tutorialPhase;
@@ -65,10 +107,14 @@ public class DialoguesManager : MonoBehaviour
 
     private void Awake()
     {
-        if (instance == null)
+        instance = this;
+        if (DialoguesVariables.hasData)
         {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+            DialoguesVariables.instance.LoadTo(this);
+        }
+        else
+        {
+            Debug.Log("INIZIALIZZO DATI DIALOGHI");
             freedom = 0;
             nextDialoguesRestaurateur = new();
             nextDialoguesArtist = new();
@@ -82,32 +128,8 @@ public class DialoguesManager : MonoBehaviour
             tutorialPhase = 0;
             selectedFishes = new Dictionary<string, int>();
         }
-        else if (instance != this)
-        {
-            CopyData(instance, this);
-            Destroy(instance.gameObject);
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
         ready = true;
         branchReady = true;
-    }
-    private void CopyData(DialoguesManager oldDM, DialoguesManager newDM)
-    {
-        newDM.nextDialoguesRestaurateur = new List<NextDialogue>(oldDM.nextDialoguesRestaurateur);
-        newDM.nextDialoguesArtist = new List<NextDialogue>(oldDM.nextDialoguesArtist);
-        newDM.currentDialogue = oldDM.currentDialogue;
-        newDM.currentCharacter = oldDM.currentCharacter;
-        newDM.nextBranch = oldDM.nextBranch;
-        newDM.freedom = oldDM.freedom;
-        newDM.firstTimeWithRestaurateur = oldDM.firstTimeWithRestaurateur;
-        newDM.firstTimeWithArtist = oldDM.firstTimeWithArtist;
-        newDM.firstTimeWithFisherman = oldDM.firstTimeWithFisherman;
-        newDM.selling = oldDM.selling;
-        newDM.discoveredArtistName = oldDM.discoveredArtistName;
-        newDM.firstDayOfWork = oldDM.firstDayOfWork;
-        newDM.moneyGaining = oldDM.moneyGaining;
-        newDM.selectedFishes = new Dictionary<string, int>(oldDM.selectedFishes);
     }
 
     private void Update()
@@ -284,6 +306,7 @@ public class DialoguesManager : MonoBehaviour
     {
         if (branchReady)
         {
+            SoundEffectsManager.instance.PlaySFXClip(buttonAudio, 1);
             eventSystem.SetSelectedGameObject(null);
             dialogue.SetActive(false);
             continueText.SetActive(false);
@@ -309,7 +332,7 @@ public class DialoguesManager : MonoBehaviour
                     dialogues = grandpa.dialogues;
                     break;
                 default:
-                    //dialoghi di ea nasir
+                    dialogues = nasir.dialogues;
                     break;
             }
             //cambia immagine personaggio
@@ -590,6 +613,7 @@ public class DialoguesManager : MonoBehaviour
 
     private void TalkWithFisherman()
     {
+        Debug.Log(firstTimeWithFisherman);
         currentCharacter = 1;
         if (firstTimeWithFisherman)
         {
@@ -700,6 +724,7 @@ public class DialoguesManager : MonoBehaviour
     private void TalkWithEaNasir()
     {
         currentCharacter = 5;
+        CreateBranch(0, 0);
     }
 
     public void SellFishes()

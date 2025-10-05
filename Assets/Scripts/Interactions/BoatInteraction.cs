@@ -11,6 +11,7 @@ public class BoatInteraction : MonoBehaviour
     [SerializeField] private GameObject seaMap;
     [SerializeField] private GameObject[] buoys;
     [SerializeField] private GameObject xButton;
+    [SerializeField] private AudioClip buttonAudio;
     private bool nextToPlayer;
     private string selectedFishingArea;
 
@@ -29,6 +30,7 @@ public class BoatInteraction : MonoBehaviour
                 buoys[i].GetComponent<Button>().interactable = fishingAreas.list[i].IsUnlocked();
                 buoys[i].transform.GetChild(0).gameObject.SetActive(fishingAreas.list[i].IsUnlocked());
             }
+            SoundEffectsManager.instance.PlaySFXClip(buttonAudio, 1);
             seaMap.SetActive(true);
             eventSystem.SetSelectedGameObject(buoys[0]);
         }
@@ -37,66 +39,70 @@ public class BoatInteraction : MonoBehaviour
     public void CloseMap()
     {
         seaMap.SetActive(false);
+        SoundEffectsManager.instance.PlaySFXClip(buttonAudio, 1);
         GameManager.instance.SetTalking(false);
     }
 
     public void SelectFishingArea(string area)
     {
+        SoundEffectsManager.instance.PlaySFXClip(buttonAudio, 1);
         selectedFishingArea = area;
         for (int i = 0; i < 4; i++)
         {
             buoys[i].GetComponent<BuoySelection>().HideCircle();
-            buoys[i].SetActive(false);
+            buoys[i].GetComponent<Button>().interactable = false;
         }
         xButton.SetActive(false);
         string[] fishes = fishingAreas.GetArea(area).GetFishes();
         switch (area)
         {
             case "OcchioCalmo":
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "OCCHIO CALMO";
+                seaMap.transform.GetChild(4).GetChild(0).GetComponent<TMP_Text>().text = "OCCHIO CALMO";
                 break;
             case "BancoArgenteo":
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "BANCO ARGENTEO";
+                seaMap.transform.GetChild(4).GetChild(0).GetComponent<TMP_Text>().text = "BANCO ARGENTEO";
                 break;
             case "FondaleCorallino":
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "FONDALE CORALLINO";
+                seaMap.transform.GetChild(4).GetChild(0).GetComponent<TMP_Text>().text = "FONDALE CORALLINO";
                 break;
             case "DorsaleSommersa":
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "DORSALE SOMMERSA";
+                seaMap.transform.GetChild(4).GetChild(0).GetComponent<TMP_Text>().text = "DORSALE SOMMERSA";
                 break;
             default:
-                seaMap.transform.GetChild(0).GetChild(0).GetComponent<TMP_Text>().text = "AREA SCONOSCIUTA";
+                seaMap.transform.GetChild(4).GetChild(0).GetComponent<TMP_Text>().text = "AREA SCONOSCIUTA";
                 break;
         }
         for (int i = 0; i < 3; i++)
         {
-            seaMap.transform.GetChild(0).GetChild(2).GetChild(i).GetComponent<Image>().sprite = fishList.GetFish(fishes[i]).GetSprite();
+            seaMap.transform.GetChild(4).GetChild(2).GetChild(i).GetComponent<Image>().sprite = fishList.GetFish(fishes[i]).GetSprite();
             if (fishList.GetFish(fishes[i]).IsUnlocked())
             {
-                seaMap.transform.GetChild(0).GetChild(2).GetChild(i).GetComponent<Image>().color = Color.white;
+                seaMap.transform.GetChild(4).GetChild(2).GetChild(i).GetComponent<Image>().color = Color.white;
             }
             else
             {
-                seaMap.transform.GetChild(0).GetChild(2).GetChild(i).GetComponent<Image>().color = Color.black;
+                seaMap.transform.GetChild(4).GetChild(2).GetChild(i).GetComponent<Image>().color = Color.black;
             }
         }
-        seaMap.transform.GetChild(0).gameObject.SetActive(true);
-        eventSystem.SetSelectedGameObject(seaMap.transform.GetChild(0).GetChild(4).gameObject);
+        seaMap.transform.GetChild(4).gameObject.SetActive(true);
+        eventSystem.SetSelectedGameObject(seaMap.transform.GetChild(4).GetChild(4).gameObject);
     }
 
     public void CloseAreaInfo()
     {
+        SoundEffectsManager.instance.PlaySFXClip(buttonAudio, 1);
         for (int i = 0; i < 4; i++)
         {
-            buoys[i].SetActive(true);
+            buoys[i].GetComponent<Button>().interactable = fishingAreas.list[i].IsUnlocked();
         }
         xButton.SetActive(true);
-        seaMap.transform.GetChild(0).gameObject.SetActive(false);
+        seaMap.transform.GetChild(4).gameObject.SetActive(false);
         eventSystem.SetSelectedGameObject(buoys[0]);
     }
 
     public void GoFishing()
     {
+        SoundEffectsManager.instance.PlaySFXClip(buttonAudio, 1);
         if (GameManager.instance.GetDay() == 1)
         {
             StartCoroutine(GameManager.instance.ChangeScene("FishingTutorial"));
