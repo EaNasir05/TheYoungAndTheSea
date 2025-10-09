@@ -117,18 +117,17 @@ public class DialoguesManager : MonoBehaviour
         {
             Debug.Log("INIZIALIZZO DATI DIALOGHI");
             freedom = 0;
-            nextDialoguesRestaurateur = new();
-            nextDialoguesArtist = new();
             firstTimeWithFisherman = true;
             firstTimeWithRestaurateur = true;
             firstTimeWithArtist = true;
-            selling = false;
             discoveredArtistName = false;
             firstDayOfWork = true;
             talkedToFisherman = false;
             tutorialPhase = 0;
-            selectedFishes = new Dictionary<string, int>();
+            nextDialoguesRestaurateur = new();
+            nextDialoguesArtist = new();
         }
+        selectedFishes = new Dictionary<string, int>();
         ready = true;
         branchReady = true;
     }
